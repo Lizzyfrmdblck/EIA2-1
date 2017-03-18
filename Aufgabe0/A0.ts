@@ -15,4 +15,8 @@ document.addEventListener('DOMContentLoaded', function(){
     if (typename != null) {
         document.getElementsByTagName("div")[0].innerHTML = "Halli Hallo" + " " + typename;    
     }
+    
+    if (typename = null) {
+        document.getElementsByTagName("div")[0].innerHTML = "Wer bist du? :o";    
+    }
 });
