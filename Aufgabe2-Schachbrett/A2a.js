@@ -9,11 +9,11 @@ window.onload = function () {
         }
         document.body.appendChild(div);
         var rice = Math.pow(2, i);
-        var riceEx = rice.toExponential(i);
         var riceToString = rice.toString();
         div.textContent = riceToString;
     }
 };
+// PROBIEREREI
 //    for (let nextdiv: number = 0; nextdiv < 71; nextdiv++) {
 //        let rice: HTMLElement = document.textContent("1");
 // 

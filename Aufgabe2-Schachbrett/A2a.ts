@@ -13,9 +13,9 @@ window.onload = function (): void{
         
         
         document.body.appendChild(div);
+        
     
         let rice: number = Math.pow(2, i);
-        let riceEx: string = rice.toExponential(i);
         let riceToString: string = rice.toString();
         
         div.textContent = riceToString;
@@ -25,7 +25,8 @@ window.onload = function (): void{
 }; 
     
     
-    
+                // PROBIEREREI
+
 //    for (let nextdiv: number = 0; nextdiv < 71; nextdiv++) {
 //        let rice: HTMLElement = document.textContent("1");
 // 
