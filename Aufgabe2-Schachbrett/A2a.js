@@ -8,8 +8,8 @@ window.onload = function () {
             div.className = "chessFieldBlack";
         }
         document.body.appendChild(div);
-        var rice = Math.pow(1, i);
-        //        let riceEx: string= rice.toExponential(2);
+        var rice = Math.pow(2, i);
+        var riceEx = rice.toExponential(i);
         var riceToString = rice.toString();
         div.textContent = riceToString;
     }

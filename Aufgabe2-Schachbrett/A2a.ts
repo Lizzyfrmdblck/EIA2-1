@@ -14,14 +14,15 @@ window.onload = function (): void{
         
         document.body.appendChild(div);
     
-        let rice: number= Math.pow(1,i);
-//        let riceEx: string= rice.toExponential(2);
-        let riceToString = rice.toString();
+        let rice: number = Math.pow(2, i);
+        let riceEx: string = rice.toExponential(i);
+        let riceToString: string = rice.toString();
+        
         div.textContent = riceToString;
     
     }
         
-   }
+}; 
     
     
     
