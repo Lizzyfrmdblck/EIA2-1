@@ -6,6 +6,7 @@ div{
 	width:125px;
 	float:left;
 	font-size:1em;
+	text-align:center;
 }
 div:nth-child(9n){
 	position:absolute;
