@@ -8,8 +8,20 @@ window.onload = function () {
             div.className = "chessFieldBlack";
         }
         document.body.appendChild(div);
-        for (var nextdiv = 0; nextdiv < 71; nextdiv++) {
-        }
+        var rice = Math.pow(1, i);
+        //        let riceEx: string= rice.toExponential(2);
+        var riceToString = rice.toString();
+        div.textContent = riceToString;
     }
 };
+//    for (let nextdiv: number = 0; nextdiv < 71; nextdiv++) {
+//        let rice: HTMLElement = document.textContent("1");
+// 
+//    for (let r: number = 1; r <  64; r ** i) {
+//        
+//        let rToString: string = r.toString();
+//        
+//        document.getElementsByTagName("div")[0].innerHTML = rToString;
+//        }
+//   }        
 //# sourceMappingURL=A2a.js.map

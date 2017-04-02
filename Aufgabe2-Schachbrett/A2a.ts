@@ -10,20 +10,28 @@ window.onload = function (): void{
             div.className = "chessFieldBlack";
         }
         
-    
+        
         
         document.body.appendChild(div);
     
+        let rice: number= Math.pow(1,i);
+//        let riceEx: string= rice.toExponential(2);
+        let riceToString = rice.toString();
+        div.textContent = riceToString;
     
-    for (let nextdiv: number = 0; nextdiv < 71; nextdiv++) {
-        let rice: HTMLElement = document.textContent("1");
- 
+    }
+        
+   }
+    
+    
+    
+//    for (let nextdiv: number = 0; nextdiv < 71; nextdiv++) {
+//        let rice: HTMLElement = document.textContent("1");
+// 
 //    for (let r: number = 1; r <  64; r ** i) {
 //        
 //        let rToString: string = r.toString();
 //        
 //        document.getElementsByTagName("div")[0].innerHTML = rToString;
 //        }
-   }
-  }  
-};
+//   }       
