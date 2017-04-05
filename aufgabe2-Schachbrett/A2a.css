@@ -1,0 +1,22 @@
+body{
+	width:1000px;
+}
+div{
+	height:125px;
+	width:125px;
+	float:left;
+	font-size:1em;
+	text-align:center;
+}
+div:nth-child(9n){
+	position:absolute;
+}
+
+.chessFieldWhite{
+	background-color: white;
+}
+
+.chessFieldBlack{
+	background-color: black; 
+	color:white;
+}
