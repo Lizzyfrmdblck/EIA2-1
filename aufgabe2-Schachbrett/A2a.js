@@ -1,5 +1,5 @@
 window.onload = function () {
-    for (var i = 0; i < 71; i++) {
+    for (var i = 0; i < 64; i++) {
         var div = document.createElement("div");
         if (i % 2 == 0) {
             div.className = "chessFieldWhite";
@@ -7,6 +7,7 @@ window.onload = function () {
         else {
             div.className = "chessFieldBlack";
         }
+        div.setAttribute("i", i.toString());
         document.body.appendChild(div);
         var rice = Math.pow(2, i);
         var riceToString = rice.toString();

@@ -1,7 +1,7 @@
 
 window.onload = function (): void{
 
-    for (let i: number = 0; i < 71; i++) {
+    for (let i: number = 0; i < 64; i++) {
         let div: HTMLElement = document.createElement("div");
         
         if (i % 2 == 0) {
@@ -10,7 +10,7 @@ window.onload = function (): void{
             div.className = "chessFieldBlack";
         }
         
-        
+        div.setAttribute("i", i.toString())
         
         document.body.appendChild(div);
         
