@@ -7,9 +7,11 @@ div{
 	float:left;
 	font-size:1em;
 	text-align:center;
+	display:inline;
 }
 div:nth-child(9n){
 	position:absolute;
+
 }
 
 .chessFieldWhite{

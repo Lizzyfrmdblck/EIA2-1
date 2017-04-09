@@ -1,0 +1,35 @@
+div{
+	width:80px;
+	height:80px;
+	float:left;
+	text-align:center;
+	line-height:5em;
+}
+
+.chessFieldBlack{
+	background-color:black;
+	color:white;
+}
+
+.chessFieldWhite{
+	background-color:white;
+	color:black;
+}
+
+.clearfloating{
+	clear:left;
+}
+.selection{
+	background-color:blue;
+}
+
+#totalRiceBox {
+width:200px;
+height:60px;
+display: none;
+position: absolute;
+background-color: white;
+border: black solid 1px;
+text-align:center;
+line-height:2em;	
+}
