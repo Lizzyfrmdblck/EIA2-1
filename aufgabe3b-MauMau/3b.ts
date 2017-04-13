@@ -1,15 +1,27 @@
 window.onload = function (): void {
-
-    let deck: string[] = ["Herz Dame", "Karo Bube", "Herz Ass"];
-    let discard: string[] = [];
-    let hand: string[] = [];
     
-    document.getElementById("deck").addEventListener("click", function pullCard(): void {
+    let deck: string[] = ["Herz 7", "Herz Dame", "Karo Bube"] ;
+    let discard: string[] = [] ;
+    let hand: string[] = [] ;
+    
+    let getDeck: HTMLElement = document.getElementById("deck");
+    let getDiscard: HTMLElement = document.getElementById("discard");
+    let getHand: HTMLElement = document.getElementById("handcards");
+    
+    //addClick
+    getDeck.addEventListener("click", pullCard);
+    
+    function pullCard(): void {
         
-        let randomCard: string [] = [deck[Math.floor(Math.random() * deck.length)]];
-        let pushRandomCardToHand: string = randomCard.push("");
-
-       pushRandomCardToHand.concat.document.getElementBy
+        //createDiv
+        let createDiv: HTMLDivElement = document.createElement("div");
+        //addToHand
+        document.getElementById("handcards").appendChild(createDiv);
+        //randomCard
+        let randomCard: number = Math.floor((Math.random() * 3));
         
-        });
+        //divContent = zufälliges
+        createDiv.textContent = deck[randomCard];
+    }
+            
     };

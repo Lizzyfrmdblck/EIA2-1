@@ -1,10 +1,21 @@
 window.onload = function () {
-    var deck = ["Herz Dame", "Karo Bube", "Herz Ass"];
+    var deck = ["Herz 7", "Herz Dame", "Karo Bube"];
     var discard = [];
     var hand = [];
-    document.getElementById("deck").addEventListener("click", function pullCard() {
-        var randomCard = [deck[Math.floor(Math.random() * deck.length)]];
-        var pushRandomCardToDeck = randomCard.push("");
-    });
+    var getDeck = document.getElementById("deck");
+    var getDiscard = document.getElementById("discard");
+    var getHand = document.getElementById("handcards");
+    //addClick
+    getDeck.addEventListener("click", pullCard);
+    function pullCard() {
+        //createDiv
+        var createDiv = document.createElement("div");
+        //addToHand
+        document.getElementById("handcards").appendChild(createDiv);
+        //randomCard
+        var randomCard = Math.floor((Math.random() * 3));
+        //divContent = zuf�lliges
+        createDiv.textContent = deck[randomCard];
+    }
 };
 //# sourceMappingURL=3b.js.map
