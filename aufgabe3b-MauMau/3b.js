@@ -1,5 +1,5 @@
 window.onload = function () {
-    var deck = ["Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz K�nig", "Herz Ass", "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik K�nig", "Pik Ass", "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo K�nig", "Karo Ass", "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz K�nig", "Kreuz Ass"];
+    var deck = ["Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz King", "Herz Ass", "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik King", "Pik Ass", "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo K�nig", "Karo Ass", "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz King", "Kreuz Ass"];
     var discard = [];
     var hand = [];
     var getDeck = document.getElementById("deck");
@@ -15,7 +15,7 @@ window.onload = function () {
             console.log(hand.length);
             console.log(deck.length);
             //randomCard
-            var randomCard = Math.floor((Math.random() * 32 - 1));
+            var randomCard = Math.floor((Math.random() * 31 - 1));
             var createhandcard_1 = document.createElement("div");
             hand.push(createhandcard_1.textContent); // Card from deck to hand
             deck.splice(randomCard, 1); // remove card from array
