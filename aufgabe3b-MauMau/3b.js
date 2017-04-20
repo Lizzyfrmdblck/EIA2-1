@@ -1,5 +1,5 @@
 window.onload = function () {
-    var deck = ["Herz 7", "Herz Dame", "Karo Bube"];
+    var deck = ["Herz 7", "Herz Dame", "Karo Bube", "Karo Dame", "Herz K�nig"];
     var discard = [];
     var hand = [];
     var getDeck = document.getElementById("deck");

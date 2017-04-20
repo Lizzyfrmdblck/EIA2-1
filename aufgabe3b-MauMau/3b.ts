@@ -1,6 +1,6 @@
 window.onload = function (): void {
     
-    let deck: string[] = ["Herz 7", "Herz Dame", "Karo Bube"] ;
+    let deck: string[] = ["Herz 7", "Herz Dame", "Karo Bube", "Karo Dame", "Herz König"];
     let discard: string[] = [] ;
     let hand: string[] = [] ;
     
