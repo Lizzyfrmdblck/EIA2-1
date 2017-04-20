@@ -5,30 +5,30 @@ window.onload = function () {
     var getDeck = document.getElementById("deck");
     var getDiscard = document.getElementById("discard");
     var getHand = document.getElementById("handcards");
+    //createDiv           
+    var createhandcard = document.createElement("div");
     //addClick
     getDeck.addEventListener("click", pullCard);
+    getHand.addEventListener("click", pushCardToDiscard);
     function pullCard() {
-        if (hand.length < 5 && deck.length > 0) {
+        if (hand.length < 5) {
+            console.log(hand.length);
+            console.log(deck.length);
             //randomCard
             var randomCard = Math.floor((Math.random() * 32 - 1));
-            //createDiv
-            var createDiv = document.createElement("div");
+            var createhandcard_1 = document.createElement("div");
+            hand.push(createhandcard_1.textContent); // Card from deck to hand
+            deck.splice(randomCard, 1); // remove card from array
             //addToHand
-            document.getElementById("handcards").appendChild(createDiv);
+            document.getElementById("handcards").appendChild(createhandcard_1);
             //divContent = zuf�lliger IndexOfArray
-            createDiv.textContent = deck[randomCard];
+            createhandcard_1.textContent = deck[randomCard];
         }
-        getHand.addEventListener("click", pushCardToDiscard);
-        function pushCardToDiscard() {
-            for (var i = 0; i < hand.length; i++) {
-                hand.splice(i, 1);
-                discard.push(hand[i]);
-                break;
-            }
-            var createDiv = document.createElement("div");
-            document.getElementById("discard").textContent = createDiv.textContent + deck.length;
-            createDiv.parentNode.removeChild(createDiv);
-        }
+    }
+    function pushCardToDiscard() {
+        discard.push(createhandcard.textContent);
+        //        hand.splice(handcard, 1);
+        console.log(hand);
     }
 };
 //# sourceMappingURL=3b.js.map

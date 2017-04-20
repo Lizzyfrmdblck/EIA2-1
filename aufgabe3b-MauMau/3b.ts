@@ -8,36 +8,42 @@ window.onload = function (): void {
     let getDiscard: HTMLElement = document.getElementById("discard");
     let getHand: HTMLElement = document.getElementById("handcards");
     
+//createDiv           
+    let createhandcard: HTMLDivElement = document.createElement("div");
+    
     //addClick
     getDeck.addEventListener("click", pullCard);
+    getHand.addEventListener("click", pushCardToDiscard);
     
     function pullCard(): void {
         
-        if (hand.length < 5 && deck.length > 0) {
+        if (hand.length < 5) {
+            console.log(hand.length);
+            console.log(deck.length);
         //randomCard
         let randomCard: number = Math.floor((Math.random() * 32 - 1));
 
-        //createDiv
-        let createDiv: HTMLDivElement = document.createElement("div");
-        //addToHand
-        document.getElementById("handcards").appendChild(createDiv);        
-        //divContent = zufälliger IndexOfArray
-        createDiv.textContent = deck[randomCard]; 
             
-        }
+    let createhandcard: HTMLDivElement = document.createElement("div");
+            hand.push(createhandcard.textContent); // Card from deck to hand
+            deck.splice(randomCard, 1); // remove card from array
+        //addToHand
+        document.getElementById("handcards").appendChild(createhandcard);        
+        //divContent = zufälliger IndexOfArray
+        createhandcard.textContent = deck[randomCard]; 
+        }    
+    }
         
-    getHand.addEventListener("click", pushCardToDiscard);
+
         
         function pushCardToDiscard(): void {
+        
+        
+        discard.push(createhandcard.textContent);
+//        hand.splice(handcard, 1);
+            console.log(hand);
+                
             
-        for (var i: number = 0; i < hand.length; i++) {
-            hand.splice(i, 1);
-            discard.push(hand[i]);
-            break;
         }
-        let createDiv: HTMLDivElement = document.createElement("div");
-        document.getElementById("discard").textContent = createDiv.textContent + deck.length;
-        createDiv.parentNode.removeChild(createDiv);
-}
-    }        
+        
 };
