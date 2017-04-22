@@ -3,7 +3,13 @@ div{
 	height:100px;
 	border: solid 1px black;
 	float:left;
-}
-#handcards{
 	margin:1em;
+	text-align: center;
+	line-height:100px;
+}
+.hand{
+	margin:1em;
+	border:none;
+	position:relative;
+	float:left;
 }
