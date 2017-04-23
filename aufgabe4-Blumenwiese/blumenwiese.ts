@@ -81,12 +81,8 @@ namespace L4_Canvas {
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
             }
         } 
-        
-        //RANDOMFLOWERS RIGTH
-//        let colorBucket: string[] = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
-//        let colorBucket1: string[] = ["#81BEF7", "#F781BE", "#DF0101", "#81F7D8", "#F5DA81"];
-//        let centerColors: string[] = ["#b879fc", "#30e3f4", "#f4f130"];
-//                
+
+        //RANDOMFLOWERS LEFT
         for (let i: number = 0; i < 35; i++) {
             let randomX: number = (Math.random() * (565 - 385) + 385);    
             let randomY: number = (Math.random() * (375 - 200) + 200);
