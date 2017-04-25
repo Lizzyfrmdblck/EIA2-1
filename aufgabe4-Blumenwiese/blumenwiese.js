@@ -77,7 +77,7 @@ var L4_Canvas;
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
             }
         }
-        //RANDOMFLOWERS LEFT
+        //RANDOMFLOWERS RIGHT
         for (var i = 0; i < 35; i++) {
             var randomX = (Math.random() * (565 - 385) + 385);
             var randomY = (Math.random() * (375 - 200) + 200);
