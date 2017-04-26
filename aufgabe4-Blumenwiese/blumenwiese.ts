@@ -82,7 +82,7 @@ namespace L4_Canvas {
             }
         } 
 
-        //RANDOMFLOWERS LEFT
+        //RANDOMFLOWERS RIGHT
         for (let i: number = 0; i < 35; i++) {
             let randomX: number = (Math.random() * (565 - 385) + 385);    
             let randomY: number = (Math.random() * (375 - 200) + 200);
