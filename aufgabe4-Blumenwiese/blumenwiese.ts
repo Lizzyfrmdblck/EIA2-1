@@ -2,7 +2,11 @@
 namespace L4_Canvas {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
-
+    
+    let x: number [] = []; // Array, weil hier immer der neu generierte x-Wert abgespeichert wird
+    let y: number [] = []; // Array, weil hier immer der neu generierte y-Wert abgespeichert wird
+    let n: number = 10; // Anzahl der Bienen
+        let imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
 // canvasInitialize_
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement;
@@ -10,7 +14,8 @@ namespace L4_Canvas {
         console.log(canvas);
 
         crc2 = canvas.getContext("2d");
-        console.log(crc2);
+        console.log("crc2");
+
         //SKY
         let colorGradient: any = crc2.createLinearGradient(50, 140, 50, 10);
         colorGradient.addColorStop(0, "#B0E2FF");
@@ -27,6 +32,13 @@ namespace L4_Canvas {
         //FIELD        
         crc2.fillStyle = "#68b300";
         crc2.fillRect(0, 175, canvas.width, canvas.height);
+        //BIENENSTOCK        
+        crc2.fillStyle = "brown";
+        crc2.fillRect(225, 180, 40, 40);
+        crc2.fillStyle = "black";
+        crc2.fillRect(240, 200, 10, 10);
+        //BEE
+        drawBee(240, 200);
         //STREET
         drawStreet(225, 400, "#000000", "#404040");
         //STRIPES
@@ -100,6 +112,54 @@ namespace L4_Canvas {
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
             }
         }
+        // Für jede Biene (n) muss ein zufälliger x/y Wert generiert werden 
+        for (let i: number = 0; i < n; i++) {
+            x[i] = 240; //Math.random() * 700;
+            y[i] = 200; //Math. random() * 700;
+        }
+                        
+        //getImgData erst, wenn alles gezeichnet ist
+        
+        
+        window.setTimeout(animate, 20);
+        
+        crc2.getImageData(0, 0, 400, 600);
+        crc2.putImageData(imgData, 400, 600);
+        
+        console.log("IMGDATA?");
+    }
+    
+    //ANIMATE
+    function animate (): void {
+            
+        
+//       crc2.fillStyle = imgData;
+//       crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        
+        for (let i: number = 0; i < n; i++) {
+            x[i] += (Math.random() * 10 - 5) - 1;
+            y[i] += Math.random() * 10 - 5;
+            drawBee(x[i], y[i]);
+        }   
+        
+         
+            window.setTimeout(animate, 20);
+    
+               
+ 
+        console.log("Hallo, ist da jemand?");    
+    }
+//    //IMGDATA
+//    function imgData (): void {
+//        crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height) = ImageData;
+//        crc2.putImageData(imageData = ImageData);   
+//    }
+    //BEE
+    function drawBee(_x: number, _y: number): void {
+
+        crc2.fillStyle = "white";
+        crc2.fillRect(_x, _y, 10, 10);
+
     }
     //MOUNTAIN
     function drawMountain(_x: number, _y: number, _z: number, _strokeColor: string, _fillColor: string): void {

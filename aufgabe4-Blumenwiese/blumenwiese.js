@@ -3,13 +3,17 @@ var L4_Canvas;
 (function (L4_Canvas) {
     window.addEventListener("load", init);
     var crc2;
+    var x = []; // Array, weil hier immer der neu generierte x-Wert abgespeichert wird
+    var y = []; // Array, weil hier immer der neu generierte y-Wert abgespeichert wird
+    var n = 10; // Anzahl der Bienen
+    var imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
     // canvasInitialize_
     function init(_event) {
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         crc2 = canvas.getContext("2d");
-        console.log(crc2);
+        console.log("crc2");
         //SKY
         var colorGradient = crc2.createLinearGradient(50, 140, 50, 10);
         colorGradient.addColorStop(0, "#B0E2FF");
@@ -26,6 +30,13 @@ var L4_Canvas;
         //FIELD        
         crc2.fillStyle = "#68b300";
         crc2.fillRect(0, 175, canvas.width, canvas.height);
+        //BIENENSTOCK        
+        crc2.fillStyle = "brown";
+        crc2.fillRect(225, 180, 40, 40);
+        crc2.fillStyle = "black";
+        crc2.fillRect(240, 200, 10, 10);
+        //BEE
+        drawBee(240, 200);
         //STREET
         drawStreet(225, 400, "#000000", "#404040");
         //STRIPES
@@ -94,6 +105,38 @@ var L4_Canvas;
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
             }
         }
+        // F�r jede Biene (n) muss ein zuf�lliger x/y Wert generiert werden 
+        for (var i = 0; i < n; i++) {
+            x[i] = 240; //Math.random() * 700;
+            y[i] = 200; //Math. random() * 700;
+        }
+        //getImgData erst, wenn alles gezeichnet ist
+        window.setTimeout(animate, 20);
+        crc2.getImageData(0, 0, 400, 600);
+        crc2.putImageData(imgData, 400, 600);
+        console.log("IMGDATA?");
+    }
+    //ANIMATE
+    function animate() {
+        //       crc2.fillStyle = imgData;
+        //       crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        for (var i = 0; i < n; i++) {
+            x[i] += (Math.random() * 10 - 5) - 1;
+            y[i] += Math.random() * 10 - 5;
+            drawBee(x[i], y[i]);
+        }
+        window.setTimeout(animate, 20);
+        console.log("Hallo, ist da jemand?");
+    }
+    //    //IMGDATA
+    //    function imgData (): void {
+    //        crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height) = ImageData;
+    //        crc2.putImageData(imageData = ImageData);   
+    //    }
+    //BEE
+    function drawBee(_x, _y) {
+        crc2.fillStyle = "white";
+        crc2.fillRect(_x, _y, 10, 10);
     }
     //MOUNTAIN
     function drawMountain(_x, _y, _z, _strokeColor, _fillColor) {
