@@ -6,7 +6,7 @@ var L4_Canvas;
     var x = []; // Array, weil hier immer der neu generierte x-Wert abgespeichert wird
     var y = []; // Array, weil hier immer der neu generierte y-Wert abgespeichert wird
     var n = 10; // Anzahl der Bienen
-    var imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
+    var imgData = ImageData;
     // canvasInitialize_
     function init(_event) {
         var canvas;
@@ -105,28 +105,44 @@ var L4_Canvas;
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
             }
         }
+        //getImgData erst, wenn alles gezeichnet ist
+        imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         // F�r jede Biene (n) muss ein zuf�lliger x/y Wert generiert werden 
         for (var i = 0; i < n; i++) {
             x[i] = 240; //Math.random() * 700;
             y[i] = 200; //Math. random() * 700;
         }
-        //getImgData erst, wenn alles gezeichnet ist
         window.setTimeout(animate, 20);
-        crc2.getImageData(0, 0, 400, 600);
-        crc2.putImageData(imgData, 400, 600);
+        //        crc2.getImageData(0, 0, 400, 600);
+        //        crc2.putImageData(imgData, 400, 600);
         console.log("IMGDATA?");
     }
     //ANIMATE
     function animate() {
         //       crc2.fillStyle = imgData;
         //       crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        crc2.putImageData(imgData, 0, 0);
         for (var i = 0; i < n; i++) {
             x[i] += (Math.random() * 10 - 5) - 1;
             y[i] += Math.random() * 10 - 5;
+            if (x[i] < 0) {
+                x[i] = 600;
+            }
+            if (x[i] > 600) {
+                x[i] = 0;
+            }
+            if (y[i] < 0) {
+                y[i] = 400;
+            }
+            if (y[i] > 400) {
+                y[i] = 0;
+            }
             drawBee(x[i], y[i]);
         }
         window.setTimeout(animate, 20);
         console.log("Hallo, ist da jemand?");
+    }
+    function addBeeWithClick() {
     }
     //    //IMGDATA
     //    function imgData (): void {
@@ -135,7 +151,7 @@ var L4_Canvas;
     //    }
     //BEE
     function drawBee(_x, _y) {
-        crc2.fillStyle = "white";
+        crc2.fillStyle = "yellow";
         crc2.fillRect(_x, _y, 10, 10);
     }
     //MOUNTAIN
