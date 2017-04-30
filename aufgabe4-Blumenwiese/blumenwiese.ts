@@ -123,7 +123,8 @@ namespace L4_Canvas {
         }      
         
         window.setTimeout(animate, 20);
-        
+      
+        canvas.addEventListener("click", addBeeWithClick);
         
 //        crc2.getImageData(0, 0, 400, 600);
 //        crc2.putImageData(imgData, 400, 600);
@@ -141,8 +142,8 @@ namespace L4_Canvas {
         crc2.putImageData(imgData, 0, 0);
         
         for (let i: number = 0; i < n; i++) {
-            x[i] += (Math.random() * 10 - 5) - 1;
-            y[i] += Math.random() * 10 - 5;
+            x[i] += (Math.random() * 6 - 3) - 1;
+            y[i] += Math.random() * 6 - 3;
             
             if (x[i] < 0) {
                 x[i] = 600;    
@@ -163,14 +164,21 @@ namespace L4_Canvas {
         }   
          
             window.setTimeout(animate, 20);
-    
-               
- 
+     
         console.log("Hallo, ist da jemand?");    
     }
     
     function addBeeWithClick (): void {
-            
+        if (n < 99) {
+            n++;
+            x.push(240);
+            y.push(200);
+        }
+        
+        else { 
+            n -= 10;
+        }              
+        console.log(n);
     }
 //    //IMGDATA
 //    function imgData (): void {

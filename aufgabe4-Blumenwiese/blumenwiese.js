@@ -113,6 +113,7 @@ var L4_Canvas;
             y[i] = 200; //Math. random() * 700;
         }
         window.setTimeout(animate, 20);
+        canvas.addEventListener("click", addBeeWithClick);
         //        crc2.getImageData(0, 0, 400, 600);
         //        crc2.putImageData(imgData, 400, 600);
         console.log("IMGDATA?");
@@ -123,8 +124,8 @@ var L4_Canvas;
         //       crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.putImageData(imgData, 0, 0);
         for (var i = 0; i < n; i++) {
-            x[i] += (Math.random() * 10 - 5) - 1;
-            y[i] += Math.random() * 10 - 5;
+            x[i] += (Math.random() * 6 - 3) - 1;
+            y[i] += Math.random() * 6 - 3;
             if (x[i] < 0) {
                 x[i] = 600;
             }
@@ -143,6 +144,15 @@ var L4_Canvas;
         console.log("Hallo, ist da jemand?");
     }
     function addBeeWithClick() {
+        if (n < 99) {
+            n++;
+            x.push(240);
+            y.push(200);
+        }
+        else {
+            n -= 10;
+        }
+        console.log(n);
     }
     //    //IMGDATA
     //    function imgData (): void {
