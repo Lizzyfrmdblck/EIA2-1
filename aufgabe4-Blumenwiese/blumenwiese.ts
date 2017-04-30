@@ -37,8 +37,6 @@ namespace L4_Canvas {
         crc2.fillRect(225, 180, 40, 40);
         crc2.fillStyle = "black";
         crc2.fillRect(240, 200, 10, 10);
-        //BEE
-        drawBee(240, 200);
         //STREET
         drawStreet(225, 400, "#000000", "#404040");
         //STRIPES
@@ -112,22 +110,19 @@ namespace L4_Canvas {
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
             }
         }
-        //getImgData erst, wenn alles gezeichnet ist
-        
+        //getImgData erst, wenn alles gezeichnet ist        
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         
-        // Für jede Biene (n) muss ein zufälliger x/y Wert generiert werden 
+        // Startpunkt für Bienen
         for (let i: number = 0; i < n; i++) {
-            x[i] = 240; //Math.random() * 700;
-            y[i] = 200; //Math. random() * 700;
+            x[i] = 240; 
+            y[i] = 200; 
         }      
         
         window.setTimeout(animate, 20);
-      
-        canvas.addEventListener("click", addBeeWithClick);
-        
-//        crc2.getImageData(0, 0, 400, 600);
-//        crc2.putImageData(imgData, 400, 600);
+       
+        //addBeeOnClick
+        canvas.addEventListener("click", addBeeOnClick);
         
         console.log("IMGDATA?");
     }
@@ -168,7 +163,7 @@ namespace L4_Canvas {
         console.log("Hallo, ist da jemand?");    
     }
     
-    function addBeeWithClick (): void {
+    function addBeeOnClick (): void {
         if (n < 99) {
             n++;
             x.push(240);
@@ -180,16 +175,15 @@ namespace L4_Canvas {
         }              
         console.log(n);
     }
-//    //IMGDATA
-//    function imgData (): void {
-//        crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height) = ImageData;
-//        crc2.putImageData(imageData = ImageData);   
-//    }
+
     //BEE
     function drawBee(_x: number, _y: number): void {
-
+        crc2.beginPath();
         crc2.fillStyle = "yellow";
-        crc2.fillRect(_x, _y, 10, 10);
+//        crc2.fillRect(_x, _y, 8, 8);
+        crc2.arc(_x, _y, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
 
     }
     //MOUNTAIN
