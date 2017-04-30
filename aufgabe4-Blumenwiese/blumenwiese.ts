@@ -180,11 +180,10 @@ namespace L4_Canvas {
     function drawBee(_x: number, _y: number): void {
         crc2.beginPath();
         crc2.fillStyle = "yellow";
-//        crc2.fillRect(_x, _y, 8, 8);
         crc2.arc(_x, _y, 5, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
-
+        //Optik der Bienen wird bei Gelegenheit noch überarbeitet..
     }
     //MOUNTAIN
     function drawMountain(_x: number, _y: number, _z: number, _strokeColor: string, _fillColor: string): void {
