@@ -3,31 +3,12 @@ namespace L4_Canvas {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
     
-    interface Bee {    
-        x: number; 
-        y: number; 
-        color: string; 
-    }
-    
-    let alleBienen: Bee[] = [];
-    let n: number; // Anzahl der Bienen
+    let x: number [] = []; // Array, weil hier immer der neu generierte x-Wert abgespeichert wird
+    let y: number [] = []; // Array, weil hier immer der neu generierte y-Wert abgespeichert wird
+    let n: number = 10; // Anzahl der Bienen
     let imgData: any = ImageData;
-    
 // canvasInitialize_
     function init(_event: Event): void {
-        
-        var colors: string[];
-        ///Achtung hier nicht richtig!////////////////////
-        for (let i: number = 0; i < alleBienen.length; i++) {
-            var aktuelleBiene = alleBienen[i];
-            
-            var rndIndex = // Math random zwischen 0 und color.length-1 --> floor
-            var rndColor = // colors [rndIndex]
-            aktuelleBiene.color = rndColor;        
-        }
-        ///////////////////////////////////////
-        
-        
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -134,9 +115,8 @@ namespace L4_Canvas {
         
         // Startpunkt für Bienen
         for (let i: number = 0; i < n; i++) {
-            let values: Bee = beesData[i];
-            values.x = 240; 
-            values.y = 200; 
+            x[i] = 240; 
+            y[i] = 200; 
         }      
         
         window.setTimeout(animate, 20);
@@ -157,42 +137,37 @@ namespace L4_Canvas {
         crc2.putImageData(imgData, 0, 0);
         
         for (let i: number = 0; i < n; i++) {
-            let values: Bee = beesData[i];
-            values.x += (Math.random() * 6 - 3) - 1;
-            values.y += Math.random() * 6 - 3;
+            x[i] += (Math.random() * 6 - 3) - 1;
+            y[i] += Math.random() * 6 - 3;
             
-            if (values.x < 0) {
-                values.x = 600;    
+            if (x[i] < 0) {
+                x[i] = 600;    
             }
             
-            if (values.x > 600) {
-                values.x = 0;    
+            if (x[i] > 600) {
+                x[i] = 0;    
             }
             
-            if (values.y < 0) {
-                values.y = 400;    
+            if (y[i] < 0) {
+                y[i] = 400;    
             }
             
-            if (values.y > 400) {
-                values.y = 0;    
+            if (y[i] > 400) {
+                y[i] = 0;    
             }
-            drawBee(values);
+            drawBee(x[i], y[i]);
         }   
          
-        window.setTimeout(animate, 20); 
+            window.setTimeout(animate, 20);
      
         console.log("Hallo, ist da jemand?");    
     }
     
-    function addBeeOnClick (_newBee: Bee): void {
-        //let newBee: Bee;
-        //newBee.x = 240;
-        //newBee.y = 200; 
-        _newBee.
+    function addBeeOnClick (): void {
         if (n < 99) {
             n++;
-            
-            alleBienen.push(_newBee);
+            x.push(240);
+            y.push(200);
         }
         
         else { 
@@ -202,10 +177,10 @@ namespace L4_Canvas {
     }
 
     //BEE
-    function drawBee(_xyColor: Bee): void {
+    function drawBee(_x: number, _y: number): void {
         crc2.beginPath();
-        crc2.fillStyle = _xyColor.color;
-        crc2.arc(_xyColor.x, _xyColor.y, 5, 0, 2 * Math.PI);
+        crc2.fillStyle = "yellow";
+        crc2.arc(_x, _y, 5, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         //Optik der Bienen wird bei Gelegenheit noch überarbeitet..
