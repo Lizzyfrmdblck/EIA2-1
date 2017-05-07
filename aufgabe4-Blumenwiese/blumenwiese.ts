@@ -16,15 +16,15 @@ namespace L4_Canvas {
 // canvasInitialize_
     function init(_event: Event): void {
         
-        var colors: string[];
-        ///Achtung hier nicht richtig!////////////////////
-        for (let i: number = 0; i < alleBienen.length; i++) {
-            var aktuelleBiene = alleBienen[i];
-            
-            var rndIndex = // Math random zwischen 0 und color.length-1 --> floor
-            var rndColor = // colors [rndIndex]
-            aktuelleBiene.color = rndColor;        
-        }
+//        var colors: string[];
+//        ///Achtung hier nicht richtig!////////////////////
+//        for (let i: number = 0; i < alleBienen.length; i++) {
+//            var aktuelleBiene = alleBienen[i];
+//            
+//            var rndIndex = // Math random zwischen 0 und color.length-1 --> floor
+//            var rndColor = // colors [rndIndex]
+//            aktuelleBiene.color = rndColor;        
+//        }
         ///////////////////////////////////////
         
         
@@ -134,7 +134,7 @@ namespace L4_Canvas {
         
         // Startpunkt für Bienen
         for (let i: number = 0; i < n; i++) {
-            let values: Bee = beesData[i];
+            let values: Bee = alleBienen[i];
             values.x = 240; 
             values.y = 200; 
         }      
@@ -157,7 +157,7 @@ namespace L4_Canvas {
         crc2.putImageData(imgData, 0, 0);
         
         for (let i: number = 0; i < n; i++) {
-            let values: Bee = beesData[i];
+            let values: Bee = alleBienen[i];
             values.x += (Math.random() * 6 - 3) - 1;
             values.y += Math.random() * 6 - 3;
             
@@ -184,15 +184,11 @@ namespace L4_Canvas {
         console.log("Hallo, ist da jemand?");    
     }
     
-    function addBeeOnClick (_newBee: Bee): void {
-        //let newBee: Bee;
-        //newBee.x = 240;
-        //newBee.y = 200; 
-        _newBee.
+        function addBeeOnClick (_newBee:Bee): void {
         if (n < 99) {
             n++;
-            
-            alleBienen.push(_newBee);
+            x.push(240);
+            y.push(200);
         }
         
         else { 

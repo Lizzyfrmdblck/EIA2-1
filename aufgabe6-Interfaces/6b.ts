@@ -17,7 +17,7 @@ namespace StudiVZ {
         switch (action) {
             case "n":
             case "N":
-                var input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 oder 1) und Kommentar");
+                var input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (w oder m) und Kommentar");
                 alert(saveData(input));
                 break;
             case "a":
@@ -44,6 +44,10 @@ namespace StudiVZ {
             comment: stringArray[5]
         };
         
+        if (stringArray.length < 5) {
+            return "Bitte vervollstänidgen Sie ihre Eingabe";    
+        }
+        
         students.push(informations);        
         return "Abgespeicherte Informationen:" + "\n" + "Matrikelnummer: " + informations.matrikel + "\n" + "Name: " + informations.firstName + informations.lastName + "\n" + "Alter: " + informations.age + "\n" + "Geschlecht: " + informations.sex + "\n" + "Kommentar: " + informations.comment;
     }
@@ -54,6 +58,6 @@ namespace StudiVZ {
                 return "Informationen: " + "\n" + "Matrikelnummer: " + students[i].matrikel + "\n" + "Name: " + students[i].firstName + " " + students[i].lastName ;
             }   
         }
-//        return "Student nicht in der Datenbank";
+        return "Student nicht in der Datenbank";
     }
 }
