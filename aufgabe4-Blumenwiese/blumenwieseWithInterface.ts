@@ -5,7 +5,8 @@ namespace L4_Canvas {
     
     interface Bee {    
         x: number; 
-        y: number; 
+        y: number;
+        size: number; 
         color: string; 
     }
     
@@ -15,17 +16,6 @@ namespace L4_Canvas {
     
 // canvasInitialize_
     function init(_event: Event): void {
-        
-//        var colors: string[];
-//        ///Achtung hier nicht richtig!////////////////////
-//        for (let i: number = 0; i < alleBienen.length; i++) {
-//            var aktuelleBiene = alleBienen[i];
-//            
-//            var rndIndex = // Math random zwischen 0 und color.length-1 --> floor
-//            var rndColor = // colors [rndIndex]
-//            aktuelleBiene.color = rndColor;        
-//        }
-        ///////////////////////////////////////
         
         
         let canvas: HTMLCanvasElement;
@@ -151,9 +141,6 @@ namespace L4_Canvas {
     function animate (): void {
             
         
-//       crc2.fillStyle = imgData;
-//       crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
-        
         crc2.putImageData(imgData, 0, 0);
         
         for (let i: number = 0; i < n; i++) {
@@ -184,11 +171,22 @@ namespace L4_Canvas {
         console.log("Hallo, ist da jemand?");    
     }
     
-        function addBeeOnClick (_newBee:Bee): void {
+        function addBeeOnClick (_event: Event): void {
+            //PROBIEREREI
+//        var colors: string[#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+//       
+//        for (let i: number = 0; i < alleBienen.length; i++) {
+//            var aktuelleBiene = alleBienen[i];
+//            let randomColor: string = colorBucket[Math.floor(Math.random() * colorBucket.length)];
+//            var rndIndex = // Math random zwischen 0 und color.length-1 --> floor
+//            var rndColor = // colors [rndIndex]
+//            aktuelleBiene.color = rndColor;        
+//        }
+        ///////////////////////////////////////
+            
         if (n < 99) {
             n++;
-            x.push(240);
-            y.push(200);
+            alleBienen.push({x: 240, y: 200, size: 5, color: "#ffffff"});
         }
         
         else { 
@@ -198,10 +196,10 @@ namespace L4_Canvas {
     }
 
     //BEE
-    function drawBee(_xyColor: Bee): void {
+    function drawBee(_values: Bee): void {
         crc2.beginPath();
-        crc2.fillStyle = _xyColor.color;
-        crc2.arc(_xyColor.x, _xyColor.y, 5, 0, 2 * Math.PI);
+        crc2.fillStyle = _values.color;
+        crc2.arc(_values.x, _values.y, 5, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         //Optik der Bienen wird bei Gelegenheit noch überarbeitet..

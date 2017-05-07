@@ -3,9 +3,8 @@ var L4_Canvas;
 (function (L4_Canvas) {
     window.addEventListener("load", init);
     var crc2;
-    var x = []; // Array, weil hier immer der neu generierte x-Wert abgespeichert wird
-    var y = []; // Array, weil hier immer der neu generierte y-Wert abgespeichert wird
-    var n = 10; // Anzahl der Bienen
+    var alleBienen = [];
+    var n; // Anzahl der Bienen
     var imgData = ImageData;
     // canvasInitialize_
     function init(_event) {
@@ -107,8 +106,9 @@ var L4_Canvas;
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         // Startpunkt f�r Bienen
         for (var i = 0; i < n; i++) {
-            x[i] = 240;
-            y[i] = 200;
+            var values = alleBienen[i];
+            values.x = 240;
+            values.y = 200;
         }
         window.setTimeout(animate, 20);
         //addBeeOnClick
@@ -117,34 +117,43 @@ var L4_Canvas;
     }
     //ANIMATE
     function animate() {
-        //       crc2.fillStyle = imgData;
-        //       crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.putImageData(imgData, 0, 0);
         for (var i = 0; i < n; i++) {
-            x[i] += (Math.random() * 6 - 3) - 1;
-            y[i] += Math.random() * 6 - 3;
-            if (x[i] < 0) {
-                x[i] = 600;
+            var values = alleBienen[i];
+            values.x += (Math.random() * 6 - 3) - 1;
+            values.y += Math.random() * 6 - 3;
+            if (values.x < 0) {
+                values.x = 600;
             }
-            if (x[i] > 600) {
-                x[i] = 0;
+            if (values.x > 600) {
+                values.x = 0;
             }
-            if (y[i] < 0) {
-                y[i] = 400;
+            if (values.y < 0) {
+                values.y = 400;
             }
-            if (y[i] > 400) {
-                y[i] = 0;
+            if (values.y > 400) {
+                values.y = 0;
             }
-            drawBee(x[i], y[i]);
+            drawBee(values);
         }
         window.setTimeout(animate, 20);
         console.log("Hallo, ist da jemand?");
     }
-    function addBeeOnClick() {
+    function addBeeOnClick(_event) {
+        //PROBIEREREI
+        //        var colors: string[#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+        //       
+        //        for (let i: number = 0; i < alleBienen.length; i++) {
+        //            var aktuelleBiene = alleBienen[i];
+        //            let randomColor: string = colorBucket[Math.floor(Math.random() * colorBucket.length)];
+        //            var rndIndex = // Math random zwischen 0 und color.length-1 --> floor
+        //            var rndColor = // colors [rndIndex]
+        //            aktuelleBiene.color = rndColor;        
+        //        }
+        ///////////////////////////////////////
         if (n < 99) {
             n++;
-            x.push(240);
-            y.push(200);
+            alleBienen.push({ x: 240, y: 200, size: 5, color: "#ffffff" });
         }
         else {
             n -= 10;
@@ -152,10 +161,10 @@ var L4_Canvas;
         console.log(n);
     }
     //BEE
-    function drawBee(_x, _y) {
+    function drawBee(_values) {
         crc2.beginPath();
-        crc2.fillStyle = "yellow";
-        crc2.arc(_x, _y, 5, 0, 2 * Math.PI);
+        crc2.fillStyle = _values.color;
+        crc2.arc(_values.x, _values.y, 5, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         //Optik der Bienen wird bei Gelegenheit noch �berarbeitet..
@@ -248,4 +257,4 @@ var L4_Canvas;
         crc2.fill();
     }
 })(L4_Canvas || (L4_Canvas = {}));
-//# sourceMappingURL=blumenwiese.js.map
+//# sourceMappingURL=blumenwieseWithInterface.js.map
