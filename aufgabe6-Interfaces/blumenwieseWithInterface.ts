@@ -11,9 +11,10 @@ namespace L4_Canvas {
     }
     
     let alleBienen: Bee[] = [];
-    let n: number; // Anzahl der Bienen
+    let n: number = 10; // Anzahl der Bienen
     let imgData: any = ImageData;
-    
+
+
 // canvasInitialize_
     function init(_event: Event): void {
         
@@ -124,9 +125,17 @@ namespace L4_Canvas {
         
         // Startpunkt für Bienen
         for (let i: number = 0; i < n; i++) {
-            let values: Bee = alleBienen[i];
+            
+            let values: Bee = {x: 0, y: 0, size: 0, color: ""};
+            let colors: string [] = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+            let randomColor: string = colors[Math.floor(Math.random() * colors.length)];
+            let randomSize: number = (Math.random() * (8 - 4) + 4);
+            
             values.x = 240; 
-            values.y = 200; 
+            values.y = 200;
+            values.size = randomSize;
+            values.color = randomColor; 
+            alleBienen[i] = values;
         }      
         
         window.setTimeout(animate, 20);
@@ -173,7 +182,7 @@ namespace L4_Canvas {
     
         function addBeeOnClick (_event: Event): void {
             //PROBIEREREI
-//        var colors: string[#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+//        var colors: string["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
 //       
 //        for (let i: number = 0; i < alleBienen.length; i++) {
 //            var aktuelleBiene = alleBienen[i];
@@ -183,13 +192,15 @@ namespace L4_Canvas {
 //            aktuelleBiene.color = rndColor;        
 //        }
         ///////////////////////////////////////
-            
+            let colors: string [] = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+            let randomColor: string = colors[Math.floor(Math.random() * colors.length)];
         if (n < 99) {
             n++;
-            alleBienen.push({x: 240, y: 200, size: 5, color: "#ffffff"});
+            alleBienen.push({x: 240, y: 200, size: (Math.random() * (10 - 5) + 5), color: randomColor});
         }
         
-        else { 
+        if (n > 99) {
+//        else { 
             n -= 10;
         }              
         console.log(n);
@@ -199,7 +210,9 @@ namespace L4_Canvas {
     function drawBee(_values: Bee): void {
         crc2.beginPath();
         crc2.fillStyle = _values.color;
-        crc2.arc(_values.x, _values.y, 5, 0, 2 * Math.PI);
+        crc2.arc(_values.x, _values.y, _values.size, 0, 2 * Math.PI);
+        crc2.arc(_values.x, _values.y - 5, _values.size - 2, 0, 2 * Math.PI);
+        crc2.arc(_values.x, _values.y + 5, _values.size - 2, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         //Optik der Bienen wird bei Gelegenheit noch überarbeitet..

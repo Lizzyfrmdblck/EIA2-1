@@ -4,7 +4,7 @@ var L4_Canvas;
     window.addEventListener("load", init);
     var crc2;
     var alleBienen = [];
-    var n; // Anzahl der Bienen
+    var n = 10; // Anzahl der Bienen
     var imgData = ImageData;
     // canvasInitialize_
     function init(_event) {
@@ -106,9 +106,15 @@ var L4_Canvas;
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         // Startpunkt f�r Bienen
         for (var i = 0; i < n; i++) {
-            var values = alleBienen[i];
+            var values = { x: 0, y: 0, size: 0, color: "" };
+            var colors = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            var randomSize = (Math.random() * (8 - 4) + 4);
             values.x = 240;
             values.y = 200;
+            values.size = randomSize;
+            values.color = randomColor;
+            alleBienen[i] = values;
         }
         window.setTimeout(animate, 20);
         //addBeeOnClick
@@ -141,7 +147,7 @@ var L4_Canvas;
     }
     function addBeeOnClick(_event) {
         //PROBIEREREI
-        //        var colors: string[#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+        //        var colors: string["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
         //       
         //        for (let i: number = 0; i < alleBienen.length; i++) {
         //            var aktuelleBiene = alleBienen[i];
@@ -151,11 +157,14 @@ var L4_Canvas;
         //            aktuelleBiene.color = rndColor;        
         //        }
         ///////////////////////////////////////
+        var colors = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+        var randomColor = colors[Math.floor(Math.random() * colors.length)];
         if (n < 99) {
             n++;
-            alleBienen.push({ x: 240, y: 200, size: 5, color: "#ffffff" });
+            alleBienen.push({ x: 240, y: 200, size: (Math.random() * (10 - 5) + 5), color: randomColor });
         }
-        else {
+        if (n > 99) {
+            //        else { 
             n -= 10;
         }
         console.log(n);
@@ -164,7 +173,9 @@ var L4_Canvas;
     function drawBee(_values) {
         crc2.beginPath();
         crc2.fillStyle = _values.color;
-        crc2.arc(_values.x, _values.y, 5, 0, 2 * Math.PI);
+        crc2.arc(_values.x, _values.y, _values.size, 0, 2 * Math.PI);
+        crc2.arc(_values.x, _values.y - 5, _values.size - 2, 0, 2 * Math.PI);
+        crc2.arc(_values.x, _values.y + 5, _values.size - 2, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         //Optik der Bienen wird bei Gelegenheit noch �berarbeitet..

@@ -17,7 +17,7 @@ namespace StudiVZ {
         switch (action) {
             case "n":
             case "N":
-                var input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (w oder m) und Kommentar");
+                var input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 = m oder 1 = w) und Kommentar");
                 alert(saveData(input));
                 break;
             case "a":
@@ -48,12 +48,14 @@ namespace StudiVZ {
             return "Bitte vervollstänidgen Sie ihre Eingabe";    
         }
         
-        students.push(informations);        
-        return "Abgespeicherte Informationen:" + "\n" + "Matrikelnummer: " + informations.matrikel + "\n" + "Name: " + informations.firstName + informations.lastName + "\n" + "Alter: " + informations.age + "\n" + "Geschlecht: " + informations.sex + "\n" + "Kommentar: " + informations.comment;
+        students.push(informations);   
+        let sex: string = informations.sex ? "m" : "w";     
+        return "Abgespeicherte Informationen:" + "\n" + "Matrikelnummer: " + informations.matrikel + "\n" + "Name: " + informations.firstName + informations.lastName + "\n" + "Alter: " + informations.age + "\n" + "Geschlecht: " + sex + "\n" + "Kommentar: " + informations.comment;
     }
     
     function queryData(_matrikel: number): string {
         for (var i: number = 0; i < students.length; i++) {
+//            let sex: string = students[i] ? "m" : "w";
             if (students[i].matrikel == _matrikel) {
                 return "Informationen: " + "\n" + "Matrikelnummer: " + students[i].matrikel + "\n" + "Name: " + students[i].firstName + " " + students[i].lastName ;
             }   
