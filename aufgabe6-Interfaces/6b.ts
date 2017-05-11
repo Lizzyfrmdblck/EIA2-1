@@ -55,7 +55,7 @@ namespace StudiVZ {
     
     function queryData(_matrikel: number): string {
         for (var i: number = 0; i < students.length; i++) {
-//            let sex: string = students[i] ? "m" : "w";
+
             if (students[i].matrikel == _matrikel) {
                 return "Informationen: " + "\n" + "Matrikelnummer: " + students[i].matrikel + "\n" + "Name: " + students[i].firstName + " " + students[i].lastName ;
             }   
