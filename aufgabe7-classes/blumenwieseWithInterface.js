@@ -1,8 +1,6 @@
-//namespace_load_canvas
-var L4_Canvas;
-(function (L4_Canvas) {
+var Aufgabe7_Classes;
+(function (Aufgabe7_Classes) {
     window.addEventListener("load", init);
-    var crc2;
     var alleBienen = [];
     var n = 10; // Anzahl der Bienen
     var imgData = ImageData;
@@ -11,14 +9,14 @@ var L4_Canvas;
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
-        crc2 = canvas.getContext("2d");
+        Aufgabe7_Classes.crc2 = canvas.getContext("2d");
         console.log("crc2");
         //SKY
-        var colorGradient = crc2.createLinearGradient(50, 140, 50, 10);
+        var colorGradient = Aufgabe7_Classes.crc2.createLinearGradient(50, 140, 50, 10);
         colorGradient.addColorStop(0, "#B0E2FF");
         colorGradient.addColorStop(1, "#1874CD");
-        crc2.fillStyle = colorGradient;
-        crc2.fillRect(0, -225, canvas.width, canvas.height);
+        Aufgabe7_Classes.crc2.fillStyle = colorGradient;
+        Aufgabe7_Classes.crc2.fillRect(0, -225, canvas.width, canvas.height);
         //MOUNTAIN
         drawMountain(50, 100, 90, "#000000", "#7F7F7F");
         drawMountain(150, 150, 50, "#000000", "#878787");
@@ -27,13 +25,13 @@ var L4_Canvas;
         //SUN
         drawSun(0, 0, "#ffff00", "#FFD700");
         //FIELD        
-        crc2.fillStyle = "#68b300";
-        crc2.fillRect(0, 175, canvas.width, canvas.height);
+        Aufgabe7_Classes.crc2.fillStyle = "#68b300";
+        Aufgabe7_Classes.crc2.fillRect(0, 175, canvas.width, canvas.height);
         //BIENENSTOCK        
-        crc2.fillStyle = "brown";
-        crc2.fillRect(225, 180, 40, 40);
-        crc2.fillStyle = "black";
-        crc2.fillRect(240, 200, 10, 10);
+        Aufgabe7_Classes.crc2.fillStyle = "brown";
+        Aufgabe7_Classes.crc2.fillRect(225, 180, 40, 40);
+        Aufgabe7_Classes.crc2.fillStyle = "black";
+        Aufgabe7_Classes.crc2.fillRect(240, 200, 10, 10);
         //STREET
         drawStreet(225, 400, "#000000", "#404040");
         //STRIPES
@@ -78,12 +76,8 @@ var L4_Canvas;
             var randomColor1 = colorBucket1[Math.floor(Math.random() * colorBucket1.length)];
             var randomCenterColor = centerColors[Math.floor(Math.random() * centerColors.length)];
             var randomFlower = Math.floor((Math.random() * 2)) + 1;
-            if (randomFlower == 1) {
-                drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor);
-            }
-            else {
-                drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
-            }
+            var flower0 = new Aufgabe7_Classes.Flower(randomX, randomY, randomCenterSize, randomColor, randomColor1);
+            flower0.draw();
         }
         //RANDOMFLOWERS RIGHT
         for (var i = 0; i < 35; i++) {
@@ -95,25 +89,14 @@ var L4_Canvas;
             var randomColor1 = colorBucket1[Math.floor(Math.random() * colorBucket1.length)];
             var randomCenterColor = centerColors[Math.floor(Math.random() * centerColors.length)];
             var randomFlower = Math.floor((Math.random() * 2)) + 1;
-            if (randomFlower == 1) {
-                drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor);
-            }
-            else {
-                drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
-            }
+            var flower0 = new Aufgabe7_Classes.Flower(randomX, randomY, randomCenterSize, randomColor, randomColor1);
+            flower0.draw();
         }
         //getImgData erst, wenn alles gezeichnet ist        
-        imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
+        imgData = Aufgabe7_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height);
         // Startpunkt f�r Bienen
         for (var i = 0; i < n; i++) {
-            var values = { x: 0, y: 0, size: 0, color: "" };
-            var colors = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
-            var randomColor = colors[Math.floor(Math.random() * colors.length)];
-            var randomSize = (Math.random() * (8 - 4) + 4);
-            values.x = 240;
-            values.y = 200;
-            values.size = randomSize;
-            values.color = randomColor;
+            var values = new Aufgabe7_Classes.Bee(240, 200);
             alleBienen[i] = values;
         }
         window.setTimeout(animate, 20);
@@ -123,11 +106,10 @@ var L4_Canvas;
     }
     //ANIMATE
     function animate() {
-        crc2.putImageData(imgData, 0, 0);
+        Aufgabe7_Classes.crc2.putImageData(imgData, 0, 0);
         for (var i = 0; i < n; i++) {
             var values = alleBienen[i];
-            values.x += (Math.random() * 6 - 3) - 1;
-            values.y += Math.random() * 6 - 3;
+            values.update();
             if (values.x < 0) {
                 values.x = 600;
             }
@@ -140,132 +122,87 @@ var L4_Canvas;
             if (values.y > 400) {
                 values.y = 0;
             }
-            drawBee(values);
         }
         window.setTimeout(animate, 20);
         console.log("Hallo, ist da jemand?");
     }
     function addBeeOnClick(_event) {
-        //PROBIEREREI
-        //        var colors: string["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
-        //       
-        //        for (let i: number = 0; i < alleBienen.length; i++) {
-        //            var aktuelleBiene = alleBienen[i];
-        //            let randomColor: string = colorBucket[Math.floor(Math.random() * colorBucket.length)];
-        //            var rndIndex = // Math random zwischen 0 und color.length-1 --> floor
-        //            var rndColor = // colors [rndIndex]
-        //            aktuelleBiene.color = rndColor;        
-        //        }
-        ///////////////////////////////////////
         var colors = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
         var randomColor = colors[Math.floor(Math.random() * colors.length)];
         if (n < 99) {
             n++;
-            alleBienen.push({ x: 240, y: 200, size: (Math.random() * (10 - 5) + 5), color: randomColor });
+            alleBienen.push(new Aufgabe7_Classes.Bee(240, 200));
         }
-        if (n > 99) {
-            //        else { 
+        else {
             n -= 10;
+            alleBienen.push(new Aufgabe7_Classes.Bee(240, 200));
         }
         console.log(n);
     }
-    //BEE
-    function drawBee(_values) {
-        crc2.beginPath();
-        crc2.fillStyle = _values.color;
-        crc2.arc(_values.x, _values.y, _values.size, 0, 2 * Math.PI);
-        crc2.arc(_values.x, _values.y - 5, _values.size - 2, 0, 2 * Math.PI);
-        crc2.arc(_values.x, _values.y + 5, _values.size - 2, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        //Optik der Bienen wird bei Gelegenheit noch �berarbeitet..
-    }
     //MOUNTAIN
     function drawMountain(_x, _y, _z, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x - _z, _y + _z);
-        crc2.lineTo(_x, _y - _z);
-        crc2.lineTo(_x + _z, _y + _z);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        Aufgabe7_Classes.crc2.beginPath();
+        Aufgabe7_Classes.crc2.fillStyle = _fillColor;
+        Aufgabe7_Classes.crc2.strokeStyle = _strokeColor;
+        Aufgabe7_Classes.crc2.moveTo(_x - _z, _y + _z);
+        Aufgabe7_Classes.crc2.lineTo(_x, _y - _z);
+        Aufgabe7_Classes.crc2.lineTo(_x + _z, _y + _z);
+        Aufgabe7_Classes.crc2.closePath();
+        Aufgabe7_Classes.crc2.fill();
+        Aufgabe7_Classes.crc2.stroke();
     }
     //SUN
     function drawSun(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.arc(300, 175, 80, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fill();
+        Aufgabe7_Classes.crc2.beginPath();
+        Aufgabe7_Classes.crc2.fillStyle = _fillColor;
+        Aufgabe7_Classes.crc2.arc(300, 175, 80, 0, 2 * Math.PI);
+        Aufgabe7_Classes.crc2.closePath();
+        Aufgabe7_Classes.crc2.stroke();
+        Aufgabe7_Classes.crc2.fill();
     }
     //STREET
     function drawStreet(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(295, 176);
-        crc2.lineTo(305, 176);
-        crc2.lineTo(375, 400);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        Aufgabe7_Classes.crc2.beginPath();
+        Aufgabe7_Classes.crc2.fillStyle = _fillColor;
+        Aufgabe7_Classes.crc2.strokeStyle = _strokeColor;
+        Aufgabe7_Classes.crc2.moveTo(_x, _y);
+        Aufgabe7_Classes.crc2.lineTo(295, 176);
+        Aufgabe7_Classes.crc2.lineTo(305, 176);
+        Aufgabe7_Classes.crc2.lineTo(375, 400);
+        Aufgabe7_Classes.crc2.closePath();
+        Aufgabe7_Classes.crc2.fill();
+        Aufgabe7_Classes.crc2.stroke();
     }
     //STRIPES
     function drawStripes(_x, _y, _width, _length, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.lineWidth = _width;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(300, _length);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        Aufgabe7_Classes.crc2.beginPath();
+        Aufgabe7_Classes.crc2.fillStyle = _fillColor;
+        Aufgabe7_Classes.crc2.lineWidth = _width;
+        Aufgabe7_Classes.crc2.strokeStyle = _strokeColor;
+        Aufgabe7_Classes.crc2.moveTo(_x, _y);
+        Aufgabe7_Classes.crc2.lineTo(300, _length);
+        Aufgabe7_Classes.crc2.closePath();
+        Aufgabe7_Classes.crc2.fill();
+        Aufgabe7_Classes.crc2.stroke();
     }
     //CLOUD
     function drawCloud(_x, _y, _size, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.arc(_x, _y, _size, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fill();
+        Aufgabe7_Classes.crc2.beginPath();
+        Aufgabe7_Classes.crc2.fillStyle = _fillColor;
+        Aufgabe7_Classes.crc2.arc(_x, _y, _size, 0, 2 * Math.PI);
+        Aufgabe7_Classes.crc2.closePath();
+        Aufgabe7_Classes.crc2.stroke();
+        Aufgabe7_Classes.crc2.fill();
     }
     //BIRD
     function drawBird(_x1, _y1, _x2, _y2, _strokeColor) {
-        crc2.beginPath();
-        crc2.arc(_x1, _y1, 10, 4, 0 * Math.PI, false);
-        crc2.strokeStyle = _strokeColor;
-        crc2.arc(_x2, _y2, 10, 4, 0 * Math.PI, false);
-        crc2.scale(1, 1);
-        crc2.stroke();
-        crc2.closePath();
+        Aufgabe7_Classes.crc2.beginPath();
+        Aufgabe7_Classes.crc2.arc(_x1, _y1, 10, 4, 0 * Math.PI, false);
+        Aufgabe7_Classes.crc2.strokeStyle = _strokeColor;
+        Aufgabe7_Classes.crc2.arc(_x2, _y2, 10, 4, 0 * Math.PI, false);
+        Aufgabe7_Classes.crc2.scale(1, 1);
+        Aufgabe7_Classes.crc2.stroke();
+        Aufgabe7_Classes.crc2.closePath();
     }
-    //FLOWER0
-    function drawFlower0(_x, _y, _centerSize, _leaveSize, _centerColor, _leaveColor) {
-        //LEAVES
-        crc2.fillStyle = _leaveColor;
-        crc2.beginPath();
-        crc2.arc(_x, _y - 5, 7, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(_x - 5, _y, 7, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(_x + 5, _y, 7, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(_x, _y + 5, 7, 0, 2 * Math.PI);
-        crc2.fill();
-        //CENTER
-        crc2.beginPath();
-        crc2.arc(_x, _y, _centerSize, 0, 2 * Math.PI);
-        crc2.fillStyle = _centerColor;
-        crc2.fill();
-    }
-})(L4_Canvas || (L4_Canvas = {}));
+})(Aufgabe7_Classes || (Aufgabe7_Classes = {}));
 //# sourceMappingURL=blumenwieseWithInterface.js.map

@@ -1,15 +1,8 @@
-//namespace_load_canvas
-namespace L4_Canvas {
+
+namespace Aufgabe7_Classes {
     window.addEventListener("load", init);
-    let crc2: CanvasRenderingContext2D;
-    
-    interface Bee {    
-        x: number; 
-        y: number;
-        size: number; 
-        color: string; 
-    }
-    
+    export let crc2: CanvasRenderingContext2D;
+        
     let alleBienen: Bee[] = [];
     let n: number = 10; // Anzahl der Bienen
     let imgData: any = ImageData;
@@ -17,7 +10,6 @@ namespace L4_Canvas {
 
 // canvasInitialize_
     function init(_event: Event): void {
-        
         
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
@@ -79,12 +71,14 @@ namespace L4_Canvas {
         drawBird(320, 50, 338, 58, "#000000");
         drawBird(305, 65, 323, 73, "#000000");
         
-        //RANDOMFLOWERS LEFT
+         //RANDOMFLOWERS LEFT
+
         let colorBucket: string[] = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
         let colorBucket1: string[] = ["#81BEF7", "#F781BE", "#DF0101", "#81F7D8", "#F5DA81"];
         let centerColors: string[] = ["#b879fc", "#30e3f4", "#f4f130"];
         
         for (let i: number = 0; i < 35; i++) {
+            
             let randomX: number = (Math.random() * (215 - 15) + 15);    
             let randomY: number = (Math.random() * (375 - 200) + 200);
             let randomCenterSize: number = (Math.random() * (7.5 - 4) + 4);            
@@ -94,13 +88,10 @@ namespace L4_Canvas {
             let randomCenterColor: string = centerColors[Math.floor(Math.random() * centerColors.length)];
             let randomFlower: number = Math.floor((Math.random() * 2)) + 1;
             
-            if ( randomFlower == 1) {
-                drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor);
-                }
-            else {
-                drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
+            let flower0: Flower = new Flower(randomX, randomY, randomCenterSize, randomColor, randomColor1);
+            flower0.draw();
+            
             }
-        } 
 
         //RANDOMFLOWERS RIGHT
         for (let i: number = 0; i < 35; i++) {
@@ -113,12 +104,8 @@ namespace L4_Canvas {
             let randomCenterColor: string = centerColors[Math.floor(Math.random() * centerColors.length)];
             let randomFlower: number = Math.floor((Math.random() * 2)) + 1;
             
-            if ( randomFlower == 1) {
-                drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor);
-                }
-            else {
-                drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
-            }
+            let flower0: Flower = new Flower(randomX, randomY, randomCenterSize, randomColor, randomColor1);
+            flower0.draw();
         }
         //getImgData erst, wenn alles gezeichnet ist        
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
@@ -126,16 +113,10 @@ namespace L4_Canvas {
         // Startpunkt für Bienen
         for (let i: number = 0; i < n; i++) {
             
-            let values: Bee = {x: 0, y: 0, size: 0, color: ""};
-            let colors: string [] = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
-            let randomColor: string = colors[Math.floor(Math.random() * colors.length)];
-            let randomSize: number = (Math.random() * (8 - 4) + 4);
+            let values: Bee = new Bee(240, 200);
             
-            values.x = 240; 
-            values.y = 200;
-            values.size = randomSize;
-            values.color = randomColor; 
             alleBienen[i] = values;
+            
         }      
         
         window.setTimeout(animate, 20);
@@ -148,14 +129,12 @@ namespace L4_Canvas {
     
     //ANIMATE
     function animate (): void {
-            
-        
+                    
         crc2.putImageData(imgData, 0, 0);
         
         for (let i: number = 0; i < n; i++) {
             let values: Bee = alleBienen[i];
-            values.x += (Math.random() * 6 - 3) - 1;
-            values.y += Math.random() * 6 - 3;
+            values.update();
             
             if (values.x < 0) {
                 values.x = 600;    
@@ -172,7 +151,6 @@ namespace L4_Canvas {
             if (values.y > 400) {
                 values.y = 0;    
             }
-            drawBee(values);
         }   
          
         window.setTimeout(animate, 20); 
@@ -180,43 +158,22 @@ namespace L4_Canvas {
         console.log("Hallo, ist da jemand?");    
     }
     
-        function addBeeOnClick (_event: Event): void {
-            //PROBIEREREI
-//        var colors: string["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
-//       
-//        for (let i: number = 0; i < alleBienen.length; i++) {
-//            var aktuelleBiene = alleBienen[i];
-//            let randomColor: string = colorBucket[Math.floor(Math.random() * colorBucket.length)];
-//            var rndIndex = // Math random zwischen 0 und color.length-1 --> floor
-//            var rndColor = // colors [rndIndex]
-//            aktuelleBiene.color = rndColor;        
-//        }
-        ///////////////////////////////////////
-            let colors: string [] = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
-            let randomColor: string = colors[Math.floor(Math.random() * colors.length)];
-        if (n < 99) {
-            n++;
-            alleBienen.push({x: 240, y: 200, size: (Math.random() * (10 - 5) + 5), color: randomColor});
-        }
-        
-        if (n > 99) {
-//        else { 
-            n -= 10;
-        }              
+    function addBeeOnClick (_event: Event): void {
+
+        let colors: string [] = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+        let randomColor: string = colors[Math.floor(Math.random() * colors.length)];
+            if (n < 99) {
+                n++;
+                alleBienen.push(new Bee(240, 200));
+            }
+            
+            else {
+               n -= 10;
+               alleBienen.push(new Bee(240, 200));
+            }              
         console.log(n);
     }
 
-    //BEE
-    function drawBee(_values: Bee): void {
-        crc2.beginPath();
-        crc2.fillStyle = _values.color;
-        crc2.arc(_values.x, _values.y, _values.size, 0, 2 * Math.PI);
-        crc2.arc(_values.x, _values.y - 5, _values.size - 2, 0, 2 * Math.PI);
-        crc2.arc(_values.x, _values.y + 5, _values.size - 2, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        //Optik der Bienen wird bei Gelegenheit noch überarbeitet..
-    }
     //MOUNTAIN
     function drawMountain(_x: number, _y: number, _z: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
@@ -282,29 +239,4 @@ namespace L4_Canvas {
         crc2.stroke();
         crc2.closePath();
     } 
-    //FLOWER0
-    function drawFlower0(_x: number, _y: number, _centerSize: number, _leaveSize: number, _centerColor: string, _leaveColor: string): void {
-        //LEAVES
-        crc2.fillStyle = _leaveColor;
-        crc2.beginPath();   
-        crc2.arc(_x, _y - 5, 7, 0, 2 * Math.PI);
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x - 5, _y, 7, 0, 2 * Math.PI);
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x + 5, _y, 7, 0, 2 * Math.PI);
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x, _y + 5, 7, 0, 2 * Math.PI);
-        crc2.fill();
-        //CENTER
-        crc2.beginPath();
-        crc2.arc(_x, _y, _centerSize, 0, 2 * Math.PI);
-        crc2.fillStyle = _centerColor;
-        crc2.fill();
-    }
 }
