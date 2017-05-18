@@ -19,7 +19,7 @@ namespace Aufgabe8_Inheritance {
         crc2 = canvas.getContext("2d");
         console.log("crc2");
         
-        let landscape: Landscape = new Landscape();
+        let landscape: LandscapeTest = new LandscapeTest();
                  
          //RANDOMFLOWERS LEFT
         

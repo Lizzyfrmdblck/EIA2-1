@@ -2,13 +2,13 @@ var Aufgabe8_Inheritance;
 (function (Aufgabe8_Inheritance) {
     var Flower = (function () {
         function Flower() {
-            this.drawType();
             this.setRandomPositionLeft();
             this.setRandomPositionRight();
             this.setRandomCenterSize();
             this.setRandomLeaveSize();
             this.setRandomCenterColor();
             this.setRandomLeaveColor();
+            this.drawType();
         }
         Flower.prototype.drawFlower = function () {
             //LEAVES

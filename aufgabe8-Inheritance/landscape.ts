@@ -1,6 +1,6 @@
 namespace Aufgabe8_Inheritance {
     
-    export class Landscape {
+    export class LandscapeTest {
         
         constructor() {
     

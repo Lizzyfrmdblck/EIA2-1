@@ -1,5 +1,5 @@
-var Aufgabe7_Classes;
-(function (Aufgabe7_Classes) {
+var Aufgabe8_Inheritance;
+(function (Aufgabe8_Inheritance) {
     window.addEventListener("load", init);
     var alleBienen = [];
     var n = 10; // Anzahl der Bienen
@@ -7,42 +7,42 @@ var Aufgabe7_Classes;
     var fixedFlowers = [];
     // canvasInitialize_
     function init(_event) {
-        Aufgabe7_Classes.canvas = document.getElementsByTagName("canvas")[0];
-        console.log(Aufgabe7_Classes.canvas);
-        Aufgabe7_Classes.crc2 = Aufgabe7_Classes.canvas.getContext("2d");
+        Aufgabe8_Inheritance.canvas = document.getElementsByTagName("canvas")[0];
+        console.log(Aufgabe8_Inheritance.canvas);
+        Aufgabe8_Inheritance.crc2 = Aufgabe8_Inheritance.canvas.getContext("2d");
         console.log("crc2");
-        var landscape = new Aufgabe7_Classes.Landscape();
+        var landscape = new Aufgabe8_Inheritance.LandscapeTest();
         //RANDOMFLOWERS LEFT
         for (var i = 0; i < 15; i++) {
-            var flower0 = new Aufgabe7_Classes.Flower();
+            var flower0 = new Aufgabe8_Inheritance.Flower();
             flower0.drawType();
         }
         //RANDOMFLOWERS RIGHT
         for (var i = 0; i < 15; i++) {
-            var flower0 = new Aufgabe7_Classes.Flower();
+            var flower0 = new Aufgabe8_Inheritance.Flower();
             flower0.drawType();
         }
         //getImgData erst, wenn alles gezeichnet ist        
-        imgData = Aufgabe7_Classes.crc2.getImageData(0, 0, Aufgabe7_Classes.canvas.width, Aufgabe7_Classes.canvas.height);
+        imgData = Aufgabe8_Inheritance.crc2.getImageData(0, 0, Aufgabe8_Inheritance.canvas.width, Aufgabe8_Inheritance.canvas.height);
         for (var i = void 0; i < 10; i++) {
-            var placedFlowers = new Aufgabe7_Classes.Flower;
+            var placedFlowers = new Aufgabe8_Inheritance.Flower;
             placedFlowers = fixedFlowers[i];
             fixedFlowers.push(placedFlowers);
             console.log(placedFlowers);
         }
         // Startpunkt f�r Bienen
         for (var i = 0; i < n; i++) {
-            var values = new Aufgabe7_Classes.Bee(240, 200);
+            var values = new Aufgabe8_Inheritance.Bee(240, 200);
             alleBienen[i] = values;
         }
         window.setTimeout(animate, 20);
         //addBeeOnClick
-        Aufgabe7_Classes.canvas.addEventListener("click", addBeeOnClick);
+        Aufgabe8_Inheritance.canvas.addEventListener("click", addBeeOnClick);
         console.log("IMGDATA?");
     }
     //ANIMATE
     function animate() {
-        Aufgabe7_Classes.crc2.putImageData(imgData, 0, 0);
+        Aufgabe8_Inheritance.crc2.putImageData(imgData, 0, 0);
         for (var i = 0; i < n; i++) {
             var values = alleBienen[i];
             values.update();
@@ -67,13 +67,13 @@ var Aufgabe7_Classes;
         var randomColor = colors[Math.floor(Math.random() * colors.length)];
         if (n < 99) {
             n++;
-            alleBienen.push(new Aufgabe7_Classes.Bee(240, 200));
+            alleBienen.push(new Aufgabe8_Inheritance.Bee(240, 200));
         }
         else {
             n -= 10;
-            alleBienen.push(new Aufgabe7_Classes.Bee(240, 200));
+            alleBienen.push(new Aufgabe8_Inheritance.Bee(240, 200));
         }
         console.log(n);
     }
-})(Aufgabe7_Classes || (Aufgabe7_Classes = {}));
+})(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
 //# sourceMappingURL=blumenwieseWithInterface.js.map

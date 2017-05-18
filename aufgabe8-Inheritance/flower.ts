@@ -10,13 +10,14 @@ namespace Aufgabe8_Inheritance {
         typ: number;
         
         constructor() {
-            this.drawType();
+            
             this.setRandomPositionLeft();
             this.setRandomPositionRight();
             this.setRandomCenterSize();
             this.setRandomLeaveSize();
             this.setRandomCenterColor();
             this.setRandomLeaveColor();
+            this.drawType();
         }
               
         drawFlower(): void {
