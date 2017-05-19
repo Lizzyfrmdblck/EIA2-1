@@ -5,26 +5,26 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Aufgabe8_Inheritance;
 (function (Aufgabe8_Inheritance) {
-    var Flower = (function (_super) {
-        __extends(Flower, _super);
-        function Flower() {
+    var Flower1 = (function (_super) {
+        __extends(Flower1, _super);
+        function Flower1() {
             _super.call(this);
             this.draw();
         }
-        Flower.prototype.draw = function () {
+        Flower1.prototype.draw = function () {
             //LEAVES
             Aufgabe8_Inheritance.crc2.fillStyle = this.leaveColor;
             Aufgabe8_Inheritance.crc2.beginPath();
             Aufgabe8_Inheritance.crc2.arc(this.xRandom, this.yRandom - 5, 7, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.fill();
             Aufgabe8_Inheritance.crc2.beginPath();
-            Aufgabe8_Inheritance.crc2.arc(this.xRandom - 5, this.yRandom, 3, 0, 2 * Math.PI);
+            Aufgabe8_Inheritance.crc2.arc(this.xRandom - 5, this.yRandom, 7, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.fill();
             Aufgabe8_Inheritance.crc2.beginPath();
             Aufgabe8_Inheritance.crc2.arc(this.xRandom + 5, this.yRandom, 7, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.fill();
             Aufgabe8_Inheritance.crc2.beginPath();
-            Aufgabe8_Inheritance.crc2.arc(this.xRandom, this.yRandom + 5, 3, 0, 2 * Math.PI);
+            Aufgabe8_Inheritance.crc2.arc(this.xRandom, this.yRandom + 5, 7, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.fill();
             //CENTER
             Aufgabe8_Inheritance.crc2.beginPath();
@@ -32,8 +32,8 @@ var Aufgabe8_Inheritance;
             Aufgabe8_Inheritance.crc2.fillStyle = this.centerColor;
             Aufgabe8_Inheritance.crc2.fill();
         };
-        return Flower;
+        return Flower1;
     }(Aufgabe8_Inheritance.SuperFlowers));
-    Aufgabe8_Inheritance.Flower = Flower;
+    Aufgabe8_Inheritance.Flower1 = Flower1;
 })(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
-//# sourceMappingURL=flower.js.map
+//# sourceMappingURL=flower1.js.map

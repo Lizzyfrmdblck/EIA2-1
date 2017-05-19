@@ -5,10 +5,10 @@ namespace Aufgabe8_Inheritance {
         
     let alleBienen: Bee[] = [];
     let n: number = 10; // Anzahl der Bienen
+    
     let imgData: any = ImageData;
 
-    export let canvas: HTMLCanvasElement;
-    
+    export let canvas: HTMLCanvasElement;    
     let fixedFlowers: Flower[] = []; 
 // canvasInitialize_
         function init(_event: Event): void {
@@ -21,17 +21,18 @@ namespace Aufgabe8_Inheritance {
         
         let landscape: LandscapeTest = new LandscapeTest();
                  
-         //RANDOMFLOWERS LEFT
-        
-        for (let i: number = 0; i < 15; i++) {
-            let flower0: Flower = new Flower();
-            flower0.drawType();
-            }
+//         //RANDOMFLOWERS LEFT
+//        
+//        for (let i: number = 0; i < 15; i++) {
+//            let flower0: Flower = new Flower();
+//            flower0.drawType();
+//            }
 
         //RANDOMFLOWERS RIGHT
-        for (let i: number = 0; i < 15; i++) {
-            let flower0: Flower = new Flower();
-            flower0.drawType();
+        for (let i: number = 0; i < 20; i++) {
+            let flower0: SuperFlowers = new Flower1;
+//            flower0.drawType();
+            console.log(flower0);
         }
         
         //getImgData erst, wenn alles gezeichnet ist        
@@ -40,6 +41,7 @@ namespace Aufgabe8_Inheritance {
         for (let i: number; i < 10; i++) {
             let placedFlowers: Flower = new Flower; 
             placedFlowers = fixedFlowers[i];
+//            placedFlowers.drawType();
             fixedFlowers.push(placedFlowers);
             console.log(placedFlowers);    
         }

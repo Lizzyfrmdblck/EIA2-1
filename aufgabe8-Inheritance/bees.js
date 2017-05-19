@@ -1,7 +1,14 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Aufgabe8_Inheritance;
 (function (Aufgabe8_Inheritance) {
-    var Bee = (function () {
+    var Bee = (function (_super) {
+        __extends(Bee, _super);
         function Bee(_x, _y) {
+            _super.call(this, _x, _y);
             this.x = _x;
             this.y = _y;
             this.setRandomstyle();
@@ -32,7 +39,7 @@ var Aufgabe8_Inheritance;
             this.color = randomColor;
         };
         return Bee;
-    }());
+    }(Aufgabe8_Inheritance.SuperBees));
     Aufgabe8_Inheritance.Bee = Bee;
 })(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
-//# sourceMappingURL=classes.js.map
+//# sourceMappingURL=bees.js.map

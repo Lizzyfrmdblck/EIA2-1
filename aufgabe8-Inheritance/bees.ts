@@ -1,16 +1,14 @@
 
 namespace Aufgabe8_Inheritance {
 
-    export class Bee {
-        x: number; 
-        y: number;
-        size: number; 
-        color: string;
+    export class Bee extends SuperBees {
         
         constructor(_x: number, _y: number) {
+            super (_x, _y);
             this.x = _x;
             this.y = _y;
             this.setRandomstyle();
+            
             }
         
         update(): void {

@@ -12,21 +12,24 @@ var Aufgabe8_Inheritance;
         Aufgabe8_Inheritance.crc2 = Aufgabe8_Inheritance.canvas.getContext("2d");
         console.log("crc2");
         var landscape = new Aufgabe8_Inheritance.LandscapeTest();
-        //RANDOMFLOWERS LEFT
-        for (var i = 0; i < 15; i++) {
-            var flower0 = new Aufgabe8_Inheritance.Flower();
-            flower0.drawType();
-        }
+        //         //RANDOMFLOWERS LEFT
+        //        
+        //        for (let i: number = 0; i < 15; i++) {
+        //            let flower0: Flower = new Flower();
+        //            flower0.drawType();
+        //            }
         //RANDOMFLOWERS RIGHT
-        for (var i = 0; i < 15; i++) {
-            var flower0 = new Aufgabe8_Inheritance.Flower();
-            flower0.drawType();
+        for (var i = 0; i < 20; i++) {
+            var flower0 = new Aufgabe8_Inheritance.Flower1;
+            //            flower0.drawType();
+            console.log(flower0);
         }
         //getImgData erst, wenn alles gezeichnet ist        
         imgData = Aufgabe8_Inheritance.crc2.getImageData(0, 0, Aufgabe8_Inheritance.canvas.width, Aufgabe8_Inheritance.canvas.height);
         for (var i = void 0; i < 10; i++) {
             var placedFlowers = new Aufgabe8_Inheritance.Flower;
             placedFlowers = fixedFlowers[i];
+            //            placedFlowers.drawType();
             fixedFlowers.push(placedFlowers);
             console.log(placedFlowers);
         }
