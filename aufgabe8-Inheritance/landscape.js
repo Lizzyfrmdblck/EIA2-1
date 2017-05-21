@@ -20,9 +20,9 @@ var Aufgabe8_Inheritance;
             Aufgabe8_Inheritance.crc2.fillRect(0, 175, Aufgabe8_Inheritance.canvas.width, Aufgabe8_Inheritance.canvas.height);
             //BIENENSTOCK        
             Aufgabe8_Inheritance.crc2.fillStyle = "brown";
-            Aufgabe8_Inheritance.crc2.fillRect(225, 180, 40, 40);
+            Aufgabe8_Inheritance.crc2.fillRect(125, 255, 40, 40);
             Aufgabe8_Inheritance.crc2.fillStyle = "black";
-            Aufgabe8_Inheritance.crc2.fillRect(240, 200, 10, 10);
+            Aufgabe8_Inheritance.crc2.fillRect(140, 275, 10, 10);
             //STREET
             this.drawStreet(225, 400, "#000000", "#404040");
             //STRIPES

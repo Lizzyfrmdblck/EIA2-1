@@ -9,19 +9,20 @@ var Aufgabe8_Inheritance;
         __extends(Flower, _super);
         function Flower() {
             _super.call(this);
+            this.setRandomCenterSize();
             this.draw();
         }
         Flower.prototype.draw = function () {
             //LEAVES
             Aufgabe8_Inheritance.crc2.fillStyle = this.leaveColor;
             Aufgabe8_Inheritance.crc2.beginPath();
-            Aufgabe8_Inheritance.crc2.arc(this.xRandom, this.yRandom - 5, 7, 0, 2 * Math.PI);
+            Aufgabe8_Inheritance.crc2.arc(this.xRandom, this.yRandom - 5, 3, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.fill();
             Aufgabe8_Inheritance.crc2.beginPath();
             Aufgabe8_Inheritance.crc2.arc(this.xRandom - 5, this.yRandom, 3, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.fill();
             Aufgabe8_Inheritance.crc2.beginPath();
-            Aufgabe8_Inheritance.crc2.arc(this.xRandom + 5, this.yRandom, 7, 0, 2 * Math.PI);
+            Aufgabe8_Inheritance.crc2.arc(this.xRandom + 5, this.yRandom, 3, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.fill();
             Aufgabe8_Inheritance.crc2.beginPath();
             Aufgabe8_Inheritance.crc2.arc(this.xRandom, this.yRandom + 5, 3, 0, 2 * Math.PI);
@@ -31,6 +32,9 @@ var Aufgabe8_Inheritance;
             Aufgabe8_Inheritance.crc2.arc(this.xRandom, this.yRandom, this.centerSize, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.fillStyle = this.centerColor;
             Aufgabe8_Inheritance.crc2.fill();
+        };
+        Flower.prototype.setRandomCenterSize = function () {
+            this.centerSize = (Math.random() * (5.5 - 2) + 2);
         };
         return Flower;
     }(Aufgabe8_Inheritance.SuperFlowers));

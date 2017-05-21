@@ -9,6 +9,7 @@ var Aufgabe8_Inheritance;
         __extends(Flower1, _super);
         function Flower1() {
             _super.call(this);
+            this.setCenterColor();
             this.draw();
         }
         Flower1.prototype.draw = function () {
@@ -31,6 +32,15 @@ var Aufgabe8_Inheritance;
             Aufgabe8_Inheritance.crc2.arc(this.xRandom, this.yRandom, this.centerSize, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.fillStyle = this.centerColor;
             Aufgabe8_Inheritance.crc2.fill();
+        };
+        //        
+        //        setRandomCenterColor(): void {
+        //            let centerColor: string = "ffffff";
+        //            
+        //            this.centerColor = centerColor;    
+        //        }
+        Flower1.prototype.setCenterColor = function () {
+            this.centerColor = "#FFD700";
         };
         return Flower1;
     }(Aufgabe8_Inheritance.SuperFlowers));

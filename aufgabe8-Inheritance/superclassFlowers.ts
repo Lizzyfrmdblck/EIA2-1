@@ -16,6 +16,7 @@ namespace Aufgabe8_Inheritance {
                 this.setRandomLeaveSize();
                 this.setRandomLeaveColor();
                 this.setRandomCenterColor();
+
                 
             
             }
@@ -49,17 +50,7 @@ namespace Aufgabe8_Inheritance {
 //        
         draw(): void {
             //hi    
-        }  
-//        drawType(): void {
-//            if (this.typ == 1) {
-//                this.drawFlower();
-//                }
-//            else {
-//                this.drawFlower1();
-//            }        
-//        }
-            
-        
-
+        }    
+       
     }    
 }

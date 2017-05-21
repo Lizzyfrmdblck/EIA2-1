@@ -5,7 +5,8 @@ namespace Aufgabe8_Inheritance {
         
         constructor() {
             
-            super();  
+            super();
+            this.setCenterColor();
             this.draw();          
         }
         
@@ -34,6 +35,16 @@ namespace Aufgabe8_Inheritance {
             crc2.arc(this.xRandom, this.yRandom, this.centerSize, 0, 2 * Math.PI);
             crc2.fillStyle = this.centerColor;
             crc2.fill();
+        }
+//        
+//        setRandomCenterColor(): void {
+//            let centerColor: string = "ffffff";
+//            
+//            this.centerColor = centerColor;    
+//        }
+        
+        setCenterColor(): void {
+            this.centerColor = "#FFD700";   
         }
     }    
 }

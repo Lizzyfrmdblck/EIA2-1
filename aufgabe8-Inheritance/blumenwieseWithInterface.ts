@@ -3,14 +3,15 @@ namespace Aufgabe8_Inheritance {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
         
-    let alleBienen: Bee[] = [];
+    let alleBienen: SuperBees[] = [];
     let n: number = 10; // Anzahl der Bienen
     
     let imgData: any = ImageData;
 
     export let canvas: HTMLCanvasElement;    
-    let fixedFlowers: Flower[] = []; 
-// canvasInitialize_
+    export let fixedFlowers: Flower[] = []; 
+    console.log("In diesem Array werden die Daten der Blumen abgespeichert, die von den Bienen angeflogen werden sollen.", fixedFlowers);
+        // canvasInitialize_
         function init(_event: Event): void {
                
         canvas = document.getElementsByTagName("canvas")[0];
@@ -21,35 +22,26 @@ namespace Aufgabe8_Inheritance {
         
         let landscape: LandscapeTest = new LandscapeTest();
                  
-//         //RANDOMFLOWERS LEFT
-//        
-//        for (let i: number = 0; i < 15; i++) {
-//            let flower0: Flower = new Flower();
-//            flower0.drawType();
-//            }
-
         //RANDOMFLOWERS RIGHT
-        for (let i: number = 0; i < 20; i++) {
-            let flower0: SuperFlowers = new Flower1;
-//            flower0.drawType();
-            console.log(flower0);
-        }
-        
-        //getImgData erst, wenn alles gezeichnet ist        
-        imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
+        for (let i: number = 0; i < 5; i++) {
+            let placedFlowers: SuperFlowers = new Flower1;
             
-        for (let i: number; i < 10; i++) {
-            let placedFlowers: Flower = new Flower; 
-            placedFlowers = fixedFlowers[i];
-//            placedFlowers.drawType();
             fixedFlowers.push(placedFlowers);
-            console.log(placedFlowers);    
+            placedFlowers = fixedFlowers[i];
         }
+            
+        for (let i: number = 0; i < 20; i++) {
+            let flower0: SuperFlowers = new Flower; 
+             
+        }
+            
+        //getImgData erst, wenn alles gezeichnet ist        
+        imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);        
         
         // Startpunkt für Bienen
         for (let i: number = 0; i < n; i++) {
             
-            let values: Bee = new Bee(240, 200);
+            let values: SuperBees = new SuperBees(140, 275);
             
             alleBienen[i] = values;
             
@@ -69,24 +61,8 @@ namespace Aufgabe8_Inheritance {
         crc2.putImageData(imgData, 0, 0);
         
         for (let i: number = 0; i < n; i++) {
-            let values: Bee = alleBienen[i];
+            let values: SuperBees = alleBienen[i];
             values.update();
-            
-            if (values.x < 0) {
-                values.x = 600;    
-            }
-            
-            if (values.x > 600) {
-                values.x = 0;    
-            }
-            
-            if (values.y < 0) {
-                values.y = 400;    
-            }
-            
-            if (values.y > 400) {
-                values.y = 0;    
-            }
         }   
          
         window.setTimeout(animate, 20); 
@@ -100,12 +76,12 @@ namespace Aufgabe8_Inheritance {
         let randomColor: string = colors[Math.floor(Math.random() * colors.length)];
             if (n < 99) {
                 n++;
-                alleBienen.push(new Bee(240, 200));
+                alleBienen.push(new SuperBees(140, 275));
             }
             
             else {
                n -= 10;
-               alleBienen.push(new Bee(240, 200));
+               alleBienen.push(new SuperBees(140, 275));
             }              
         console.log(n);
     } 
