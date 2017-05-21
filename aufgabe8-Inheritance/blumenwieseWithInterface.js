@@ -1,3 +1,4 @@
+// Die Bienen sind noch nicht funktionst�chtig...
 var Aufgabe8_Inheritance;
 (function (Aufgabe8_Inheritance) {
     window.addEventListener("load", init);

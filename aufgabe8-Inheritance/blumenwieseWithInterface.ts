@@ -1,3 +1,5 @@
+// Die Bienen sind noch nicht funktionstüchtig...
+
 
 namespace Aufgabe8_Inheritance {
     window.addEventListener("load", init);
