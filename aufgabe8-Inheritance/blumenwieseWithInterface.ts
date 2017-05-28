@@ -5,7 +5,7 @@ namespace Aufgabe8_Inheritance {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
         
-    let alleBienen: SuperBees[] = [];
+    export let alleBienen: SuperBees[] = [];
     let n: number = 10; // Anzahl der Bienen
     
     let imgData: any = ImageData;
@@ -43,9 +43,9 @@ namespace Aufgabe8_Inheritance {
         // Startpunkt für Bienen
         for (let i: number = 0; i < n; i++) {
             
-            let values: SuperBees = new SuperBees(140, 275);
+            let values: HoneyBee = new HoneyBee(140, 275);
             
-            alleBienen[i] = values;
+            alleBienen.push(values);
             
         }      
         

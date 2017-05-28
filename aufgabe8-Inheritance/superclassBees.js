@@ -4,6 +4,7 @@ var Aufgabe8_Inheritance;
         function SuperBees(_x, _y) {
             this.x = _x;
             this.y = _y;
+            this.setRandomstyle();
         }
         SuperBees.prototype.update = function () {
             this.drawBee();
@@ -11,14 +12,7 @@ var Aufgabe8_Inheritance;
             this.moveBackInCanvas();
         };
         SuperBees.prototype.drawBee = function () {
-            Aufgabe8_Inheritance.crc2.beginPath();
-            Aufgabe8_Inheritance.crc2.fillStyle = this.color;
-            Aufgabe8_Inheritance.crc2.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-            Aufgabe8_Inheritance.crc2.arc(this.x, this.y - 5, this.size - 2, 0, 2 * Math.PI);
-            Aufgabe8_Inheritance.crc2.arc(this.x, this.y + 5, this.size - 2, 0, 2 * Math.PI);
-            Aufgabe8_Inheritance.crc2.closePath();
-            Aufgabe8_Inheritance.crc2.fill();
-            //Optik der Bienen wird bei Gelegenheit noch �berarbeitet..
+            //hi
         };
         SuperBees.prototype.move = function () {
             this.x += (Math.random() * 6 - 3) - 1;

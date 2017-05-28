@@ -9,27 +9,20 @@ var Aufgabe8_Inheritance;
         __extends(HoneyBee, _super);
         function HoneyBee(_x, _y) {
             _super.call(this, _x, _y);
+            this.speed = 0.05;
             this.x = _x;
             this.y = _y;
+            this.setStartPosition();
             this.setRandomTargetPosition();
         }
-        HoneyBee.prototype.update = function () {
-            this.drawBee();
-            this.move();
-        };
-        HoneyBee.prototype.drawBee = function () {
-            Aufgabe8_Inheritance.crc2.beginPath();
-            Aufgabe8_Inheritance.crc2.fillStyle = this.color;
-            Aufgabe8_Inheritance.crc2.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-            Aufgabe8_Inheritance.crc2.arc(this.x, this.y - 5, this.size - 2, 0, 2 * Math.PI);
-            Aufgabe8_Inheritance.crc2.arc(this.x, this.y + 5, this.size - 2, 0, 2 * Math.PI);
-            Aufgabe8_Inheritance.crc2.closePath();
-            Aufgabe8_Inheritance.crc2.fill();
-            //Optik der Bienen wird bei Gelegenheit noch �berarbeitet..
+        HoneyBee.prototype.setStartPosition = function () {
+            this.x = 140;
+            this.y = 275;
         };
         HoneyBee.prototype.setRandomTargetPosition = function () {
-            this.x = Math.random() * Aufgabe8_Inheritance.crc2.canvas.width;
-            this.yTarget = Math.random() * Aufgabe8_Inheritance.crc2.canvas.height;
+            var targetFlower = Math.round(Math.random() * (Aufgabe8_Inheritance.fixedFlowers.length - 1));
+            this.xTarget = Aufgabe8_Inheritance.fixedFlowers[targetFlower].xRandom;
+            this.yTarget = Aufgabe8_Inheritance.fixedFlowers[targetFlower].yRandom;
         };
         HoneyBee.prototype.move = function () {
             var xDiff = this.xTarget - this.x;
@@ -40,6 +33,16 @@ var Aufgabe8_Inheritance;
                 this.x += xDiff * this.speed;
                 this.y += yDiff * this.speed;
             }
+        };
+        HoneyBee.prototype.drawBee = function () {
+            Aufgabe8_Inheritance.crc2.beginPath();
+            Aufgabe8_Inheritance.crc2.fillStyle = this.color;
+            Aufgabe8_Inheritance.crc2.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+            Aufgabe8_Inheritance.crc2.arc(this.x, this.y - 5, this.size - 2, 0, 2 * Math.PI);
+            Aufgabe8_Inheritance.crc2.arc(this.x, this.y + 5, this.size - 2, 0, 2 * Math.PI);
+            Aufgabe8_Inheritance.crc2.closePath();
+            Aufgabe8_Inheritance.crc2.fill();
+            //Optik der Bienen wird bei Gelegenheit noch �berarbeitet..
         };
         return HoneyBee;
     }(Aufgabe8_Inheritance.SuperBees));

@@ -2,7 +2,7 @@
 var Aufgabe8_Inheritance;
 (function (Aufgabe8_Inheritance) {
     window.addEventListener("load", init);
-    var alleBienen = [];
+    Aufgabe8_Inheritance.alleBienen = [];
     var n = 10; // Anzahl der Bienen
     var imgData = ImageData;
     Aufgabe8_Inheritance.fixedFlowers = [];
@@ -27,8 +27,8 @@ var Aufgabe8_Inheritance;
         imgData = Aufgabe8_Inheritance.crc2.getImageData(0, 0, Aufgabe8_Inheritance.canvas.width, Aufgabe8_Inheritance.canvas.height);
         // Startpunkt f�r Bienen
         for (var i = 0; i < n; i++) {
-            var values = new Aufgabe8_Inheritance.SuperBees(140, 275);
-            alleBienen[i] = values;
+            var values = new Aufgabe8_Inheritance.HoneyBee(140, 275);
+            Aufgabe8_Inheritance.alleBienen.push(values);
         }
         window.setTimeout(animate, 20);
         //addBeeOnClick
@@ -39,7 +39,7 @@ var Aufgabe8_Inheritance;
     function animate() {
         Aufgabe8_Inheritance.crc2.putImageData(imgData, 0, 0);
         for (var i = 0; i < n; i++) {
-            var values = alleBienen[i];
+            var values = Aufgabe8_Inheritance.alleBienen[i];
             values.update();
         }
         window.setTimeout(animate, 20);
@@ -50,11 +50,11 @@ var Aufgabe8_Inheritance;
         var randomColor = colors[Math.floor(Math.random() * colors.length)];
         if (n < 99) {
             n++;
-            alleBienen.push(new Aufgabe8_Inheritance.SuperBees(140, 275));
+            Aufgabe8_Inheritance.alleBienen.push(new Aufgabe8_Inheritance.SuperBees(140, 275));
         }
         else {
             n -= 10;
-            alleBienen.push(new Aufgabe8_Inheritance.SuperBees(140, 275));
+            Aufgabe8_Inheritance.alleBienen.push(new Aufgabe8_Inheritance.SuperBees(140, 275));
         }
         console.log(n);
     }

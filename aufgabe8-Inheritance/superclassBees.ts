@@ -9,6 +9,7 @@ namespace Aufgabe8_Inheritance {
         constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
+            this.setRandomstyle();
         }
                 
         update(): void {
@@ -17,15 +18,8 @@ namespace Aufgabe8_Inheritance {
             this.moveBackInCanvas();  
         }
         
-        drawBee(): void {
-            crc2.beginPath();
-            crc2.fillStyle = this.color;
-            crc2.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-            crc2.arc(this.x, this.y - 5, this.size - 2, 0, 2 * Math.PI);
-            crc2.arc(this.x, this.y + 5, this.size - 2, 0, 2 * Math.PI);
-            crc2.closePath();
-            crc2.fill();
-        //Optik der Bienen wird bei Gelegenheit noch überarbeitet..
+        drawBee(): void { 
+        //hi
         }
         
         move(): void {
