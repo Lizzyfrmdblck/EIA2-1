@@ -25,7 +25,7 @@ namespace Aufgabe8_Inheritance {
         let landscape: LandscapeTest = new LandscapeTest();
                  
         //RANDOMFLOWERS RIGHT
-        for (let i: number = 0; i < 5; i++) {
+        for (let i: number = 0; i < 10; i++) {
             let placedFlowers: SuperFlowers = new Flower1;
             
             fixedFlowers.push(placedFlowers);
@@ -39,19 +39,11 @@ namespace Aufgabe8_Inheritance {
             
         //getImgData erst, wenn alles gezeichnet ist        
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);        
-        
-        // Honigbienen
-//        for (let i: number = 0; i < n; i++) {
-//            
-//            let values: HoneyBee = new HoneyBee(140, 275);
-//            
-//            alleBienen.push(values);
-//            
-//        }      
-
+      
+        //HONEYBEES
         for (let i: number = 0; i < n; i++) {
             
-            let values: Bees = new HoneyBee(140, 275);
+            let values: HoneyBee = new HoneyBee(140, 275);
             
             alleBienen.push(values);
             

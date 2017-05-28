@@ -15,7 +15,7 @@ var Aufgabe8_Inheritance;
         console.log("crc2");
         var landscape = new Aufgabe8_Inheritance.LandscapeTest();
         //RANDOMFLOWERS RIGHT
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 10; i++) {
             var placedFlowers = new Aufgabe8_Inheritance.Flower1;
             Aufgabe8_Inheritance.fixedFlowers.push(placedFlowers);
             placedFlowers = Aufgabe8_Inheritance.fixedFlowers[i];
@@ -25,14 +25,7 @@ var Aufgabe8_Inheritance;
         }
         //getImgData erst, wenn alles gezeichnet ist        
         imgData = Aufgabe8_Inheritance.crc2.getImageData(0, 0, Aufgabe8_Inheritance.canvas.width, Aufgabe8_Inheritance.canvas.height);
-        // Honigbienen
-        //        for (let i: number = 0; i < n; i++) {
-        //            
-        //            let values: HoneyBee = new HoneyBee(140, 275);
-        //            
-        //            alleBienen.push(values);
-        //            
-        //        }      
+        //HONEYBEES
         for (var i = 0; i < n; i++) {
             var values = new Aufgabe8_Inheritance.HoneyBee(140, 275);
             Aufgabe8_Inheritance.alleBienen.push(values);
