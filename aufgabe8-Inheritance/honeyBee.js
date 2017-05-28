@@ -36,9 +36,12 @@ var Aufgabe8_Inheritance;
         };
         HoneyBee.prototype.drawBee = function () {
             Aufgabe8_Inheritance.crc2.beginPath();
-            Aufgabe8_Inheritance.crc2.fillStyle = this.color;
+            //            crc2.fillStyle = this.color;
             Aufgabe8_Inheritance.crc2.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+            Aufgabe8_Inheritance.crc2.fillStyle = "#000000";
+            Aufgabe8_Inheritance.crc2.fill();
             Aufgabe8_Inheritance.crc2.arc(this.x, this.y - 5, this.size - 2, 0, 2 * Math.PI);
+            Aufgabe8_Inheritance.crc2.fillStyle = "#FFD700";
             Aufgabe8_Inheritance.crc2.arc(this.x, this.y + 5, this.size - 2, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.closePath();
             Aufgabe8_Inheritance.crc2.fill();

@@ -47,9 +47,13 @@ namespace Aufgabe8_Inheritance {
         }
         drawBee(): void {
             crc2.beginPath();
-            crc2.fillStyle = this.color;
+//            crc2.fillStyle = this.color;
             crc2.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+            crc2.fillStyle = "#000000";
+            crc2.fill();
             crc2.arc(this.x, this.y - 5, this.size - 2, 0, 2 * Math.PI);
+            crc2.fillStyle = "#FFD700";
+            
             crc2.arc(this.x, this.y + 5, this.size - 2, 0, 2 * Math.PI);
             crc2.closePath();
             crc2.fill();

@@ -1,5 +1,5 @@
 namespace Aufgabe8_Inheritance {
-        export class Bees {
+        export class Bees extends SuperBees {
 
         x: number; 
         y: number;
@@ -7,6 +7,7 @@ namespace Aufgabe8_Inheritance {
         color: string;
             
         constructor(_x: number, _y: number) {
+            super(_x, _y);
             this.x = _x;
             this.y = _y;
             

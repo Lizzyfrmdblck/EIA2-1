@@ -40,15 +40,24 @@ namespace Aufgabe8_Inheritance {
         //getImgData erst, wenn alles gezeichnet ist        
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);        
         
-        // Startpunkt für Bienen
+        // Honigbienen
+//        for (let i: number = 0; i < n; i++) {
+//            
+//            let values: HoneyBee = new HoneyBee(140, 275);
+//            
+//            alleBienen.push(values);
+//            
+//        }      
+
         for (let i: number = 0; i < n; i++) {
             
-            let values: HoneyBee = new HoneyBee(140, 275);
+            let values: Bees = new HoneyBee(140, 275);
             
             alleBienen.push(values);
             
         }      
-        
+
+            
         window.setTimeout(animate, 20);
        
         //addBeeOnClick
@@ -76,14 +85,16 @@ namespace Aufgabe8_Inheritance {
 
         let colors: string [] = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
         let randomColor: string = colors[Math.floor(Math.random() * colors.length)];
-            if (n < 99) {
+            
+        
+        if (n < 99) {
                 n++;
-                alleBienen.push(new SuperBees(140, 275));
+                alleBienen.push(new Bees(140, 275));
             }
             
             else {
                n -= 10;
-               alleBienen.push(new SuperBees(140, 275));
+               alleBienen.push(new Bees(140, 275));
             }              
         console.log(n);
     } 

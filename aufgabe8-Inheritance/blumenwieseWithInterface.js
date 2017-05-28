@@ -25,7 +25,14 @@ var Aufgabe8_Inheritance;
         }
         //getImgData erst, wenn alles gezeichnet ist        
         imgData = Aufgabe8_Inheritance.crc2.getImageData(0, 0, Aufgabe8_Inheritance.canvas.width, Aufgabe8_Inheritance.canvas.height);
-        // Startpunkt f�r Bienen
+        // Honigbienen
+        //        for (let i: number = 0; i < n; i++) {
+        //            
+        //            let values: HoneyBee = new HoneyBee(140, 275);
+        //            
+        //            alleBienen.push(values);
+        //            
+        //        }      
         for (var i = 0; i < n; i++) {
             var values = new Aufgabe8_Inheritance.HoneyBee(140, 275);
             Aufgabe8_Inheritance.alleBienen.push(values);
@@ -50,11 +57,11 @@ var Aufgabe8_Inheritance;
         var randomColor = colors[Math.floor(Math.random() * colors.length)];
         if (n < 99) {
             n++;
-            Aufgabe8_Inheritance.alleBienen.push(new Aufgabe8_Inheritance.SuperBees(140, 275));
+            Aufgabe8_Inheritance.alleBienen.push(new Aufgabe8_Inheritance.Bees(140, 275));
         }
         else {
             n -= 10;
-            Aufgabe8_Inheritance.alleBienen.push(new Aufgabe8_Inheritance.SuperBees(140, 275));
+            Aufgabe8_Inheritance.alleBienen.push(new Aufgabe8_Inheritance.Bees(140, 275));
         }
         console.log(n);
     }

@@ -1,7 +1,14 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Aufgabe8_Inheritance;
 (function (Aufgabe8_Inheritance) {
-    var Bees = (function () {
+    var Bees = (function (_super) {
+        __extends(Bees, _super);
         function Bees(_x, _y) {
+            _super.call(this, _x, _y);
             this.x = _x;
             this.y = _y;
         }
@@ -20,7 +27,7 @@ var Aufgabe8_Inheritance;
             this.y += Math.random() * 6 - 3;
         };
         return Bees;
-    }());
+    }(Aufgabe8_Inheritance.SuperBees));
     Aufgabe8_Inheritance.Bees = Bees;
 })(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
 //# sourceMappingURL=bees.js.map
