@@ -1,19 +1,14 @@
-/*
-Aufgabe: (Nummer und Titel der Aufgabe)
-Name: (Ihr Name)
-Matrikel: (Ihre Matrikelnummer)
-Datum: (Datum der letzten Bearbeitung)
-    
-Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-*/
-document.addEventListener('DOMContentLoaded', function () {
-    var typename;
-    typename = prompt("Bitte geben Sie ihren Namen ein :) ");
-    if (typename != null) {
-        document.getElementsByTagName("div")[0].innerHTML = "Halli Hallo" + " " + typename;
+var IceDealer;
+(function (IceDealer) {
+    //    let fieldset: <HTMLFieldsetElement> = document.getElementsByTagName("fieldset");
+    var flavors = ["Zitrone", "Erbeere", "Pistazie"];
+    window.addEventListener("load", init);
+    function init() {
+        createFlavors();
     }
-    //    if (typename = null) {
-    //        document.getElementsByTagName("div")[0].innerHTML = "Wer bist du? :o";    
-    //    }
-});
+    function createFlavors() {
+        for (var i = 0; i > flavors.length; i++) {
+        }
+    }
+})(IceDealer || (IceDealer = {}));
 //# sourceMappingURL=A9.js.map

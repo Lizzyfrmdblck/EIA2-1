@@ -1,22 +1,21 @@
-/*  
-Aufgabe: (Nummer und Titel der Aufgabe)
-Name: (Ihr Name)
-Matrikel: (Ihre Matrikelnummer)
-Datum: (Datum der letzten Bearbeitung)
+namespace IceDealer {
+    let fieldset: HTMLFieldSetElement;
+    let flavors: string[] = ["Zitrone", "Erbeere", "Pistazie"];
     
-Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-*/
-document.addEventListener('DOMContentLoaded', function(){
-
-    var typename: string;
+    window.addEventListener("load", init);
     
-    typename = prompt("Bitte geben Sie ihren Namen ein :) ");
-    
-    if (typename != null) {
-        document.getElementsByTagName("div")[0].innerHTML = "Halli Hallo" + " " + typename;    
+    function init():  void {
+        createFlavors();
     }
     
-//    if (typename = null) {
-//        document.getElementsByTagName("div")[0].innerHTML = "Wer bist du? :o";    
-//    }
-});
+    function createFlavors(): void {
+        
+        for(let i: number = 0; i > flavors.length; i++) {
+                createInput(flavors[i]);
+        }
+        
+    function createInput(): void {
+                    
+        }
+    }
+}
