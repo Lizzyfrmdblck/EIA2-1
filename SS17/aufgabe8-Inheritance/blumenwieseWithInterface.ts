@@ -26,7 +26,7 @@ namespace Aufgabe8_Inheritance {
                  
         //RANDOMFLOWERS RIGHT
         for (let i: number = 0; i < 10; i++) {
-            let placedFlowers: SuperFlowers = new Flower1;
+            let placedFlowers: SuperFlowers = new Flower1();
             
             fixedFlowers.push(placedFlowers);
             placedFlowers = fixedFlowers[i];

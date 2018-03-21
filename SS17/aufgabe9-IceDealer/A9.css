@@ -6,3 +6,9 @@ input{
 	display:inline;
 	margin-top:1em;
 }
+#flavors{
+	display:block;
+}
+body{
+	font-weight:bold;
+}

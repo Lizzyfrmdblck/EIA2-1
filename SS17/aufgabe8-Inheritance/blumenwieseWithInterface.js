@@ -16,7 +16,7 @@ var Aufgabe8_Inheritance;
         var landscape = new Aufgabe8_Inheritance.LandscapeTest();
         //RANDOMFLOWERS RIGHT
         for (var i = 0; i < 10; i++) {
-            var placedFlowers = new Aufgabe8_Inheritance.Flower1;
+            var placedFlowers = new Aufgabe8_Inheritance.Flower1();
             Aufgabe8_Inheritance.fixedFlowers.push(placedFlowers);
             placedFlowers = Aufgabe8_Inheritance.fixedFlowers[i];
         }

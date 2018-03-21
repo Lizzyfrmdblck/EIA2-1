@@ -1,0 +1,74 @@
+<!--  
+Aufgabe: (Nummer und Titel der Aufgabe)
+Name: (Ihr Name)
+Matrikel: (Ihre Matrikelnummer)
+Datum: (Datum der letzten Bearbeitung)
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+-->
+
+<!DOCTYPE html> 
+<html>
+
+<head>
+<title>Aufgabe0</title>
+<script src="A9.js"></script>
+<link rel="stylesheet" href="A9.css">
+</head>
+
+<body>
+
+<div style=width:300px>
+	<p>Your Choices</p>
+	<fieldset>
+		<legend>Container</legend>
+			<input type="radio" id="waffle" name="containers" value="Waffel"> <label for="waffle"> Waffel </label><br>	
+			<input type="radio" id="becher" name="containers" value="Becher"> <label for="becher"> Becher </label><br>		
+	</fieldset>
+	
+	<fieldset>
+		<legend>Flavors</legend>
+	</fieldset>
+	
+	<fieldset>
+		<legend>Extras</legend>
+			<label><input type="checkbox" name="extra" value="Streusel">Streusel</label>
+			<label><input type="checkbox" name="extra" value="Glasur">Glasur</label>
+			<label><input type="checkbox" name="extra" value="Krokant">Krokant</label>
+	</fieldset>
+	
+	<fieldset>
+		<legend>Shipping</legend>
+			<input type="radio" id="standard" name="shipping" value="Standard"> <label for="standard"> Standard </label><br>	
+			<input type="radio" id="express" name="shipping" value="Express"> <label for="express"> Express </label><br>		
+	</fieldset>
+	
+	<fieldset style="text-align:center">
+	    <legend style="padding:20px;text-align:center">Ihre Daten</legend>
+	    <label>
+	        <input type="text" placeholder="Vorname" />
+	    </label>
+	    <label>
+	        <input type="text" placeholder="Name" />
+	    </label>
+	   	<label>
+	     	<input type="text" name="Street" placeholder="Strasse & Hausnummer" />  
+		</label>
+		<label>
+			<input type="text" name="PLZ" placeholder="PLZ" />
+		</label>
+		<label>
+			<input type="email" name="Email" placeholder="E-Mail" />
+		</label>	
+	</fieldset>
+	<fieldset>
+	<legend>Warenkorb</legend>
+	<p>Ihre Auswahl:</p>
+	<p>Preis:</p>
+	</fieldset>
+	<button>Bestellung abschicken</button>
+</div>
+
+
+
+</body></html>
