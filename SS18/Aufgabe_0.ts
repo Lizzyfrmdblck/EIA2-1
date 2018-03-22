@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", function(): void {
     popUp = prompt ("Bitte gib Deinen Namen hier ein:");
     
     if (popUp != null) {
-        document.getElementsByTagName("div")[0].innerHTML = "Herzlich Willkommen " + popUp;
+        document.getElementsByTagName("div")[0].innerHTML = "Herzlich Willkommen " + popUp + " :) ";
         } 
-    
+/*    
     else {popUp = prompt ("Versuch es doch einfach nochmal..");
         }
-    
+*/    
 });
