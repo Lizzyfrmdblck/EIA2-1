@@ -9,7 +9,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 document.addEventListener("DOMContentLoaded", function(): void {
     
-    var popUp: string; 
+    let popUp: string; 
     
     popUp = prompt ("Bitte gib Deinen Namen hier ein:");
     
