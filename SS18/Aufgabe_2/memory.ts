@@ -1,22 +1,27 @@
 namespace Aufgabe_2 {
     window.addEventListener("load", init);
      
-    
-    let askPlayers: string = prompt ("Wie viele Spieler?");
-    let numPlayers: number = parseInt(askPlayers); 
 
+    let askPairs: string;
+    
+    let numPairs: number = parseInt(askPairs);
+    
+    do  {
+    askPairs = prompt ("Wie viele Paare?");
+    
+    } while ( numPairs < 1 || numPairs > 20); 
+
+   
+  /*  let askPlayers: string = prompt ("Wie viele Spieler?");
+    let numPlayers: number = parseInt(askPlayers); 
     
     if (numPlayers < 1 || numPlayers > 4) {
         {askPlayers}       
     } 
     
     console.log(askPlayers);
-    
-    let askPairs: string = prompt ("Wie viele Paare?");
-    let numPairs: number = parseInt(askPairs);
-    
-    while ( numPairs < 1 || numPairs > 20) 
-        {askPairs} 
+    */
+
     
     console.log(askPairs);
        
@@ -28,14 +33,14 @@ namespace Aufgabe_2 {
         function init(_event: Event): void {
 
         let div: HTMLDivElement = document.createElement("div");
-        div.innerText = "Test";
-        console.log(document);
-        document.body.appendChild(div);
-
-        let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
+        for (let i: number = 0; i < numPairs *2; i++) {            
+            document.body.appendChild(div);
+            div.innerText = "CardArray";
+        }
+       /* let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
         for (let i: number = 0; i < fieldsets.length; i++) {
             console.log(fieldsets[i]);
             console.log(fieldsets[i].textContent);
-        }
+        }*/
     }
 }
