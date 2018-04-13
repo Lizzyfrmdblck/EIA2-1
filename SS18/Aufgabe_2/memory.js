@@ -5,16 +5,15 @@ var Aufgabe_2;
     var numPairs = parseInt(askPairs);
     do {
         askPairs = prompt("Wie viele Paare?");
+        numPairs = parseInt(askPairs);
     } while (numPairs < 1 || numPairs > 20);
-    /*  let askPlayers: string = prompt ("Wie viele Spieler?");
-      let numPlayers: number = parseInt(askPlayers);
-      
-      if (numPlayers < 1 || numPlayers > 4) {
-          {askPlayers}
-      }
-      
-      console.log(askPlayers);
-      */
+    var askPlayers;
+    var numPlayers = parseInt(askPlayers);
+    do {
+        askPlayers = prompt("Wie viele Spieler?");
+        numPlayers = parseInt(askPlayers);
+    } while (numPlayers < 1 || numPlayers > 4);
+    console.log(askPlayers);
     console.log(askPairs);
     var n;
     var cardContent = ["A", "B", "C", "D"];
