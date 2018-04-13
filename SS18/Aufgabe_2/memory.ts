@@ -1,5 +1,5 @@
 namespace Aufgabe_2 {
-    window.addEventListener("load", init);
+    window.onload = function (): void {
      
     let n: number; 
     let cardContent: string[] = ["A", "B", "C", "D"];
@@ -15,13 +15,13 @@ namespace Aufgabe_2 {
     
     } while (numPairs < 1 || numPairs > 20); 
      
-    do  {
+/*    do  {
     askPairs = prompt ("Wie viele Paare?");
     numPairs = parseInt(askPairs);
     
     } while (isNaN(numPairs) || isNaN(numPairs));
 
-/* Gebe ich zuerst eine falsche Nummer oder einen String ein funktionieren beide Abfragen. 
+ Gebe ich zuerst eine falsche Nummer oder einen String ein funktionieren beide Abfragen. 
    Nach der String-Test kann ich aber auch Zahlen auﬂerhalb der Range eingeben und er springt weiter. 
    Ich bin mir ziemlich sicher, dass es daran liegt, dass die Abfragen in 2 versch. Schleifen stattfinden.
    Wenn ich beide Abfragen in eine Schleife gepackt habe, habe ich es aber nicht zum Laufen gebracht.*/
@@ -32,31 +32,48 @@ namespace Aufgabe_2 {
     askPlayers = prompt ("Wie viele Spieler?");
     numPlayers = parseInt(askPlayers);
     
-    } while (numPlayers < 1 || numPlayers > 20); 
+    } while (numPlayers < 1 || numPlayers > 4); 
      
-    do  {
+/*    do  {
     askPlayers = prompt ("Wie viele Spieler?");
     numPlayers = parseInt(askPlayers);
     
     } while (isNaN(numPlayers) || isNaN(numPlayers)); 
-    
-    
-    
+*/        
     console.log(askPlayers);
     console.log(askPairs);
-       
 
-        function init(_event: Event): void {
-        
-        let h: HTMLHeadingElement = document.createElement("h1");
-        h.innerText = "Dies ist eine generierte √úberschrift";
-        console.log(document);
-        document.body.appendChild(h);
+    createCard(cardContent, "#ff0000");
+    createPlayer(cardContent);
 
-        let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
-        for (let i: number = 0; i < fieldsets.length; i++) {
-            console.log(fieldsets[i]);
-            console.log(fieldsets[i].textContent);
+    
+
+
+    function createCard(_content: string[], _status: string): void {    
+    for (let i: number = 0; i < numPairs * 2; i++) {    
+    let card: HTMLDivElement = document.createElement("div");
+
+    /*card.innerText = "Test";*/
+    
+    document.getElementById("playground").appendChild(card);
         }
     }
+
+    function createPlayer(_player: string[]): void {
+    for (let i: number = 0; i < numPlayers; i++) {
+    let player: HTMLDivElement = document.createElement("div");
+    let playerCounter: number [] = [1, 2, 3, 4];
+
+    player.innerText = "Player" + playerCounter[i]; 
+    document.getElementById("player").appendChild(player);
+
+    }
 }
+
+  /*  let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
+    for (let i: number = 0; i < fieldsets.length; i++) {
+            console.log(fieldsets[i]);
+            console.log(fieldsets[i].textContent);
+        }*/
+    };
+}  
