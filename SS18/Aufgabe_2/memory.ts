@@ -3,11 +3,13 @@ namespace Aufgabe_2 {
      
     let n: number; 
     let cardContent: string[] = ["A", "B", "C", "D"];
+    let cardArray: string[];
     let askPairs: string;
     let numPairs: number = parseInt(askPairs);  
     let askPlayers: string; 
     let numPlayers: number = parseInt(askPlayers); 
-    
+    let card: HTMLDivElement = document.createElement("div");
+
 /*Asking how many Pairs + Check if it's in range + if it's a number*/
     do  {
     askPairs = prompt ("Wie viele Paare?");
@@ -21,7 +23,7 @@ namespace Aufgabe_2 {
     
     } while (isNaN(numPairs) || isNaN(numPairs));
 
- Gebe ich zuerst eine falsche Nummer oder einen String ein funktionieren beide Abfragen. 
+   Gebe ich zuerst eine falsche Nummer oder einen String ein funktionieren beide Abfragen. 
    Nach der String-Test kann ich aber auch Zahlen auﬂerhalb der Range eingeben und er springt weiter. 
    Ich bin mir ziemlich sicher, dass es daran liegt, dass die Abfragen in 2 versch. Schleifen stattfinden.
    Wenn ich beide Abfragen in eine Schleife gepackt habe, habe ich es aber nicht zum Laufen gebracht.*/
@@ -42,10 +44,29 @@ namespace Aufgabe_2 {
 */        
     console.log(askPlayers);
     console.log(askPairs);
-
+    
     createCard(cardContent, "#ff0000");
     createPlayer(cardContent);
+    createCards(numPairs);
+    
+    
+    console.log(cardArray);
+    console.log(cardContent);
+    
+    function createCards(_numPairs: number): void {
+    for ( let i: number = 0; i < numPairs; i++) {
+        cardArray.push(cardContent[i]);        
+        }
+    for (let i: number = 0; i < cardArray.length; i++) {
+        randomNumber;
+        }
+    }
 
+    function randomNumber(_min: number, _max: number): void {
+        _min = 0;
+        _max = cardArray.length;
+        Math.floor(Math.random() * (_max - _min + 1) + _min);
+    }
     
 
 
@@ -53,7 +74,7 @@ namespace Aufgabe_2 {
     for (let i: number = 0; i < numPairs * 2; i++) {    
     let card: HTMLDivElement = document.createElement("div");
 
-    /*card.innerText = "Test";*/
+   /*card.innerText = "Test";*/
     
     document.getElementById("playground").appendChild(card);
         }
