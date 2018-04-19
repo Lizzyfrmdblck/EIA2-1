@@ -1,14 +1,15 @@
 var Aufgabe_2;
 (function (Aufgabe_2) {
+    var n;
+    var cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
+    var cardArray = [];
+    var askPairs;
+    var numPairs = parseInt(askPairs);
+    var askPlayers;
+    var numPlayers = parseInt(askPlayers);
+    var card = document.createElement("div");
+    var cssClasses = ["open", "hidden", "taken"];
     window.onload = function () {
-        var n;
-        var cardContent = ["A", "B", "C", "D"];
-        var cardArray;
-        var askPairs;
-        var numPairs = parseInt(askPairs);
-        var askPlayers;
-        var numPlayers = parseInt(askPlayers);
-        var card = document.createElement("div");
         /*Asking how many Pairs + Check if it's in range + if it's a number*/
         do {
             askPairs = prompt("Wie viele Paare?");
@@ -19,6 +20,7 @@ var Aufgabe_2;
             numPairs = parseInt(askPairs);
             
             } while (isNaN(numPairs) || isNaN(numPairs));
+        
            Gebe ich zuerst eine falsche Nummer oder einen String ein funktionieren beide Abfragen.
            Nach der String-Test kann ich aber auch Zahlen au�erhalb der Range eingeben und er springt weiter.
            Ich bin mir ziemlich sicher, dass es daran liegt, dass die Abfragen in 2 versch. Schleifen stattfinden.
@@ -36,28 +38,40 @@ var Aufgabe_2;
         */
         console.log(askPlayers);
         console.log(askPairs);
-        createCard(cardContent, "#ff0000");
+        //createCard(cardContent, "#ff0000");
         createPlayer(cardContent);
-        createCards(numPairs);
+        createCards(numPairs, cardArray);
         console.log(cardArray);
         console.log(cardContent);
-        function createCards(_numPairs) {
-            for (var i = 0; i < numPairs; i++) {
+        function createCards(_numPairs, _cardArray) {
+            for (var i = 0; i < _numPairs; i++) {
                 cardArray.push(cardContent[i]);
             }
             for (var i = 0; i < cardArray.length; i++) {
-                randomNumber;
+                var randomContent = Math.floor(Math.random() * (cardArray.length - 0) + 0);
+                var randomStatus = Math.floor(Math.random() * (cssClasses.length - 0) + 0);
+                var status_1 = cssClasses[randomStatus];
+                createCard(cardArray, randomContent, status_1);
+                cardArray.splice(randomContent, 1);
             }
         }
-        function randomNumber(_min, _max) {
-            _min = 0;
-            _max = cardArray.length;
-            Math.floor(Math.random() * (_max - _min + 1) + _min);
-        }
-        function createCard(_content, _status) {
-            for (var i = 0; i < numPairs * 2; i++) {
+        /*        function randomContent(_min: number, _max: number): void {
+                _min = 0;
+                _max = cardArray.length;
+                Math.floor(Math.random() * (_max - _min + 1) + _min);
+            }
+            
+                function randomStatus(_min: number, _max: number): void {
+                _min = 0;
+                _max = cssClasses.length;
+                Math.floor(Math.random() * (_max - _min + 1) + _min);
+            }
+        */
+        function createCard(_content, _randomContent, _status) {
+            for (var i = 0; i < numPairs; i++) {
                 var card_1 = document.createElement("div");
-                /*card.innerText = "Test";*/
+                card_1.innerText = _content[_randomContent];
+                card_1.className = _status;
                 document.getElementById("playground").appendChild(card_1);
             }
         }
