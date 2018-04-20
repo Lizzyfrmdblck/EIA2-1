@@ -8,9 +8,14 @@ namespace Aufgabe_2 {
     let askPlayers: string; 
     let numPlayers: number = parseInt(askPlayers); 
     let card: HTMLDivElement = document.createElement("div");
-    let cssClasses: string [] = ["open", "hidden", "taken" ];
+    let cssClassHidden: string [] = ["hidden"];
+    let cssClassOpen: string [] = ["open"];
+    let cssClassOpenString: string = "open";
+    let openCards: string [] = [];
     
     window.onload = function (): void {
+        
+        
      
 
 /*Asking how many Pairs + Check if it's in range + if it's a number*/
@@ -54,10 +59,19 @@ namespace Aufgabe_2 {
 
     
     
-    console.log(cardArray);
+
     console.log(cardContent);
 
-          
+    function createPlayer(_player: string[]): void {
+    for (let i: number = 0; i < numPlayers; i++) {
+    let player: HTMLDivElement = document.createElement("div");
+    let playerCounter: number [] = [1, 2, 3, 4];
+
+    player.innerText = "Player" + playerCounter[i]; 
+    document.getElementById("player").appendChild(player);
+
+    }
+}              
     
     function createCards(_numPairs: number, _cardArray: string []): void {
         
@@ -69,8 +83,8 @@ namespace Aufgabe_2 {
                
         let randomContent: number = Math.floor(Math.random() * (cardArray.length - 0) + 0); 
 
-        let randomStatus: number = Math.floor(Math.random() * (cssClasses.length - 0) + 0);
-        let status: string = cssClasses[randomStatus];
+ //       let randomStatus: number = Math.floor(Math.random() * (cssClassHidden.length - 0) + 0);
+        let status: string = cssClassHidden[0];
         
         createCard(cardArray, randomContent, status);
         
@@ -79,7 +93,8 @@ namespace Aufgabe_2 {
         }
         
     }
-        
+    
+    
 /*        function randomContent(_min: number, _max: number): void {
         _min = 0;
         _max = cardArray.length;
@@ -105,24 +120,51 @@ namespace Aufgabe_2 {
     card.className = _status;
     
     document.getElementById("playground").appendChild(card);
+  //  card.addEventListener("click", clickHandler);
+    card.addEventListener("click", function (): void {
+        card.className = cssClassOpenString;
+        openCards.push(_status);
+        cardArray.push(_content[i]);
+        
+        console.log(cardArray[i]);
+        console.log(openCards);
+        
+        if (openCards.length > 1) {
+        prompt("setTimeout");        
         }
+      });  
+    }
+        
+    function clickHandler(_event: MouseEvent): void {
+        logEvent(_event);
+        card.className = cssClassOpen [0];
+    }
+        
+        
+    function logEvent(_event: Event): void {
+        if (_event == undefined) {
+            console.log("No event object passed");
+            return;
+        }
+        console.group("EventInfo");
+        let info: string = "Type: " + _event.type;
+        info += " | target: " + _event.target;
+        info += " | currentTarget: " + _event.currentTarget;
+        info += " | phase: " + _event.eventPhase;
+
+        console.log(info);
+        console.log(_event);
+        console.groupEnd();
     }
 
-    function createPlayer(_player: string[]): void {
-    for (let i: number = 0; i < numPlayers; i++) {
-    let player: HTMLDivElement = document.createElement("div");
-    let playerCounter: number [] = [1, 2, 3, 4];
 
-    player.innerText = "Player" + playerCounter[i]; 
-    document.getElementById("player").appendChild(player);
-
-    }
-}
 
   /*  let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
     for (let i: number = 0; i < fieldsets.length; i++) {
             console.log(fieldsets[i]);
             console.log(fieldsets[i].textContent);
         }*/
-    };
-}  
+    
+        }
+    }; 
+}

@@ -8,7 +8,10 @@ var Aufgabe_2;
     var askPlayers;
     var numPlayers = parseInt(askPlayers);
     var card = document.createElement("div");
-    var cssClasses = ["open", "hidden", "taken"];
+    var cssClassHidden = ["hidden"];
+    var cssClassOpen = ["open"];
+    var cssClassOpenString = "open";
+    var openCards = [];
     window.onload = function () {
         /*Asking how many Pairs + Check if it's in range + if it's a number*/
         do {
@@ -41,16 +44,23 @@ var Aufgabe_2;
         //createCard(cardContent, "#ff0000");
         createPlayer(cardContent);
         createCards(numPairs, cardArray);
-        console.log(cardArray);
         console.log(cardContent);
+        function createPlayer(_player) {
+            for (var i = 0; i < numPlayers; i++) {
+                var player = document.createElement("div");
+                var playerCounter = [1, 2, 3, 4];
+                player.innerText = "Player" + playerCounter[i];
+                document.getElementById("player").appendChild(player);
+            }
+        }
         function createCards(_numPairs, _cardArray) {
             for (var i = 0; i < _numPairs; i++) {
                 cardArray.push(cardContent[i]);
             }
             for (var i = 0; i < cardArray.length; i++) {
                 var randomContent = Math.floor(Math.random() * (cardArray.length - 0) + 0);
-                var randomStatus = Math.floor(Math.random() * (cssClasses.length - 0) + 0);
-                var status_1 = cssClasses[randomStatus];
+                //       let randomStatus: number = Math.floor(Math.random() * (cssClassHidden.length - 0) + 0);
+                var status_1 = cssClassHidden[0];
                 createCard(cardArray, randomContent, status_1);
                 cardArray.splice(randomContent, 1);
             }
@@ -68,26 +78,50 @@ var Aufgabe_2;
             }
         */
         function createCard(_content, _randomContent, _status) {
-            for (var i = 0; i < numPairs; i++) {
+            var _loop_1 = function(i) {
                 var card_1 = document.createElement("div");
                 card_1.innerText = _content[_randomContent];
                 card_1.className = _status;
                 document.getElementById("playground").appendChild(card_1);
+                //  card.addEventListener("click", clickHandler);
+                card_1.addEventListener("click", function () {
+                    card_1.className = cssClassOpenString;
+                    openCards.push(_status);
+                    cardArray.push(_content[i]);
+                    console.log(cardArray[i]);
+                    console.log(openCards);
+                    if (openCards.length > 1) {
+                        prompt("setTimeout");
+                    }
+                });
+            };
+            for (var i = 0; i < numPairs; i++) {
+                _loop_1(i);
             }
-        }
-        function createPlayer(_player) {
-            for (var i = 0; i < numPlayers; i++) {
-                var player = document.createElement("div");
-                var playerCounter = [1, 2, 3, 4];
-                player.innerText = "Player" + playerCounter[i];
-                document.getElementById("player").appendChild(player);
+            function clickHandler(_event) {
+                logEvent(_event);
+                card.className = cssClassOpen[0];
             }
+            function logEvent(_event) {
+                if (_event == undefined) {
+                    console.log("No event object passed");
+                    return;
+                }
+                console.group("EventInfo");
+                var info = "Type: " + _event.type;
+                info += " | target: " + _event.target;
+                info += " | currentTarget: " + _event.currentTarget;
+                info += " | phase: " + _event.eventPhase;
+                console.log(info);
+                console.log(_event);
+                console.groupEnd();
+            }
+            /*  let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
+              for (let i: number = 0; i < fieldsets.length; i++) {
+                      console.log(fieldsets[i]);
+                      console.log(fieldsets[i].textContent);
+                  }*/
         }
-        /*  let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
-          for (let i: number = 0; i < fieldsets.length; i++) {
-                  console.log(fieldsets[i]);
-                  console.log(fieldsets[i].textContent);
-              }*/
     };
 })(Aufgabe_2 || (Aufgabe_2 = {}));
-//# sourceMappingURL=memory.js.map
+//# sourceMappingURL=memory2.js.map

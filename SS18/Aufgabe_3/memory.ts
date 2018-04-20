@@ -9,6 +9,7 @@ namespace Aufgabe_2 {
     let askPlayers: string; 
     let numPlayers: number = parseInt(askPlayers); 
     let card: HTMLDivElement = document.createElement("div");
+    let cssClass: string [] = ["hidden"];
 
 /*Asking how many Pairs + Check if it's in range + if it's a number*/
     do  {
@@ -44,7 +45,7 @@ namespace Aufgabe_2 {
     console.log(askPlayers);
     console.log(askPairs);
     
-    createCard(cardContent, "#ff0000");
+    createCard(cardContent, cssClass);
     createPlayer(cardContent);
     createCards(numPairs);
     
@@ -69,7 +70,7 @@ namespace Aufgabe_2 {
     
 
 
-    function createCard(_content: string[], _status: string): void {    
+    function createCard(_content: string[], _status: string[]): void {    
     for (let i: number = 0; i < numPairs * 2; i++) {    
     let card: HTMLDivElement = document.createElement("div");
 

@@ -9,6 +9,7 @@ var Aufgabe_2;
         var askPlayers;
         var numPlayers = parseInt(askPlayers);
         var card = document.createElement("div");
+        var cssClass = ["hidden"];
         /*Asking how many Pairs + Check if it's in range + if it's a number*/
         do {
             askPairs = prompt("Wie viele Paare?");
@@ -36,7 +37,7 @@ var Aufgabe_2;
         */
         console.log(askPlayers);
         console.log(askPairs);
-        createCard(cardContent, "#ff0000");
+        createCard(cardContent, cssClass);
         createPlayer(cardContent);
         createCards(numPairs);
         console.log(cardArray);
