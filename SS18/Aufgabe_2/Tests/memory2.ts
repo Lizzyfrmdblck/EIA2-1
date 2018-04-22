@@ -55,7 +55,7 @@ namespace Aufgabe_2 {
     
     //createCard(cardContent, "#ff0000");
     createPlayer();
-    createCards(numPairs, cardArray);
+    createCards(numPairs, cardArray, cardContent);
     
 
     
@@ -72,7 +72,7 @@ namespace Aufgabe_2 {
     }
 }              
     
-    function createCards(_numPairs: number, _cardArray: string []): void {
+    function createCards(_numPairs: number, _cardArray: string [], _content: string []): void {
         
     for ( let i: number = 0; i < _numPairs * 2; i++) {
 
@@ -80,30 +80,32 @@ namespace Aufgabe_2 {
         document.getElementById("playground").appendChild(card);
         
         card.addEventListener("click", clickHandler);
+        
         card.className = "hidden";
         
         let randomContent: number = Math.floor(Math.random() * (cardArray.length - 0) + 0);
+        
+        
+        
         card.innerText = cardContent[randomContent]; 
-        cardArray.splice(randomContent, 1);
-        cardArray.push(cardContent[i]);        
+        
+        cardArray.push(cardContent[randomContent]);  
+        
+        cardArray.splice(randomContent, 1);      
         }
         
-    for (let i: number = 0; i < cardArray.length; i++) {
+   // for (let i: number = 0; i < cardArray.length; i++) {
                
         
 
  //       let randomStatus: number = Math.floor(Math.random() * (cssClassHidden.length - 0) + 0);
-        let status: string = cssClassHidden[0];
+     //   let status: string = cssClassHidden[0];
         
      //   createCard(cardArray, randomContent, status);
+         
         
         
-        
-        
-        
-        
-        
-        }
+//        }
         
     }
     
@@ -156,7 +158,7 @@ namespace Aufgabe_2 {
         console.log("Open Cards" + openCards);
         
         if (openCards.length > 1) {
-        prompt("setTimeout");        
+        prompt("setTimeout + CompareCardsFunction");        
         }
         logEvent(_event);
         

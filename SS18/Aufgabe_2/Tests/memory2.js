@@ -43,7 +43,7 @@ var Aufgabe_2;
         console.log(askPairs);
         //createCard(cardContent, "#ff0000");
         createPlayer();
-        createCards(numPairs, cardArray);
+        createCards(numPairs, cardArray, cardContent);
         console.log(cardContent);
         function createPlayer() {
             for (var i = 0; i < numPlayers; i++) {
@@ -53,7 +53,7 @@ var Aufgabe_2;
                 document.getElementById("player").appendChild(player);
             }
         }
-        function createCards(_numPairs, _cardArray) {
+        function createCards(_numPairs, _cardArray, _content) {
             for (var i = 0; i < _numPairs * 2; i++) {
                 var card_1 = document.createElement("div");
                 document.getElementById("playground").appendChild(card_1);
@@ -61,13 +61,14 @@ var Aufgabe_2;
                 card_1.className = "hidden";
                 var randomContent = Math.floor(Math.random() * (cardArray.length - 0) + 0);
                 card_1.innerText = cardContent[randomContent];
+                cardArray.push(cardContent[randomContent]);
                 cardArray.splice(randomContent, 1);
-                cardArray.push(cardContent[i]);
             }
-            for (var i = 0; i < cardArray.length; i++) {
-                //       let randomStatus: number = Math.floor(Math.random() * (cssClassHidden.length - 0) + 0);
-                var status_1 = cssClassHidden[0];
-            }
+            // for (let i: number = 0; i < cardArray.length; i++) {
+            //       let randomStatus: number = Math.floor(Math.random() * (cssClassHidden.length - 0) + 0);
+            //   let status: string = cssClassHidden[0];
+            //   createCard(cardArray, randomContent, status);
+            //        }
         }
         /*        function randomContent(_min: number, _max: number): void {
                 _min = 0;
@@ -107,7 +108,7 @@ var Aufgabe_2;
             console.log(cardArray);
             console.log("Open Cards" + openCards);
             if (openCards.length > 1) {
-                prompt("setTimeout");
+                prompt("setTimeout + CompareCardsFunction");
             }
             logEvent(_event);
             //        logEvent(_event);
