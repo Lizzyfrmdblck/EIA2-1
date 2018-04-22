@@ -42,10 +42,10 @@ var Aufgabe_2;
         console.log(askPlayers);
         console.log(askPairs);
         //createCard(cardContent, "#ff0000");
-        createPlayer(cardContent);
+        createPlayer();
         createCards(numPairs, cardArray);
         console.log(cardContent);
-        function createPlayer(_player) {
+        function createPlayer() {
             for (var i = 0; i < numPlayers; i++) {
                 var player = document.createElement("div");
                 var playerCounter = [1, 2, 3, 4];
@@ -54,15 +54,19 @@ var Aufgabe_2;
             }
         }
         function createCards(_numPairs, _cardArray) {
-            for (var i = 0; i < _numPairs; i++) {
+            for (var i = 0; i < _numPairs * 2; i++) {
+                var card_1 = document.createElement("div");
+                document.getElementById("playground").appendChild(card_1);
+                card_1.addEventListener("click", clickHandler);
+                card_1.className = "hidden";
+                var randomContent = Math.floor(Math.random() * (cardArray.length - 0) + 0);
+                card_1.innerText = cardContent[randomContent];
+                cardArray.splice(randomContent, 1);
                 cardArray.push(cardContent[i]);
             }
             for (var i = 0; i < cardArray.length; i++) {
-                var randomContent = Math.floor(Math.random() * (cardArray.length - 0) + 0);
                 //       let randomStatus: number = Math.floor(Math.random() * (cssClassHidden.length - 0) + 0);
                 var status_1 = cssClassHidden[0];
-                createCard(cardArray, randomContent, status_1);
-                cardArray.splice(randomContent, 1);
             }
         }
         /*        function randomContent(_min: number, _max: number): void {
@@ -77,51 +81,57 @@ var Aufgabe_2;
                 Math.floor(Math.random() * (_max - _min + 1) + _min);
             }
         */
-        function createCard(_content, _randomContent, _status) {
-            var _loop_1 = function(i) {
-                var card_1 = document.createElement("div");
-                card_1.innerText = _content[_randomContent];
-                card_1.className = _status;
-                document.getElementById("playground").appendChild(card_1);
-                //  card.addEventListener("click", clickHandler);
-                card_1.addEventListener("click", function () {
-                    card_1.className = cssClassOpenString;
-                    openCards.push(_status);
-                    cardArray.push(_content[i]);
-                    console.log(cardArray[i]);
-                    console.log(openCards);
-                    if (openCards.length > 1) {
-                        prompt("setTimeout");
-                    }
-                });
-            };
-            for (var i = 0; i < numPairs; i++) {
-                _loop_1(i);
+        /*
+            function createCard(_content: string[], _randomContent: number, _status: string): void {
+            for (let i: number = 0; i < numPairs; i++) {
+            let card: HTMLDivElement = document.createElement("div");
+                
+                
+            card.innerText = _content[_randomContent];
+                
+            card.className = _status;
+            
+            document.getElementById("playground").appendChild(card);
+            
+            card.addEventListener("click", clickHandler);
             }
-            function clickHandler(_event) {
-                logEvent(_event);
-                card.className = cssClassOpen[0];
+        }  */
+        function clickHandler(_event) {
+            var info = _event.target;
+            if (info.classList.contains("hidden")) {
+                info.classList.add("open");
+                openCards.push(info.innerText);
             }
-            function logEvent(_event) {
-                if (_event == undefined) {
-                    console.log("No event object passed");
-                    return;
-                }
-                console.group("EventInfo");
-                var info = "Type: " + _event.type;
-                info += " | target: " + _event.target;
-                info += " | currentTarget: " + _event.currentTarget;
-                info += " | phase: " + _event.eventPhase;
-                console.log(info);
-                console.log(_event);
-                console.groupEnd();
+            // if (info.classList.contains("hidden")) {
+            cardArray.push();
+            console.log(cardArray);
+            console.log("Open Cards" + openCards);
+            if (openCards.length > 1) {
+                prompt("setTimeout");
             }
-            /*  let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
-              for (let i: number = 0; i < fieldsets.length; i++) {
-                      console.log(fieldsets[i]);
-                      console.log(fieldsets[i].textContent);
-                  }*/
+            logEvent(_event);
+            //        logEvent(_event);
+            //      card.className = cssClassOpen [0];
         }
+        function logEvent(_event) {
+            if (_event == undefined) {
+                console.log("No event object passed");
+                return;
+            }
+            console.group("EventInfo");
+            var info = "Type: " + _event.type;
+            info += " | target: " + _event.target;
+            info += " | currentTarget: " + _event.currentTarget;
+            info += " | phase: " + _event.eventPhase;
+            console.log(info);
+            console.log(_event);
+            console.groupEnd();
+        }
+        /*  let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
+          for (let i: number = 0; i < fieldsets.length; i++) {
+                  console.log(fieldsets[i]);
+                  console.log(fieldsets[i].textContent);
+              }*/
     };
 })(Aufgabe_2 || (Aufgabe_2 = {}));
 //# sourceMappingURL=memory2.js.map
