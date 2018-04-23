@@ -3,6 +3,7 @@ namespace Aufgabe_2 {
     let n: number; 
     let cardContent: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L" ];
     let cardArray: string[] = [];
+    let randomCardContent: string [] = [];
     let askPairs: string;
     let numPairs: number = parseInt(askPairs);  
     let askPlayers: string; 
@@ -11,7 +12,7 @@ namespace Aufgabe_2 {
     let cssClassHidden: string [] = ["hidden"];
     let cssClassOpen: string [] = ["open"];
     let cssClassOpenString: string = "open";
-    let openCards: string [] = [];
+    let openCards: HTMLElement [] = [];
     
     window.onload = function (): void {
         
@@ -23,7 +24,7 @@ namespace Aufgabe_2 {
     askPairs = prompt ("Wie viele Paare?");
     numPairs = parseInt(askPairs);
     
-    } while (numPairs < 1 || numPairs > 20); 
+    } while (numPairs < 1 || numPairs > 20 || isNaN(numPairs)); 
      
 /*    do  {
     askPairs = prompt ("Wie viele Paare?");
@@ -42,7 +43,7 @@ namespace Aufgabe_2 {
     askPlayers = prompt ("Wie viele Spieler?");
     numPlayers = parseInt(askPlayers);
     
-    } while (numPlayers < 1 || numPlayers > 4); 
+    } while (numPlayers < 1 || numPlayers > 4 || isNaN(numPlayers)); 
      
 /*    do  {
     askPlayers = prompt ("Wie viele Spieler?");
@@ -54,12 +55,10 @@ namespace Aufgabe_2 {
     console.log(askPairs);
     
     //createCard(cardContent, "#ff0000");
+    generateContent();
     createPlayer();
     createCards(numPairs, cardArray, cardContent);
     
-
-    
-    console.log(cardContent);
 
     function createPlayer(): void {
     for (let i: number = 0; i < numPlayers; i++) {
@@ -82,17 +81,59 @@ namespace Aufgabe_2 {
         card.addEventListener("click", clickHandler);
         
         card.className = "hidden";
+        let randomContent: number = Math.floor(Math.random() * (randomCardContent.length - 1) + 0);
+        card.innerText = randomCardContent[randomContent]; 
         
-        let randomContent: number = Math.floor(Math.random() * (cardArray.length - 0) + 0);
+        cardArray.push(randomCardContent[randomContent]);  
         
-        
-        
-        card.innerText = cardContent[randomContent]; 
-        
-        cardArray.push(cardContent[randomContent]);  
-        
-        cardArray.splice(randomContent, 1);      
+        randomCardContent.splice(randomContent, 1);      
         }
+        }
+        
+        function generateContent(): void {
+            for ( let i: number = 0; i < numPairs; i++) {
+            let randomContent: number = Math.floor(Math.random() * (cardContent.length - 1) + 0);
+            randomCardContent.push(cardContent[randomContent]);     
+            randomCardContent.push(cardContent[randomContent]); 
+            cardContent.splice(randomContent, 1);    
+            console.log(cardContent);
+            }    
+        }
+        
+        function compareCards(): void {
+            
+        //    let card1: HTMLElement = document.getElementsByClassName("open")[0];
+        if (openCards[0].innerHTML == openCards[1].innerHTML) {
+            setTimeout(timeWasteTrue, 2000);
+            
+        }   
+        else {
+            setTimeout(timeWasteFalse, 2000);
+        } 
+            
+        setTimeout(lastCheck, 2100);
+        }    
+        
+        function lastCheck(): void {
+        if (document.getElementById("playground").getElementsByTagName("div") == document.getElementsByClassName("taken")) {
+            alert("Glückwunsch!");    
+        }
+        }
+        
+        
+        
+        function timeWasteTrue(): void {
+            openCards[0].classList.add("taken");
+            openCards[1].classList.add("taken");
+            openCards.splice(0, 2);
+        }
+        function timeWasteFalse(): void {
+            openCards[0].classList.remove("open");      
+            openCards[1].classList.remove("open");
+            openCards.splice(0, 2);    
+            
+        }
+        
         
    // for (let i: number = 0; i < cardArray.length; i++) {
                
@@ -107,7 +148,7 @@ namespace Aufgabe_2 {
         
 //        }
         
-    }
+    
     
     
 /*        function randomContent(_min: number, _max: number): void {
@@ -144,7 +185,7 @@ namespace Aufgabe_2 {
         
         if (info.classList.contains("hidden")) {
                 info.classList.add("open");
-                openCards.push(info.innerText);
+                openCards.push(info);
             }
         
         
@@ -158,7 +199,7 @@ namespace Aufgabe_2 {
         console.log("Open Cards" + openCards);
         
         if (openCards.length > 1) {
-        prompt("setTimeout + CompareCardsFunction");        
+        compareCards();        
         }
         logEvent(_event);
         

@@ -3,6 +3,7 @@ var Aufgabe_2;
     var n;
     var cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
     var cardArray = [];
+    var randomCardContent = [];
     var askPairs;
     var numPairs = parseInt(askPairs);
     var askPlayers;
@@ -17,7 +18,7 @@ var Aufgabe_2;
         do {
             askPairs = prompt("Wie viele Paare?");
             numPairs = parseInt(askPairs);
-        } while (numPairs < 1 || numPairs > 20);
+        } while (numPairs < 1 || numPairs > 20 || isNaN(numPairs));
         /*    do  {
             askPairs = prompt ("Wie viele Paare?");
             numPairs = parseInt(askPairs);
@@ -32,7 +33,7 @@ var Aufgabe_2;
         do {
             askPlayers = prompt("Wie viele Spieler?");
             numPlayers = parseInt(askPlayers);
-        } while (numPlayers < 1 || numPlayers > 4);
+        } while (numPlayers < 1 || numPlayers > 4 || isNaN(numPlayers));
         /*    do  {
             askPlayers = prompt ("Wie viele Spieler?");
             numPlayers = parseInt(askPlayers);
@@ -42,9 +43,9 @@ var Aufgabe_2;
         console.log(askPlayers);
         console.log(askPairs);
         //createCard(cardContent, "#ff0000");
+        generateContent();
         createPlayer();
         createCards(numPairs, cardArray, cardContent);
-        console.log(cardContent);
         function createPlayer() {
             for (var i = 0; i < numPlayers; i++) {
                 var player = document.createElement("div");
@@ -59,17 +60,51 @@ var Aufgabe_2;
                 document.getElementById("playground").appendChild(card_1);
                 card_1.addEventListener("click", clickHandler);
                 card_1.className = "hidden";
-                var randomContent = Math.floor(Math.random() * (cardArray.length - 0) + 0);
-                card_1.innerText = cardContent[randomContent];
-                cardArray.push(cardContent[randomContent]);
-                cardArray.splice(randomContent, 1);
+                var randomContent = Math.floor(Math.random() * (randomCardContent.length - 1) + 0);
+                card_1.innerText = randomCardContent[randomContent];
+                cardArray.push(randomCardContent[randomContent]);
+                randomCardContent.splice(randomContent, 1);
             }
-            // for (let i: number = 0; i < cardArray.length; i++) {
-            //       let randomStatus: number = Math.floor(Math.random() * (cssClassHidden.length - 0) + 0);
-            //   let status: string = cssClassHidden[0];
-            //   createCard(cardArray, randomContent, status);
-            //        }
         }
+        function generateContent() {
+            for (var i = 0; i < numPairs; i++) {
+                var randomContent = Math.floor(Math.random() * (cardContent.length - 1) + 0);
+                randomCardContent.push(cardContent[randomContent]);
+                randomCardContent.push(cardContent[randomContent]);
+                cardContent.splice(randomContent, 1);
+                console.log(cardContent);
+            }
+        }
+        function compareCards() {
+            //    let card1: HTMLElement = document.getElementsByClassName("open")[0];
+            if (openCards[0].innerHTML == openCards[1].innerHTML) {
+                setTimeout(timeWasteTrue, 2000);
+            }
+            else {
+                setTimeout(timeWasteFalse, 2000);
+            }
+            setTimeout(lastCheck, 2100);
+        }
+        function lastCheck() {
+            if (document.getElementById("playground").getElementsByTagName("div") == document.getElementsByClassName("taken")) {
+                alert("Gl�ckwunsch!");
+            }
+        }
+        function timeWasteTrue() {
+            openCards[0].classList.add("taken");
+            openCards[1].classList.add("taken");
+            openCards.splice(0, 2);
+        }
+        function timeWasteFalse() {
+            openCards[0].classList.remove("open");
+            openCards[1].classList.remove("open");
+            openCards.splice(0, 2);
+        }
+        // for (let i: number = 0; i < cardArray.length; i++) {
+        //       let randomStatus: number = Math.floor(Math.random() * (cssClassHidden.length - 0) + 0);
+        //   let status: string = cssClassHidden[0];
+        //   createCard(cardArray, randomContent, status);
+        //        }
         /*        function randomContent(_min: number, _max: number): void {
                 _min = 0;
                 _max = cardArray.length;
@@ -101,14 +136,14 @@ var Aufgabe_2;
             var info = _event.target;
             if (info.classList.contains("hidden")) {
                 info.classList.add("open");
-                openCards.push(info.innerText);
+                openCards.push(info);
             }
             // if (info.classList.contains("hidden")) {
             cardArray.push();
             console.log(cardArray);
             console.log("Open Cards" + openCards);
             if (openCards.length > 1) {
-                prompt("setTimeout + CompareCardsFunction");
+                compareCards();
             }
             logEvent(_event);
             //        logEvent(_event);
