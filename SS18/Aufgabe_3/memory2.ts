@@ -125,7 +125,7 @@ namespace Aufgabe_2 {
         
 //        if (document.getElementsByClassName("hidden").length == 0) {
         if (document.getElementById("playground").getElementsByTagName("div").length == document.getElementsByClassName("taken").length) {
-        alert("Du hast gewonnen!");
+        alert("Du hast gebonnen!");
          
         }
     }
