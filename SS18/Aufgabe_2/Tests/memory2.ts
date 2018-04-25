@@ -1,6 +1,5 @@
 namespace Aufgabe_2 {
     
-    let n: number; 
     let cardContent: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L" ];
     let cardArray: string[] = [];
     let randomCardContent: string [] = [];
@@ -59,6 +58,7 @@ namespace Aufgabe_2 {
     createPlayer();
     createCards(numPairs, cardArray, cardContent);
     
+    
 
     function createPlayer(): void {
     for (let i: number = 0; i < numPlayers; i++) {
@@ -88,51 +88,66 @@ namespace Aufgabe_2 {
         
         randomCardContent.splice(randomContent, 1);      
         }
-        }
+    }
         
-        function generateContent(): void {
-            for ( let i: number = 0; i < numPairs; i++) {
-            let randomContent: number = Math.floor(Math.random() * (cardContent.length - 1) + 0);
-            randomCardContent.push(cardContent[randomContent]);     
-            randomCardContent.push(cardContent[randomContent]); 
-            cardContent.splice(randomContent, 1);    
-            console.log(cardContent);
-            }    
-        }
-        
-        function compareCards(): void {
-            
-        //    let card1: HTMLElement = document.getElementsByClassName("open")[0];
-        if (openCards[0].innerHTML == openCards[1].innerHTML) {
-            setTimeout(timeWasteTrue, 2000);
-            
-        }   
-        else {
-            setTimeout(timeWasteFalse, 2000);
-        } 
-            
-        setTimeout(lastCheck, 2100);
+    function generateContent(): void {
+    for ( let i: number = 0; i < numPairs; i++) {
+    let randomContent: number = Math.floor(Math.random() * (cardContent.length - 1) + 0);
+    randomCardContent.push(cardContent[randomContent]);     
+    randomCardContent.push(cardContent[randomContent]); 
+    cardContent.splice(randomContent, 1);    
+    console.log(cardContent);
         }    
+    }
         
-        function lastCheck(): void {
-        if (document.getElementById("playground").getElementsByTagName("div") == document.getElementsByClassName("taken")) {
-            alert("Glückwunsch!");    
-        }
-        }
+    function compareCards(): void {
         
+    //    let card1: HTMLElement = document.getElementsByClassName("open")[0];
+    
         
-        
-        function timeWasteTrue(): void {
-            openCards[0].classList.add("taken");
-            openCards[1].classList.add("taken");
-            openCards.splice(0, 2);
-        }
-        function timeWasteFalse(): void {
-            openCards[0].classList.remove("open");      
-            openCards[1].classList.remove("open");
-            openCards.splice(0, 2);    
+    if (openCards[0].children == openCards[1].children) {
+        openCards.splice(0, 1);
+// Verhalten bei Doppelklick gelöst
+    }
             
+    if (openCards[0].innerHTML == openCards[1].innerHTML) {
+        setTimeout(timeWasteTrue, 2000);
+        
+    }   
+    else {
+        setTimeout(timeWasteFalse, 2000);
+        
+    }
+    
+}
+    
+    function lastCheck(): void {
+        
+//        if (document.getElementsByClassName("hidden").length == 0) {
+        if (document.getElementById("playground").getElementsByTagName("div").length == document.getElementsByClassName("taken").length) {
+        alert("Du hast gewonnen!");
+         
         }
+    }
+     
+        
+    function timeWasteTrue(): void {
+        openCards[0].classList.add("taken");
+        openCards[1].classList.add("taken");
+    /*    openCards[0].classList.remove("open");
+        openCards[1].classList.remove("open");
+        openCards[0].classList.remove("hidden");
+        openCards[1].classList.remove("hidden");*/
+        openCards.splice(0, 2);
+        lastCheck();
+        
+    }
+    function timeWasteFalse(): void {
+        openCards[0].classList.remove("open");      
+        openCards[1].classList.remove("open");
+        openCards.splice(0, 2);    
+        
+    }
         
         
    // for (let i: number = 0; i < cardArray.length; i++) {
@@ -181,16 +196,14 @@ namespace Aufgabe_2 {
     }
 }  */      
     function clickHandler(_event: MouseEvent): void {
+        
         let info: HTMLDivElement = <HTMLDivElement>_event.target;
+        
         
         if (info.classList.contains("hidden")) {
                 info.classList.add("open");
                 openCards.push(info);
             }
-        
-        
-       // if (info.classList.contains("hidden")) {
-        
         
         
         cardArray.push();
@@ -201,6 +214,7 @@ namespace Aufgabe_2 {
         if (openCards.length > 1) {
         compareCards();        
         }
+        lastCheck();
         logEvent(_event);
         
         //        logEvent(_event);

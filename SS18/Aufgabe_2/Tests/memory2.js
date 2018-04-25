@@ -1,6 +1,5 @@
 var Aufgabe_2;
 (function (Aufgabe_2) {
-    var n;
     var cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
     var cardArray = [];
     var randomCardContent = [];
@@ -77,23 +76,31 @@ var Aufgabe_2;
         }
         function compareCards() {
             //    let card1: HTMLElement = document.getElementsByClassName("open")[0];
+            if (openCards[0].children == openCards[1].children) {
+                openCards.splice(0, 1);
+            }
             if (openCards[0].innerHTML == openCards[1].innerHTML) {
                 setTimeout(timeWasteTrue, 2000);
             }
             else {
                 setTimeout(timeWasteFalse, 2000);
             }
-            setTimeout(lastCheck, 2100);
         }
         function lastCheck() {
-            if (document.getElementById("playground").getElementsByTagName("div") == document.getElementsByClassName("taken")) {
-                alert("Gl�ckwunsch!");
+            //        if (document.getElementsByClassName("hidden").length == 0) {
+            if (document.getElementById("playground").getElementsByTagName("div").length == document.getElementsByClassName("taken").length) {
+                alert("Du hast gewonnen!");
             }
         }
         function timeWasteTrue() {
             openCards[0].classList.add("taken");
             openCards[1].classList.add("taken");
+            /*    openCards[0].classList.remove("open");
+                openCards[1].classList.remove("open");
+                openCards[0].classList.remove("hidden");
+                openCards[1].classList.remove("hidden");*/
             openCards.splice(0, 2);
+            lastCheck();
         }
         function timeWasteFalse() {
             openCards[0].classList.remove("open");
@@ -138,13 +145,13 @@ var Aufgabe_2;
                 info.classList.add("open");
                 openCards.push(info);
             }
-            // if (info.classList.contains("hidden")) {
             cardArray.push();
             console.log(cardArray);
             console.log("Open Cards" + openCards);
             if (openCards.length > 1) {
                 compareCards();
             }
+            lastCheck();
             logEvent(_event);
             //        logEvent(_event);
             //      card.className = cssClassOpen [0];
