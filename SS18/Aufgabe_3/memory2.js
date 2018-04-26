@@ -89,7 +89,7 @@ var Aufgabe_2;
         function lastCheck() {
             //        if (document.getElementsByClassName("hidden").length == 0) {
             if (document.getElementById("playground").getElementsByTagName("div").length == document.getElementsByClassName("taken").length) {
-                alert("Du hast gebonnen!");
+                alert("Du hast gewonnen!");
             }
         }
         function timeWasteTrue() {
