@@ -54,12 +54,13 @@ namespace Aufgabe_2 {
     console.log(askPairs);
     
     //createCard(cardContent, "#ff0000");
+        
+    //HAUPTPROGRAMM
     generateContent();
     createPlayer();
     createCards(numPairs, cardArray, cardContent);
     
     
-
     function createPlayer(): void {
     for (let i: number = 0; i < numPlayers; i++) {
     let player: HTMLDivElement = document.createElement("div");

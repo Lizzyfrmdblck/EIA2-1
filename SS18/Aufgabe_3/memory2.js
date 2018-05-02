@@ -42,6 +42,7 @@ var Aufgabe_2;
         console.log(askPlayers);
         console.log(askPairs);
         //createCard(cardContent, "#ff0000");
+        //HAUPTPROGRAMM
         generateContent();
         createPlayer();
         createCards(numPairs, cardArray, cardContent);
