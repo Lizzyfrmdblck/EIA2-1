@@ -1,0 +1,39 @@
+@charset "utf-8";
+body {
+	background-color: lightgray;
+}
+h1 {
+	color: red;
+}
+div {
+	width: 50px;
+	height: 50px;
+	float:left;
+	margin: 1em;
+	background-color: white;
+	border: black solid 1px;
+	text-align: center; 
+}
+
+fieldset {
+	margin:1em;
+}
+
+.hidden{
+	background-color: black;
+}
+
+.open{
+	background-color: gray;
+}
+
+.taken{
+	visibility: hidden;
+}
+
+.player {
+	float:left;
+	margin-right: 1em;
+	border: 2px solid black;
+    border-radius: 4px;
+}

@@ -1,0 +1,63 @@
+<!--  
+Aufgabe: Aufgabe 4 - Memory
+Name: Yannic Hermann
+Matrikel: 255279
+Datum: 26.04.18
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Memory</title>
+<link type="text/css" rel="stylesheet" href="memory.css">
+<script type="text/javascript" src="memory2.js"></script>
+</head>
+<body>
+	<fieldset id="playernames"> 
+	<legend> Player </legend>		
+
+		<input class="player" type="text" name="Text" placeholder="Spielername" />	
+		<button id="addPlayerButton"> + </button>
+		<button id="removePlayerButton"> - </button>	
+
+	</fieldset>
+	
+	<fieldset id="deck"> 	
+		
+		<select name="Select" id="selectBox">
+		
+			<option value="deck1">Deck 1</option>
+			<option value="deck2">Deck 2</option>
+			<option value="deck3">Deck 3</option>
+
+		</select>
+		
+	</fieldset>
+		
+	<fieldset id="pairs">
+		
+		<input type="number" step="1" min="1" max="10" placeholder="Kartenpaare" />
+
+	</fieldset>
+	
+	<fieldset id="start">
+	
+		<button id="startButton"> START </button>
+	
+	</fieldset>
+	
+	<fieldset id="playground">
+		<legend>Playground</legend>
+
+	</fieldset>
+
+	<fieldset id="player">
+		<legend>Player</legend>
+
+	</fieldset>
+
+</body>
+</html>
