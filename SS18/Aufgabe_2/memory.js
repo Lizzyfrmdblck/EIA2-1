@@ -1,14 +1,14 @@
 var Aufgabe_2;
 (function (Aufgabe_2) {
     window.onload = function () {
-        var n;
-        var cardContent = ["A", "B", "C", "D"];
-        var cardArray;
-        var askPairs;
-        var numPairs = parseInt(askPairs);
-        var askPlayers;
-        var numPlayers = parseInt(askPlayers);
-        var card = document.createElement("div");
+        let n;
+        let cardContent = ["A", "B", "C", "D"];
+        let cardArray;
+        let askPairs;
+        let numPairs = parseInt(askPairs);
+        let askPlayers;
+        let numPlayers = parseInt(askPlayers);
+        let card = document.createElement("div");
         /*Asking how many Pairs + Check if it's in range + if it's a number*/
         do {
             askPairs = prompt("Wie viele Paare?");
@@ -42,10 +42,10 @@ var Aufgabe_2;
         console.log(cardArray);
         console.log(cardContent);
         function createCards(_numPairs) {
-            for (var i = 0; i < numPairs; i++) {
+            for (let i = 0; i < numPairs; i++) {
                 cardArray.push(cardContent[i]);
             }
-            for (var i = 0; i < cardArray.length; i++) {
+            for (let i = 0; i < cardArray.length; i++) {
                 randomNumber;
             }
         }
@@ -55,16 +55,16 @@ var Aufgabe_2;
             Math.floor(Math.random() * (_max - _min + 1) + _min);
         }
         function createCard(_content, _status) {
-            for (var i = 0; i < numPairs * 2; i++) {
-                var card_1 = document.createElement("div");
+            for (let i = 0; i < numPairs * 2; i++) {
+                let card = document.createElement("div");
                 /*card.innerText = "Test";*/
-                document.getElementById("playground").appendChild(card_1);
+                document.getElementById("playground").appendChild(card);
             }
         }
         function createPlayer(_player) {
-            for (var i = 0; i < numPlayers; i++) {
-                var player = document.createElement("div");
-                var playerCounter = [1, 2, 3, 4];
+            for (let i = 0; i < numPlayers; i++) {
+                let player = document.createElement("div");
+                let playerCounter = [1, 2, 3, 4];
                 player.innerText = "Player" + playerCounter[i];
                 document.getElementById("player").appendChild(player);
             }
@@ -76,4 +76,3 @@ var Aufgabe_2;
               }*/
     };
 })(Aufgabe_2 || (Aufgabe_2 = {}));
-//# sourceMappingURL=memory.js.map

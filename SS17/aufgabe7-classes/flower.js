@@ -1,7 +1,7 @@
 var Aufgabe7_Classes;
 (function (Aufgabe7_Classes) {
-    var Flower = (function () {
-        function Flower() {
+    class Flower {
+        constructor() {
             this.drawType();
             this.setRandomPositionLeft();
             this.setRandomPositionRight();
@@ -10,7 +10,7 @@ var Aufgabe7_Classes;
             this.setRandomCenterColor();
             this.setRandomLeaveColor();
         }
-        Flower.prototype.drawFlower = function () {
+        drawFlower() {
             //LEAVES
             Aufgabe7_Classes.crc2.fillStyle = this.leaveColor;
             Aufgabe7_Classes.crc2.beginPath();
@@ -30,49 +30,47 @@ var Aufgabe7_Classes;
             Aufgabe7_Classes.crc2.arc(this.xRandom, this.yRandom, this.centerSize, 0, 2 * Math.PI);
             Aufgabe7_Classes.crc2.fillStyle = this.centerColor;
             Aufgabe7_Classes.crc2.fill();
-        };
-        Flower.prototype.drawType = function () {
+        }
+        drawType() {
             if (this.typ == 1) {
                 this.drawFlower();
             }
             else {
                 this.drawFlower();
             }
-        };
-        Flower.prototype.drawOnSide = function () {
+        }
+        drawOnSide() {
             if (this.typ == 1) {
                 this.drawFlower();
             }
             else {
                 this.drawFlower();
             }
-        };
-        Flower.prototype.setRandomPositionLeft = function () {
+        }
+        setRandomPositionLeft() {
             this.xRandom = (Math.random() * (215 - 15) + 15);
             this.yRandom = (Math.random() * (375 - 200) + 200);
-        };
-        Flower.prototype.setRandomPositionRight = function () {
+        }
+        setRandomPositionRight() {
             this.xRandom = (Math.random() * (565 - 385) + 385);
             this.yRandom = (Math.random() * (375 - 200) + 200);
-        };
-        Flower.prototype.setRandomCenterSize = function () {
+        }
+        setRandomCenterSize() {
             this.centerSize = (Math.random() * (7.5 - 4) + 4);
-        };
-        Flower.prototype.setRandomLeaveSize = function () {
+        }
+        setRandomLeaveSize() {
             this.leaveSize = (Math.random() * (8 - 4) + 4);
-        };
-        Flower.prototype.setRandomLeaveColor = function () {
-            var colorBucket = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
-            var colorBucket1 = ["#81BEF7", "#F781BE", "#DF0101", "#81F7D8", "#F5DA81"];
+        }
+        setRandomLeaveColor() {
+            let colorBucket = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+            let colorBucket1 = ["#81BEF7", "#F781BE", "#DF0101", "#81F7D8", "#F5DA81"];
             this.leaveColor = colorBucket[Math.floor(Math.random() * colorBucket.length)];
             //            let randomColor1: string = colorBucket1[Math.floor(Math.random() * colorBucket1.length)];
-        };
-        Flower.prototype.setRandomCenterColor = function () {
-            var centerColors = ["#b879fc", "#30e3f4", "#f4f130"];
+        }
+        setRandomCenterColor() {
+            let centerColors = ["#b879fc", "#30e3f4", "#f4f130"];
             this.centerColor = centerColors[Math.floor(Math.random() * centerColors.length)];
-        };
-        return Flower;
-    }());
+        }
+    }
     Aufgabe7_Classes.Flower = Flower;
 })(Aufgabe7_Classes || (Aufgabe7_Classes = {}));
-//# sourceMappingURL=flower.js.map

@@ -2,20 +2,20 @@
 var L4_Canvas;
 (function (L4_Canvas) {
     window.addEventListener("load", init);
-    var crc2;
-    var x = []; // Array, weil hier immer der neu generierte x-Wert abgespeichert wird
-    var y = []; // Array, weil hier immer der neu generierte y-Wert abgespeichert wird
-    var n = 10; // Anzahl der Bienen
-    var imgData = ImageData;
+    let crc2;
+    let x = []; // Array, weil hier immer der neu generierte x-Wert abgespeichert wird
+    let y = []; // Array, weil hier immer der neu generierte y-Wert abgespeichert wird
+    let n = 10; // Anzahl der Bienen
+    let imgData = ImageData;
     // canvasInitialize_
     function init(_event) {
-        var canvas;
+        let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         crc2 = canvas.getContext("2d");
         console.log("crc2");
         //SKY
-        var colorGradient = crc2.createLinearGradient(50, 140, 50, 10);
+        let colorGradient = crc2.createLinearGradient(50, 140, 50, 10);
         colorGradient.addColorStop(0, "#B0E2FF");
         colorGradient.addColorStop(1, "#1874CD");
         crc2.fillStyle = colorGradient;
@@ -67,18 +67,18 @@ var L4_Canvas;
         drawBird(320, 50, 338, 58, "#000000");
         drawBird(305, 65, 323, 73, "#000000");
         //RANDOMFLOWERS LEFT
-        var colorBucket = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
-        var colorBucket1 = ["#81BEF7", "#F781BE", "#DF0101", "#81F7D8", "#F5DA81"];
-        var centerColors = ["#b879fc", "#30e3f4", "#f4f130"];
-        for (var i = 0; i < 35; i++) {
-            var randomX = (Math.random() * (215 - 15) + 15);
-            var randomY = (Math.random() * (375 - 200) + 200);
-            var randomCenterSize = (Math.random() * (7.5 - 4) + 4);
-            var randomLeaveSize = (Math.random() * (8 - 4) + 4);
-            var randomColor = colorBucket[Math.floor(Math.random() * colorBucket.length)];
-            var randomColor1 = colorBucket1[Math.floor(Math.random() * colorBucket1.length)];
-            var randomCenterColor = centerColors[Math.floor(Math.random() * centerColors.length)];
-            var randomFlower = Math.floor((Math.random() * 2)) + 1;
+        let colorBucket = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+        let colorBucket1 = ["#81BEF7", "#F781BE", "#DF0101", "#81F7D8", "#F5DA81"];
+        let centerColors = ["#b879fc", "#30e3f4", "#f4f130"];
+        for (let i = 0; i < 35; i++) {
+            let randomX = (Math.random() * (215 - 15) + 15);
+            let randomY = (Math.random() * (375 - 200) + 200);
+            let randomCenterSize = (Math.random() * (7.5 - 4) + 4);
+            let randomLeaveSize = (Math.random() * (8 - 4) + 4);
+            let randomColor = colorBucket[Math.floor(Math.random() * colorBucket.length)];
+            let randomColor1 = colorBucket1[Math.floor(Math.random() * colorBucket1.length)];
+            let randomCenterColor = centerColors[Math.floor(Math.random() * centerColors.length)];
+            let randomFlower = Math.floor((Math.random() * 2)) + 1;
             if (randomFlower == 1) {
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor);
             }
@@ -87,15 +87,15 @@ var L4_Canvas;
             }
         }
         //RANDOMFLOWERS RIGHT
-        for (var i = 0; i < 35; i++) {
-            var randomX = (Math.random() * (565 - 385) + 385);
-            var randomY = (Math.random() * (375 - 200) + 200);
-            var randomCenterSize = (Math.random() * (7.5 - 4) + 4);
-            var randomLeaveSize = (Math.random() * (8 - 4) + 4);
-            var randomColor = colorBucket[Math.floor(Math.random() * colorBucket.length)];
-            var randomColor1 = colorBucket1[Math.floor(Math.random() * colorBucket1.length)];
-            var randomCenterColor = centerColors[Math.floor(Math.random() * centerColors.length)];
-            var randomFlower = Math.floor((Math.random() * 2)) + 1;
+        for (let i = 0; i < 35; i++) {
+            let randomX = (Math.random() * (565 - 385) + 385);
+            let randomY = (Math.random() * (375 - 200) + 200);
+            let randomCenterSize = (Math.random() * (7.5 - 4) + 4);
+            let randomLeaveSize = (Math.random() * (8 - 4) + 4);
+            let randomColor = colorBucket[Math.floor(Math.random() * colorBucket.length)];
+            let randomColor1 = colorBucket1[Math.floor(Math.random() * colorBucket1.length)];
+            let randomCenterColor = centerColors[Math.floor(Math.random() * centerColors.length)];
+            let randomFlower = Math.floor((Math.random() * 2)) + 1;
             if (randomFlower == 1) {
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor);
             }
@@ -106,7 +106,7 @@ var L4_Canvas;
         //getImgData erst, wenn alles gezeichnet ist        
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         // Startpunkt f�r Bienen
-        for (var i = 0; i < n; i++) {
+        for (let i = 0; i < n; i++) {
             x[i] = 240;
             y[i] = 200;
         }
@@ -120,7 +120,7 @@ var L4_Canvas;
         //       crc2.fillStyle = imgData;
         //       crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.putImageData(imgData, 0, 0);
-        for (var i = 0; i < n; i++) {
+        for (let i = 0; i < n; i++) {
             x[i] += (Math.random() * 6 - 3) - 1;
             y[i] += Math.random() * 6 - 3;
             if (x[i] < 0) {
@@ -248,4 +248,3 @@ var L4_Canvas;
         crc2.fill();
     }
 })(L4_Canvas || (L4_Canvas = {}));
-//# sourceMappingURL=blumenwiese.js.map

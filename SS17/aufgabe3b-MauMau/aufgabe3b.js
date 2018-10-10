@@ -1,19 +1,19 @@
 window.onload = function () {
     //STRING-ARRAYS
-    var deck = ["Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo Koenig", "Karo As", "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz Koenig", "Kreuz As", "Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz Koenig", "Herz As", "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik Koenig", "Pik As"];
-    var discard = [];
-    var hand = [];
-    var getDeck = document.getElementById("deck");
-    var getHand = document.getElementById("handcards");
+    let deck = ["Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo Koenig", "Karo As", "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz Koenig", "Kreuz As", "Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz Koenig", "Herz As", "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik Koenig", "Pik As"];
+    let discard = [];
+    let hand = [];
+    let getDeck = document.getElementById("deck");
+    let getHand = document.getElementById("handcards");
     //FUNKTIONSAUFRUFE
     getDeck.addEventListener("click", (pullCard));
     getHand.addEventListener("click", (pushCardToDiscard));
     function pullCard() {
         if (hand.length < 5 && deck.length > 0) {
-            var randomCard = Math.floor((Math.random() * 32 - 1) + 0); // ZUF�LLIGE KARTE
+            let randomCard = Math.floor((Math.random() * 32 - 1) + 0); // ZUF�LLIGE KARTE
             hand.push(deck[randomCard]); //PUSH RANDOM CARD IN DIE HAND
             deck.splice(randomCard, 1); //REMOVE THIS CARD OF ARRAY
-            var div = document.createElement("div");
+            let div = document.createElement("div");
             document.getElementById("handcards").appendChild(div);
             div.textContent = hand[hand.length - 1]; //CONTENT 
             document.getElementById("deck").textContent = "Karten uebrig:" + deck.length.toString(); //VERBLEIBENDE KARTEN
@@ -21,9 +21,9 @@ window.onload = function () {
     }
     ;
     function pushCardToDiscard(_event) {
-        var clicktarget = _event.target; // TARGET; DIE KARTE AUF DIE GEKLICKT WIRD
-        var card = clicktarget.textContent;
-        var i = 0;
+        let clicktarget = _event.target; // TARGET; DIE KARTE AUF DIE GEKLICKT WIRD
+        let card = clicktarget.textContent;
+        let i = 0;
         hand.splice(hand.indexOf(card), 1); //KARTE WIRD NUR IN DER KONSOLE AUS DEM ARRAY ENTFERNT..
         discard.push(card);
         //N�CHSTER VERZWEIFELTER VERSUCH
@@ -33,4 +33,3 @@ window.onload = function () {
         console.log(hand);
     }
 };
-//# sourceMappingURL=aufgabe3b.js.map

@@ -1,17 +1,17 @@
 var Aufgabe_2;
 (function (Aufgabe_2) {
-    var cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
-    var cardArray = [];
-    var randomCardContent = [];
-    var askPairs;
-    var numPairs = parseInt(askPairs);
-    var askPlayers;
-    var numPlayers = parseInt(askPlayers);
-    var card = document.createElement("div");
-    var cssClassHidden = ["hidden"];
-    var cssClassOpen = ["open"];
-    var cssClassOpenString = "open";
-    var openCards = [];
+    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
+    let cardArray = [];
+    let randomCardContent = [];
+    let askPairs;
+    let numPairs = parseInt(askPairs);
+    let askPlayers;
+    let numPlayers = parseInt(askPlayers);
+    let card = document.createElement("div");
+    let cssClassHidden = ["hidden"];
+    let cssClassOpen = ["open"];
+    let cssClassOpenString = "open";
+    let openCards = [];
     window.onload = function () {
         /*Asking how many Pairs + Check if it's in range + if it's a number*/
         do {
@@ -47,28 +47,28 @@ var Aufgabe_2;
         createPlayer();
         createCards(numPairs, cardArray, cardContent);
         function createPlayer() {
-            for (var i = 0; i < numPlayers; i++) {
-                var player = document.createElement("div");
-                var playerCounter = [1, 2, 3, 4];
+            for (let i = 0; i < numPlayers; i++) {
+                let player = document.createElement("div");
+                let playerCounter = [1, 2, 3, 4];
                 player.innerText = "Player" + playerCounter[i];
                 document.getElementById("player").appendChild(player);
             }
         }
         function createCards(_numPairs, _cardArray, _content) {
-            for (var i = 0; i < _numPairs * 2; i++) {
-                var card_1 = document.createElement("div");
-                document.getElementById("playground").appendChild(card_1);
-                card_1.addEventListener("click", clickHandler);
-                card_1.className = "hidden";
-                var randomContent = Math.floor(Math.random() * (randomCardContent.length - 1) + 0);
-                card_1.innerText = randomCardContent[randomContent];
+            for (let i = 0; i < _numPairs * 2; i++) {
+                let card = document.createElement("div");
+                document.getElementById("playground").appendChild(card);
+                card.addEventListener("click", clickHandler);
+                card.className = "hidden";
+                let randomContent = Math.floor(Math.random() * (randomCardContent.length - 1) + 0);
+                card.innerText = randomCardContent[randomContent];
                 cardArray.push(randomCardContent[randomContent]);
                 randomCardContent.splice(randomContent, 1);
             }
         }
         function generateContent() {
-            for (var i = 0; i < numPairs; i++) {
-                var randomContent = Math.floor(Math.random() * (cardContent.length - 1) + 0);
+            for (let i = 0; i < numPairs; i++) {
+                let randomContent = Math.floor(Math.random() * (cardContent.length - 1) + 0);
                 randomCardContent.push(cardContent[randomContent]);
                 randomCardContent.push(cardContent[randomContent]);
                 cardContent.splice(randomContent, 1);
@@ -141,7 +141,7 @@ var Aufgabe_2;
             }
         }  */
         function clickHandler(_event) {
-            var info = _event.target;
+            let info = _event.target;
             if (info.classList.contains("hidden")) {
                 info.classList.add("open");
                 openCards.push(info);
@@ -163,7 +163,7 @@ var Aufgabe_2;
                 return;
             }
             console.group("EventInfo");
-            var info = "Type: " + _event.type;
+            let info = "Type: " + _event.type;
             info += " | target: " + _event.target;
             info += " | currentTarget: " + _event.currentTarget;
             info += " | phase: " + _event.eventPhase;
@@ -178,4 +178,3 @@ var Aufgabe_2;
               }*/
     };
 })(Aufgabe_2 || (Aufgabe_2 = {}));
-//# sourceMappingURL=memory2.js.map

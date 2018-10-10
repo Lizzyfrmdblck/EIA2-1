@@ -1,6 +1,6 @@
 window.onload = function () {
-    for (var i = 0; i < 64; i++) {
-        var div = document.createElement("div");
+    for (let i = 0; i < 64; i++) {
+        let div = document.createElement("div");
         if (i % 2 == 0) {
             div.className = "chessFieldWhite";
         }
@@ -9,8 +9,8 @@ window.onload = function () {
         }
         div.setAttribute("i", i.toString());
         document.body.appendChild(div);
-        var rice = Math.pow(2, i);
-        var riceToString = rice.toString();
+        let rice = Math.pow(2, i);
+        let riceToString = rice.toString();
         div.textContent = riceToString;
     }
 };
@@ -25,4 +25,3 @@ window.onload = function () {
 //        document.getElementsByTagName("div")[0].innerHTML = rToString;
 //        }
 //   }        
-//# sourceMappingURL=A2a.js.map

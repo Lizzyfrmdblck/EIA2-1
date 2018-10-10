@@ -35,7 +35,7 @@ var StudiVZ;
             return "Bitte vervollst�nidgen Sie ihre Eingabe";
         }
         students.push(informations);
-        var sex = informations.sex ? "m" : "w";
+        let sex = informations.sex ? "m" : "w";
         return "Abgespeicherte Informationen:" + "\n" + "Matrikelnummer: " + informations.matrikel + "\n" + "Name: " + informations.firstName + informations.lastName + "\n" + "Alter: " + informations.age + "\n" + "Geschlecht: " + sex + "\n" + "Kommentar: " + informations.comment;
     }
     function queryData(_matrikel) {
@@ -47,4 +47,3 @@ var StudiVZ;
         return "Student nicht in der Datenbank";
     }
 })(StudiVZ || (StudiVZ = {}));
-//# sourceMappingURL=6b.js.map

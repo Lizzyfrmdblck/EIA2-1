@@ -1,9 +1,9 @@
 var Aufgabe8_Inheritance;
 (function (Aufgabe8_Inheritance) {
-    var LandscapeTest = (function () {
-        function LandscapeTest() {
+    class LandscapeTest {
+        constructor() {
             //SKY
-            var colorGradient = Aufgabe8_Inheritance.crc2.createLinearGradient(50, 140, 50, 10);
+            let colorGradient = Aufgabe8_Inheritance.crc2.createLinearGradient(50, 140, 50, 10);
             colorGradient.addColorStop(0, "#B0E2FF");
             colorGradient.addColorStop(1, "#1874CD");
             Aufgabe8_Inheritance.crc2.fillStyle = colorGradient;
@@ -56,7 +56,7 @@ var Aufgabe8_Inheritance;
             this.drawBird(305, 65, 323, 73, "#000000");
         }
         //MOUNTAIN
-        LandscapeTest.prototype.drawMountain = function (_x, _y, _z, _strokeColor, _fillColor) {
+        drawMountain(_x, _y, _z, _strokeColor, _fillColor) {
             Aufgabe8_Inheritance.crc2.beginPath();
             Aufgabe8_Inheritance.crc2.fillStyle = _fillColor;
             Aufgabe8_Inheritance.crc2.strokeStyle = _strokeColor;
@@ -66,18 +66,18 @@ var Aufgabe8_Inheritance;
             Aufgabe8_Inheritance.crc2.closePath();
             Aufgabe8_Inheritance.crc2.fill();
             Aufgabe8_Inheritance.crc2.stroke();
-        };
+        }
         //SUN
-        LandscapeTest.prototype.drawSun = function (_x, _y, _strokeColor, _fillColor) {
+        drawSun(_x, _y, _strokeColor, _fillColor) {
             Aufgabe8_Inheritance.crc2.beginPath();
             Aufgabe8_Inheritance.crc2.fillStyle = _fillColor;
             Aufgabe8_Inheritance.crc2.arc(300, 175, 80, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.closePath();
             Aufgabe8_Inheritance.crc2.stroke();
             Aufgabe8_Inheritance.crc2.fill();
-        };
+        }
         //STREET
-        LandscapeTest.prototype.drawStreet = function (_x, _y, _strokeColor, _fillColor) {
+        drawStreet(_x, _y, _strokeColor, _fillColor) {
             Aufgabe8_Inheritance.crc2.beginPath();
             Aufgabe8_Inheritance.crc2.fillStyle = _fillColor;
             Aufgabe8_Inheritance.crc2.strokeStyle = _strokeColor;
@@ -88,9 +88,9 @@ var Aufgabe8_Inheritance;
             Aufgabe8_Inheritance.crc2.closePath();
             Aufgabe8_Inheritance.crc2.fill();
             Aufgabe8_Inheritance.crc2.stroke();
-        };
+        }
         //STRIPES
-        LandscapeTest.prototype.drawStripes = function (_x, _y, _width, _length, _strokeColor, _fillColor) {
+        drawStripes(_x, _y, _width, _length, _strokeColor, _fillColor) {
             Aufgabe8_Inheritance.crc2.beginPath();
             Aufgabe8_Inheritance.crc2.fillStyle = _fillColor;
             Aufgabe8_Inheritance.crc2.lineWidth = _width;
@@ -100,18 +100,18 @@ var Aufgabe8_Inheritance;
             Aufgabe8_Inheritance.crc2.closePath();
             Aufgabe8_Inheritance.crc2.fill();
             Aufgabe8_Inheritance.crc2.stroke();
-        };
+        }
         //CLOUD
-        LandscapeTest.prototype.drawCloud = function (_x, _y, _size, _strokeColor, _fillColor) {
+        drawCloud(_x, _y, _size, _strokeColor, _fillColor) {
             Aufgabe8_Inheritance.crc2.beginPath();
             Aufgabe8_Inheritance.crc2.fillStyle = _fillColor;
             Aufgabe8_Inheritance.crc2.arc(_x, _y, _size, 0, 2 * Math.PI);
             Aufgabe8_Inheritance.crc2.closePath();
             Aufgabe8_Inheritance.crc2.stroke();
             Aufgabe8_Inheritance.crc2.fill();
-        };
+        }
         //BIRD
-        LandscapeTest.prototype.drawBird = function (_x1, _y1, _x2, _y2, _strokeColor) {
+        drawBird(_x1, _y1, _x2, _y2, _strokeColor) {
             Aufgabe8_Inheritance.crc2.beginPath();
             Aufgabe8_Inheritance.crc2.arc(_x1, _y1, 10, 4, 0 * Math.PI, false);
             Aufgabe8_Inheritance.crc2.strokeStyle = _strokeColor;
@@ -119,9 +119,7 @@ var Aufgabe8_Inheritance;
             Aufgabe8_Inheritance.crc2.scale(1, 1);
             Aufgabe8_Inheritance.crc2.stroke();
             Aufgabe8_Inheritance.crc2.closePath();
-        };
-        return LandscapeTest;
-    }());
+        }
+    }
     Aufgabe8_Inheritance.LandscapeTest = LandscapeTest;
 })(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
-//# sourceMappingURL=landscape.js.map

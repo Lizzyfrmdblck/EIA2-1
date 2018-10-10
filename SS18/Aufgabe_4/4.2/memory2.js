@@ -1,31 +1,31 @@
 var Aufgabe_2;
 (function (Aufgabe_2) {
     window.addEventListener("load", init);
-    var cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
-    var cardArray = [];
-    var randomCardContent = [];
-    var askPairs;
-    var numPairs = parseInt(askPairs);
-    var askPlayers;
-    var numPlayers = parseInt(askPlayers);
-    var card = document.createElement("div");
-    var cssClassHidden = ["hidden"];
-    var cssClassOpen = ["open"];
-    var cssClassOpenString = "open";
-    var openCards = [];
-    var playerArray = [];
-    var inputs = document.getElementsByTagName("input");
+    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
+    let cardArray = [];
+    let randomCardContent = [];
+    let askPairs;
+    let numPairs = parseInt(askPairs);
+    let askPlayers;
+    let numPlayers = parseInt(askPlayers);
+    let card = document.createElement("div");
+    let cssClassHidden = ["hidden"];
+    let cssClassOpen = ["open"];
+    let cssClassOpenString = "open";
+    let openCards = [];
+    let playerArray = [];
+    let inputs = document.getElementsByTagName("input");
     function init() {
         console.log("Init");
         hideMemory();
         //addPlayerButton();
-        var addPlayerButton = document.getElementById("addPlayerButton");
+        let addPlayerButton = document.getElementById("addPlayerButton");
         addPlayerButton.addEventListener("click", addPlayer);
         //removePlayer
-        var removePlayerButton = document.getElementById("removePlayerButton");
+        let removePlayerButton = document.getElementById("removePlayerButton");
         addPlayerButton.addEventListener("click", removePlayer);
         //start game
-        var startButton = document.getElementById("startButton");
+        let startButton = document.getElementById("startButton");
         startButton.addEventListener("click", startGame);
     }
     function startGame() {
@@ -44,15 +44,15 @@ var Aufgabe_2;
     }
     function addPlayer() {
         //let input: HTMLInputElement = <HTMLInputElement>document.getElementById("addPlayer");
-        var input = document.createElement("input");
+        let input = document.createElement("input");
         input.classList.add("player");
         document.getElementById("playernames").appendChild(input);
         playerArray.push(input);
         console.log(playerArray);
     }
     function removePlayer() {
-        var inputs = document.getElementsByTagName("input");
-        var fieldset = document.getElementById("interface");
+        let inputs = document.getElementsByTagName("input");
+        let fieldset = document.getElementById("interface");
         console.log(fieldset);
         //gef�hlt alle Varianten probiert, aber komme nicht an das letzte Input/Child vom ersten Fieldset ran
     }
@@ -121,20 +121,20 @@ var Aufgabe_2;
        }
    }*/
     function createCards(_numPairs, _cardArray, _content) {
-        for (var i = 0; i < _numPairs * 2; i++) {
-            var card_1 = document.createElement("div");
-            document.getElementById("playground").appendChild(card_1);
-            card_1.addEventListener("click", clickHandler);
-            card_1.className = "hidden";
-            var randomContent = Math.floor(Math.random() * (randomCardContent.length - 1) + 0);
-            card_1.innerText = randomCardContent[randomContent];
+        for (let i = 0; i < _numPairs * 2; i++) {
+            let card = document.createElement("div");
+            document.getElementById("playground").appendChild(card);
+            card.addEventListener("click", clickHandler);
+            card.className = "hidden";
+            let randomContent = Math.floor(Math.random() * (randomCardContent.length - 1) + 0);
+            card.innerText = randomCardContent[randomContent];
             cardArray.push(randomCardContent[randomContent]);
             randomCardContent.splice(randomContent, 1);
         }
     }
     function generateContent() {
-        for (var i = 0; i < numPairs; i++) {
-            var randomContent = Math.floor(Math.random() * (cardContent.length - 1) + 0);
+        for (let i = 0; i < numPairs; i++) {
+            let randomContent = Math.floor(Math.random() * (cardContent.length - 1) + 0);
             randomCardContent.push(cardContent[randomContent]);
             randomCardContent.push(cardContent[randomContent]);
             cardContent.splice(randomContent, 1);
@@ -207,7 +207,7 @@ var Aufgabe_2;
         }
     }  */
     function clickHandler(_event) {
-        var info = _event.target;
+        let info = _event.target;
         if (info.classList.contains("hidden")) {
             info.classList.add("open");
             openCards.push(info);
@@ -229,7 +229,7 @@ var Aufgabe_2;
             return;
         }
         console.group("EventInfo");
-        var info = "Type: " + _event.type;
+        let info = "Type: " + _event.type;
         info += " | target: " + _event.target;
         info += " | currentTarget: " + _event.currentTarget;
         info += " | phase: " + _event.eventPhase;
@@ -239,4 +239,3 @@ var Aufgabe_2;
     }
 })(Aufgabe_2 || (Aufgabe_2 = {}));
 ;
-//# sourceMappingURL=memory2.js.map

@@ -1,9 +1,9 @@
 var Aufgabe7_Classes;
 (function (Aufgabe7_Classes) {
-    var Landscape = (function () {
-        function Landscape() {
+    class Landscape {
+        constructor() {
             //SKY
-            var colorGradient = Aufgabe7_Classes.crc2.createLinearGradient(50, 140, 50, 10);
+            let colorGradient = Aufgabe7_Classes.crc2.createLinearGradient(50, 140, 50, 10);
             colorGradient.addColorStop(0, "#B0E2FF");
             colorGradient.addColorStop(1, "#1874CD");
             Aufgabe7_Classes.crc2.fillStyle = colorGradient;
@@ -56,7 +56,7 @@ var Aufgabe7_Classes;
             this.drawBird(305, 65, 323, 73, "#000000");
         }
         //MOUNTAIN
-        Landscape.prototype.drawMountain = function (_x, _y, _z, _strokeColor, _fillColor) {
+        drawMountain(_x, _y, _z, _strokeColor, _fillColor) {
             Aufgabe7_Classes.crc2.beginPath();
             Aufgabe7_Classes.crc2.fillStyle = _fillColor;
             Aufgabe7_Classes.crc2.strokeStyle = _strokeColor;
@@ -66,18 +66,18 @@ var Aufgabe7_Classes;
             Aufgabe7_Classes.crc2.closePath();
             Aufgabe7_Classes.crc2.fill();
             Aufgabe7_Classes.crc2.stroke();
-        };
+        }
         //SUN
-        Landscape.prototype.drawSun = function (_x, _y, _strokeColor, _fillColor) {
+        drawSun(_x, _y, _strokeColor, _fillColor) {
             Aufgabe7_Classes.crc2.beginPath();
             Aufgabe7_Classes.crc2.fillStyle = _fillColor;
             Aufgabe7_Classes.crc2.arc(300, 175, 80, 0, 2 * Math.PI);
             Aufgabe7_Classes.crc2.closePath();
             Aufgabe7_Classes.crc2.stroke();
             Aufgabe7_Classes.crc2.fill();
-        };
+        }
         //STREET
-        Landscape.prototype.drawStreet = function (_x, _y, _strokeColor, _fillColor) {
+        drawStreet(_x, _y, _strokeColor, _fillColor) {
             Aufgabe7_Classes.crc2.beginPath();
             Aufgabe7_Classes.crc2.fillStyle = _fillColor;
             Aufgabe7_Classes.crc2.strokeStyle = _strokeColor;
@@ -88,9 +88,9 @@ var Aufgabe7_Classes;
             Aufgabe7_Classes.crc2.closePath();
             Aufgabe7_Classes.crc2.fill();
             Aufgabe7_Classes.crc2.stroke();
-        };
+        }
         //STRIPES
-        Landscape.prototype.drawStripes = function (_x, _y, _width, _length, _strokeColor, _fillColor) {
+        drawStripes(_x, _y, _width, _length, _strokeColor, _fillColor) {
             Aufgabe7_Classes.crc2.beginPath();
             Aufgabe7_Classes.crc2.fillStyle = _fillColor;
             Aufgabe7_Classes.crc2.lineWidth = _width;
@@ -100,18 +100,18 @@ var Aufgabe7_Classes;
             Aufgabe7_Classes.crc2.closePath();
             Aufgabe7_Classes.crc2.fill();
             Aufgabe7_Classes.crc2.stroke();
-        };
+        }
         //CLOUD
-        Landscape.prototype.drawCloud = function (_x, _y, _size, _strokeColor, _fillColor) {
+        drawCloud(_x, _y, _size, _strokeColor, _fillColor) {
             Aufgabe7_Classes.crc2.beginPath();
             Aufgabe7_Classes.crc2.fillStyle = _fillColor;
             Aufgabe7_Classes.crc2.arc(_x, _y, _size, 0, 2 * Math.PI);
             Aufgabe7_Classes.crc2.closePath();
             Aufgabe7_Classes.crc2.stroke();
             Aufgabe7_Classes.crc2.fill();
-        };
+        }
         //BIRD
-        Landscape.prototype.drawBird = function (_x1, _y1, _x2, _y2, _strokeColor) {
+        drawBird(_x1, _y1, _x2, _y2, _strokeColor) {
             Aufgabe7_Classes.crc2.beginPath();
             Aufgabe7_Classes.crc2.arc(_x1, _y1, 10, 4, 0 * Math.PI, false);
             Aufgabe7_Classes.crc2.strokeStyle = _strokeColor;
@@ -119,9 +119,7 @@ var Aufgabe7_Classes;
             Aufgabe7_Classes.crc2.scale(1, 1);
             Aufgabe7_Classes.crc2.stroke();
             Aufgabe7_Classes.crc2.closePath();
-        };
-        return Landscape;
-    }());
+        }
+    }
     Aufgabe7_Classes.Landscape = Landscape;
 })(Aufgabe7_Classes || (Aufgabe7_Classes = {}));
-//# sourceMappingURL=landscape.js.map

@@ -1,9 +1,9 @@
 var IceDealer;
 (function (IceDealer) {
-    var allFieldsets = document.getElementsByTagName("fieldset");
-    var flavors = ["Zitrone ", "Erbeere ", "Pistazie "];
-    var inputsArray = [];
-    var fieldset;
+    let allFieldsets = document.getElementsByTagName("fieldset");
+    let flavors = ["Zitrone ", "Erbeere ", "Pistazie "];
+    let inputsArray = [];
+    let fieldset;
     window.addEventListener("load", init);
     console.log("load");
     function init() {
@@ -11,13 +11,13 @@ var IceDealer;
         createFlavors();
     }
     function createFlavors() {
-        for (var i = 0; i < flavors.length; i++) {
+        for (let i = 0; i < flavors.length; i++) {
             createInput(flavors[i]);
         }
     }
     function createInput(_flavor) {
-        var labelTag = document.createElement("label");
-        var inputTag = document.createElement("input");
+        let labelTag = document.createElement("label");
+        let inputTag = document.createElement("input");
         labelTag.innerText = _flavor;
         labelTag.appendChild(inputTag);
         inputTag.type = "number";
@@ -28,4 +28,3 @@ var IceDealer;
         fieldset.appendChild(labelTag);
     }
 })(IceDealer || (IceDealer = {}));
-//# sourceMappingURL=A9.js.map

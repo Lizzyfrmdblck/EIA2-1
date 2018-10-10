@@ -1,24 +1,24 @@
 var Aufgabe8_Inheritance;
 (function (Aufgabe8_Inheritance) {
-    var SuperBees = (function () {
-        function SuperBees(_x, _y) {
+    class SuperBees {
+        constructor(_x, _y) {
             this.x = _x;
             this.y = _y;
             this.setRandomstyle();
         }
-        SuperBees.prototype.update = function () {
+        update() {
             this.drawBee();
             this.move();
             this.moveBackInCanvas();
-        };
-        SuperBees.prototype.drawBee = function () {
+        }
+        drawBee() {
             //hi
-        };
-        SuperBees.prototype.move = function () {
+        }
+        move() {
             this.x += (Math.random() * 6 - 3) - 1;
             this.y += Math.random() * 6 - 3;
-        };
-        SuperBees.prototype.moveBackInCanvas = function () {
+        }
+        moveBackInCanvas() {
             if (this.x < 0) {
                 this.x = 600;
             }
@@ -31,16 +31,14 @@ var Aufgabe8_Inheritance;
             if (this.y > 400) {
                 this.y = 0;
             }
-        };
-        SuperBees.prototype.setRandomstyle = function () {
-            var colors = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
-            var randomColor = colors[Math.floor(Math.random() * colors.length)];
-            var randomSize = (Math.random() * (8 - 4) + 4);
+        }
+        setRandomstyle() {
+            let colors = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            let randomSize = (Math.random() * (8 - 4) + 4);
             this.size = randomSize;
             this.color = randomColor;
-        };
-        return SuperBees;
-    }());
+        }
+    }
     Aufgabe8_Inheritance.SuperBees = SuperBees;
 })(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
-//# sourceMappingURL=superclassBees.js.map
