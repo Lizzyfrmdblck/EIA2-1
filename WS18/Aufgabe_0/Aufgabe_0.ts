@@ -8,16 +8,18 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 
 document.addEventListener("DOMContentLoaded", function(): void {
-    
-    let popUp: string; 
-    
-    popUp = prompt ("Bitte gib Deinen Namen hier ein:");
-    
+
+    let popUp: string;
+
+    popUp = prompt("Bitte gib Deinen Namen hier ein:");
+
     if (popUp != null) {
         document.getElementsByTagName("div")[0].innerHTML = "Herzlich Willkommen " + popUp + " :) ";
-        } 
-/*    
-    else {popUp = prompt ("Versuch es doch einfach nochmal..");
+    }
+
+    console.log("Herzlich Willkommen " + popUp)
+    /*    
+        else {popUp = prompt ("Versuch es doch einfach nochmal..");
         }
-*/    
+    */
 });
