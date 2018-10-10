@@ -18,8 +18,4 @@ document
 					}
 
 					console.log("Herzlich Willkommen " + popUp)
-					/*
-					 * else {popUp = prompt ("Versuch es doch einfach
-					 * nochmal.."); }
-					 */
-				});
+									});

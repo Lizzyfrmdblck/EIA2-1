@@ -18,8 +18,5 @@ document.addEventListener("DOMContentLoaded", function(): void {
     }
 
     console.log("Herzlich Willkommen " + popUp)
-    /*    
-        else {popUp = prompt ("Versuch es doch einfach nochmal..");
-        }
-    */
+    
 });
