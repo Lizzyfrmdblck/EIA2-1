@@ -31,3 +31,4 @@ window.onload = function () {
         console.log(hand);
     }
 };
+//# sourceMappingURL=3b.js.map

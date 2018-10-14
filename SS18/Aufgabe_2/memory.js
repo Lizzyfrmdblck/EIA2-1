@@ -76,3 +76,4 @@ var Aufgabe_2;
               }*/
     };
 })(Aufgabe_2 || (Aufgabe_2 = {}));
+//# sourceMappingURL=memory.js.map

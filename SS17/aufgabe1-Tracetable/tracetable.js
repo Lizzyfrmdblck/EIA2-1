@@ -41,3 +41,4 @@ document.addEventListener('DOMContentLoaded', function () {
         s.top = _y + "px";
     }
 });
+//# sourceMappingURL=tracetable.js.map

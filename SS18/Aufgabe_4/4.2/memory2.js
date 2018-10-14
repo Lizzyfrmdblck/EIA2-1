@@ -239,3 +239,4 @@ var Aufgabe_2;
     }
 })(Aufgabe_2 || (Aufgabe_2 = {}));
 ;
+//# sourceMappingURL=memory2.js.map

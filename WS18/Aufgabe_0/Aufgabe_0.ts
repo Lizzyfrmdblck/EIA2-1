@@ -17,6 +17,6 @@ document.addEventListener("DOMContentLoaded", function(): void {
         document.getElementsByTagName("div")[0].innerHTML = "Herzlich Willkommen " + popUp + " :) ";
     }
 
-    console.log("Herzlich Willkommen " + popUp)
+    console.log("Herzlich Willkommen " + popUp);
     
 });

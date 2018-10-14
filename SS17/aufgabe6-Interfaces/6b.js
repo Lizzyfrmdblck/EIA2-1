@@ -47,3 +47,4 @@ var StudiVZ;
         return "Student nicht in der Datenbank";
     }
 })(StudiVZ || (StudiVZ = {}));
+//# sourceMappingURL=6b.js.map

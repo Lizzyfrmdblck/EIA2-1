@@ -16,3 +16,4 @@ document.addEventListener("DOMContentLoaded", function () {
     //        document.getElementsByTagName("div")[0].innerHTML = "Wer bist du? :o";    
     //    }
 });
+//# sourceMappingURL=A0.js.map

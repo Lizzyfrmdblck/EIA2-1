@@ -58,3 +58,4 @@ document.addEventListener("mousemove", function (box) {
     document.getElementById("totalRiceBox").style.left = (box.clientX) + "px";
     document.getElementById("totalRiceBox").style.top = (box.clientY) + "px";
 });
+//# sourceMappingURL=3a.js.map

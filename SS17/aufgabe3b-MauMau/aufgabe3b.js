@@ -33,3 +33,4 @@ window.onload = function () {
         console.log(hand);
     }
 };
+//# sourceMappingURL=aufgabe3b.js.map

@@ -123,3 +123,4 @@ var Aufgabe7_Classes;
     }
     Aufgabe7_Classes.Landscape = Landscape;
 })(Aufgabe7_Classes || (Aufgabe7_Classes = {}));
+//# sourceMappingURL=landscape.js.map

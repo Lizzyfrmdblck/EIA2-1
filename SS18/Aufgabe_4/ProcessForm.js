@@ -71,3 +71,4 @@ var Aufgabe_4;
         }
     }
 })(Aufgabe_4 || (Aufgabe_4 = {}));
+//# sourceMappingURL=ProcessForm.js.map

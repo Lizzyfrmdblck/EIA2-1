@@ -123,3 +123,4 @@ var Aufgabe8_Inheritance;
     }
     Aufgabe8_Inheritance.LandscapeTest = LandscapeTest;
 })(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
+//# sourceMappingURL=landscape.js.map

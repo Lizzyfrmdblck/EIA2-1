@@ -34,3 +34,4 @@ var Aufgabe7_Classes;
     }
     Aufgabe7_Classes.Bee = Bee;
 })(Aufgabe7_Classes || (Aufgabe7_Classes = {}));
+//# sourceMappingURL=classes.js.map

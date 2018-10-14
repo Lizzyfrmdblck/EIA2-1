@@ -74,3 +74,4 @@ var Aufgabe7_Classes;
     }
     Aufgabe7_Classes.Flower = Flower;
 })(Aufgabe7_Classes || (Aufgabe7_Classes = {}));
+//# sourceMappingURL=flower.js.map

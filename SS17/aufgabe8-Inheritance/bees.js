@@ -23,3 +23,4 @@ var Aufgabe8_Inheritance;
     }
     Aufgabe8_Inheritance.Bees = Bees;
 })(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
+//# sourceMappingURL=bees.js.map

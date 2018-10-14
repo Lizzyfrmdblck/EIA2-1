@@ -35,3 +35,4 @@ var Aufgabe8_Inheritance;
     }
     Aufgabe8_Inheritance.SuperFlowers = SuperFlowers;
 })(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
+//# sourceMappingURL=superclassFlowers.js.map

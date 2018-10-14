@@ -5,3 +5,4 @@ var Aufgabe_4;
     // Homogenes assoziatives Array zur Speicherung einer Person unter der Matrikelnummer
     Aufgabe_4.studiHomoAssoc = {};
 })(Aufgabe_4 || (Aufgabe_4 = {}));
+//# sourceMappingURL=Interfaces.js.map

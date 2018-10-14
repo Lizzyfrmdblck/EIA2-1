@@ -59,3 +59,4 @@ var Aufgabe8_Inheritance;
         console.log(n);
     }
 })(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
+//# sourceMappingURL=blumenwieseWithInterface.js.map

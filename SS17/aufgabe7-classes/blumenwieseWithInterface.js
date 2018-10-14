@@ -76,3 +76,4 @@ var Aufgabe7_Classes;
         console.log(n);
     }
 })(Aufgabe7_Classes || (Aufgabe7_Classes = {}));
+//# sourceMappingURL=blumenwieseWithInterface.js.map

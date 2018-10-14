@@ -39,3 +39,4 @@ var Aufgabe8_Inheritance;
     }
     Aufgabe8_Inheritance.Flower1 = Flower1;
 })(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
+//# sourceMappingURL=flower1.js.map

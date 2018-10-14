@@ -248,3 +248,4 @@ var L4_Canvas;
         crc2.fill();
     }
 })(L4_Canvas || (L4_Canvas = {}));
+//# sourceMappingURL=blumenwiese.js.map

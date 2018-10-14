@@ -44,3 +44,4 @@ var Aufgabe8_Inheritance;
     }
     Aufgabe8_Inheritance.HoneyBee = HoneyBee;
 })(Aufgabe8_Inheritance || (Aufgabe8_Inheritance = {}));
+//# sourceMappingURL=honeyBee.js.map
