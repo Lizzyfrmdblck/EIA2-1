@@ -1,28 +1,41 @@
 @charset "utf-8";
+
 body {
 	background-color: lightgray;
 }
+
 h1 {
 	color: red;
 }
+
 div {
+	margin: 2%;
+	background-color: #888888;
+	width: 30%;
+	padding-bottom: 30%; /* relative size and position on page  */
+	float: left;
+	position: relative; /* coord system stop */
+	top: 0px; /* IE? */
+}
+
+/*div {
 	width: 50px;
 	height: 50px;
-	float:left;
+	float: left;
 	margin: 1em;
 	background-color: white;
 	border: black solid 1px;
-	text-align: center; 
+	text-align: center;
 }
-
-.hidden{
+*/
+.hidden {
 	background-color: black;
 }
 
-.open{
+.open {
 	background-color: gray;
 }
 
-.taken{
+.taken {
 	visibility: hidden;
 }
