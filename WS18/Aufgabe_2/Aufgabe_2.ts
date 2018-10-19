@@ -9,11 +9,18 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 document.addEventListener("DOMContentLoaded", function(): void {
 
-    let stack: string[] = ["rot 0", " rot 1", "rot 2", "rot 3"];
-    let ablage: string[] = [];
-    let hand: string[] = [];
+    let deckArray: string[] = [];
+    let discardArray: string[] = [];
+    let handArray: string[] = [];
 
-    console.log(stack);
+    let cardNumbers: string[] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    let cardColours: string[] = ["#ff0000", "#00ff00", "#0000ff", "#ffff00"];
+    /*
+    let deck: HTMLElement = document.getElementById("deck");
+    let discard: HTMLElement = document.getElementById("discard");
+    let handCards: HTMLElement = document.getElementById("handcards");
+*/
+    console.log(deckArray);
 
     let nmbOfCards: string;
     nmbOfCards = prompt("Mit wie vielen Karten willst Du spielen?");
@@ -29,6 +36,13 @@ document.addEventListener("DOMContentLoaded", function(): void {
         }
 */
 
+    createPlaceholder("#000000", 4, 80, 120);
+    
+    for (let i: number = 0; i < 30; i++) {
+        createDeckCards("#ff0000", 4, 80, 120);
+        console.log(nmbOfCards);
+    }
+
     if (isNaN(parseInt(nmbOfCards)) || parseInt(nmbOfCards) > 8) {
         nmbOfCards = prompt("Sorry, Du musst eine Zahl eingeben, die kleiner als 8 ist.");
     } else {
@@ -37,13 +51,29 @@ document.addEventListener("DOMContentLoaded", function(): void {
 
     console.log(nmbOfCards);
 
+    //Gib so viele Karten aus wie der Nutzer wünscht
     for (let i: number = 0; i < parseInt(nmbOfCards); i++) {
-        createCards("#ff0000", 4, 80, 120);
+        createHandCards("#ff0000", 4, 80, 120);
         console.log(nmbOfCards);
     }
-    function createCards(_color: string, _content: number, _width: number, _height: number): void {
+
+    function createPlaceholder(_color: string, _content: number, _width: number, _height: number): void {
         let div: HTMLDivElement = document.createElement("div");
-        document.body.appendChild(div);
+        document.getElementById("deck").appendChild(div);
+        div.classList.add("placeholder");
+        div.innerHTML += "UNO";
+    }
+    function createDeckCards(_color: string, _content: number, _width: number, _height: number): void {
+        let div: HTMLDivElement = document.createElement("div");
+        document.getElementById("deck").appendChild(div);
+        div.classList.add("deckStyle");
+    }
+
+    function createHandCards(_color: string, _content: number, _width: number, _height: number): void {
+        let div: HTMLDivElement = document.createElement("div");
+        document.getElementById("handCards").appendChild(div);
+        div.classList.add("handCardStyle");
+
 
         let s: CSSStyleDeclaration = div.style;
         s.border = "thin solid black";
@@ -51,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
         s.backgroundColor = _color;
         s.width = _width + "px";
         s.height = _height + "px";
-      }
+    }
 
 
 });
