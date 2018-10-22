@@ -1,5 +1,5 @@
 /*
-Aufgabe: Aufgabe 0 - Arbeitsf�higkeit
+Aufgabe: Aufgabe 2 - UNO
 Name: Yannic Hermann
 Matrikel: 255279
 Datum: 07.10.18
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             break;
         }
 */
-    createPlaceholder("#000000", 4, 80, 120);
+    createPlaceholder("#000000", 80, 120);
     for (let i = 0; i < 30; i++) {
         createDeckCards("#ff0000", 4, 80, 120);
         console.log(nmbOfCards);
@@ -44,10 +44,13 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(nmbOfCards);
     //Gib so viele Karten aus wie der Nutzer w�nscht
     for (let i = 0; i < parseInt(nmbOfCards); i++) {
-        createHandCards("#ff0000", 4, 80, 120);
+        let randomColour = cardColours[Math.floor(Math.random() * cardColours.length)];
+        let randomNumber = cardNumbers[Math.floor(Math.random() * cardNumbers.length)];
+        createHandCards(randomColour, randomNumber, 80, 120);
         console.log(nmbOfCards);
     }
-    function createPlaceholder(_color, _content, _width, _height) {
+    //Nachziehstapel
+    function createPlaceholder(_color, _width, _height) {
         let div = document.createElement("div");
         document.getElementById("deck").appendChild(div);
         div.classList.add("placeholder");
@@ -62,12 +65,16 @@ document.addEventListener("DOMContentLoaded", function () {
         let div = document.createElement("div");
         document.getElementById("handCards").appendChild(div);
         div.classList.add("handCardStyle");
+        div.innerHTML = _content;
         let s = div.style;
         s.border = "thin solid black";
         s.position = "relative";
         s.backgroundColor = _color;
         s.width = _width + "px";
         s.height = _height + "px";
+    }
+    function createRandomContent() {
+        //    console.log(randomColour);
     }
 });
 //# sourceMappingURL=Aufgabe_2.js.map

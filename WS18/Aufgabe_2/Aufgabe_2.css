@@ -28,7 +28,10 @@ body {
 	float: left;
 	margin: 1em;
 	border: black solid 1px;
+	color: #000000;
 	text-align: center;
+	line-height: 115px;
+	font-size: 2em;
 }
 
 .hidden {

@@ -1,5 +1,5 @@
 /*  
-Aufgabe: Aufgabe 0 - Arbeitsfähigkeit
+Aufgabe: Aufgabe 2 - UNO
 Name: Yannic Hermann
 Matrikel: 255279
 Datum: 07.10.18
@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
 
     let cardNumbers: string[] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     let cardColours: string[] = ["#ff0000", "#00ff00", "#0000ff", "#ffff00"];
+
     /*
     let deck: HTMLElement = document.getElementById("deck");
     let discard: HTMLElement = document.getElementById("discard");
@@ -36,7 +37,8 @@ document.addEventListener("DOMContentLoaded", function(): void {
         }
 */
 
-    createPlaceholder("#000000", 4, 80, 120);
+    createPlaceholder("#000000", 80, 120);
+
     
     for (let i: number = 0; i < 30; i++) {
         createDeckCards("#ff0000", 4, 80, 120);
@@ -53,11 +55,15 @@ document.addEventListener("DOMContentLoaded", function(): void {
 
     //Gib so viele Karten aus wie der Nutzer wünscht
     for (let i: number = 0; i < parseInt(nmbOfCards); i++) {
-        createHandCards("#ff0000", 4, 80, 120);
-        console.log(nmbOfCards);
-    }
 
-    function createPlaceholder(_color: string, _content: number, _width: number, _height: number): void {
+        let randomColour: string = cardColours[Math.floor(Math.random() * cardColours.length)];
+        let randomNumber: string = cardNumbers[Math.floor(Math.random() * cardNumbers.length)];
+        createHandCards(randomColour, randomNumber, 80, 120);
+        console.log(nmbOfCards);
+
+    }
+    //Nachziehstapel
+    function createPlaceholder(_color: string, _width: number, _height: number): void {
         let div: HTMLDivElement = document.createElement("div");
         document.getElementById("deck").appendChild(div);
         div.classList.add("placeholder");
@@ -69,11 +75,11 @@ document.addEventListener("DOMContentLoaded", function(): void {
         div.classList.add("deckStyle");
     }
 
-    function createHandCards(_color: string, _content: number, _width: number, _height: number): void {
+    function createHandCards(_color: string, _content: string, _width: number, _height: number): void {
         let div: HTMLDivElement = document.createElement("div");
         document.getElementById("handCards").appendChild(div);
         div.classList.add("handCardStyle");
-
+        div.innerHTML = _content;
 
         let s: CSSStyleDeclaration = div.style;
         s.border = "thin solid black";
@@ -82,6 +88,14 @@ document.addEventListener("DOMContentLoaded", function(): void {
         s.width = _width + "px";
         s.height = _height + "px";
     }
+
+    function createRandomContent(): void {
+
+
+
+    //    console.log(randomColour);
+    }
+
 
 
 });
