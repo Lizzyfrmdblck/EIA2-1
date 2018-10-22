@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
     let handCards: HTMLElement = document.getElementById("handcards");
 */
     console.log(deckArray);
+    
 
     let nmbOfCards: string;
     nmbOfCards = prompt("Mit wie vielen Karten willst Du spielen?");
