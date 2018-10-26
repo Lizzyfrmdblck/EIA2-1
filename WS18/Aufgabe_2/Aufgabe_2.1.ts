@@ -18,7 +18,7 @@ namespace A2 {
         let handCards: Card[] = [];
 
         let colors: string[] = ["red", "yellow", "green", "blue"];
-        let values: string[] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "<->", "x"];
+        let values: string[] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "<=>", "x"];
 
         let numCards: string;
         numCards = prompt("Mit wie vielen Karten willst Du spielen?");
@@ -47,7 +47,7 @@ namespace A2 {
         //Push so viele Karten in den HandArray, wie der Nutzer wünscht und lösche diese aus dem Deck
         for (let i: number = 0; i < parseInt(numCards); i++) {
 
-            let randomNum: number = Math.floor(Math.random() * deck.length - 1);
+            let randomNum: number = Math.floor(Math.random() * deck.length);
             // handCards = deck.splice(deck[randomNum, 1]).concat(handCards);
             handCards.push(deck[randomNum]);
             deck.splice(randomNum, 1);

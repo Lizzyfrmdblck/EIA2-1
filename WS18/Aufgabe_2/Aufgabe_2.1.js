@@ -12,7 +12,7 @@ var A2;
         let deck = [];
         let handCards = [];
         let colors = ["red", "yellow", "green", "blue"];
-        let values = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "<->", "x"];
+        let values = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "<=>", "x"];
         let numCards;
         numCards = prompt("Mit wie vielen Karten willst Du spielen?");
         createPlaceholder();
@@ -36,7 +36,7 @@ var A2;
         console.log(deck);
         //Push so viele Karten in den HandArray, wie der Nutzer w�nscht und l�sche diese aus dem Deck
         for (let i = 0; i < parseInt(numCards); i++) {
-            let randomNum = Math.floor(Math.random() * deck.length - 1);
+            let randomNum = Math.floor(Math.random() * deck.length);
             // handCards = deck.splice(deck[randomNum, 1]).concat(handCards);
             handCards.push(deck[randomNum]);
             deck.splice(randomNum, 1);
