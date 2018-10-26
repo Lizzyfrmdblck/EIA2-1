@@ -31,10 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 */
     createPlaceholder("#000000", 80, 120);
-    for (let i = 0; i < 30; i++) {
-        createDeckCards("#ff0000", 4, 80, 120);
-        console.log(nmbOfCards);
-    }
     if (isNaN(parseInt(nmbOfCards)) || parseInt(nmbOfCards) > 8) {
         nmbOfCards = prompt("Sorry, Du musst eine Zahl eingeben, die kleiner als 8 ist.");
     }
@@ -42,6 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Okay, Du spielst nun mit " + nmbOfCards + " Karten!");
     }
     console.log(nmbOfCards);
+    //Generiere das Deck (noch nicht funktionsf�hig) 
+    for (let i = 0; i < 30; i++) {
+        createDeckCards("#ff0000", 4);
+        console.log(nmbOfCards);
+    }
     //Gib so viele Karten aus wie der Nutzer w�nscht
     for (let i = 0; i < parseInt(nmbOfCards); i++) {
         let randomColour = cardColours[Math.floor(Math.random() * cardColours.length)];
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         div.classList.add("placeholder");
         div.innerHTML += "UNO";
     }
-    function createDeckCards(_color, _content, _width, _height) {
+    function createDeckCards(_color, _content) {
         let div = document.createElement("div");
         document.getElementById("deck").appendChild(div);
         div.classList.add("deckStyle");

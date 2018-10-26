@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
     let handCards: HTMLElement = document.getElementById("handcards");
 */
     console.log(deckArray);
-    
+
 
     let nmbOfCards: string;
     nmbOfCards = prompt("Mit wie vielen Karten willst Du spielen?");
@@ -40,11 +40,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
 
     createPlaceholder("#000000", 80, 120);
 
-    
-    for (let i: number = 0; i < 30; i++) {
-        createDeckCards("#ff0000", 4, 80, 120);
-        console.log(nmbOfCards);
-    }
+
 
     if (isNaN(parseInt(nmbOfCards)) || parseInt(nmbOfCards) > 8) {
         nmbOfCards = prompt("Sorry, Du musst eine Zahl eingeben, die kleiner als 8 ist.");
@@ -53,6 +49,11 @@ document.addEventListener("DOMContentLoaded", function(): void {
     }
 
     console.log(nmbOfCards);
+    //Generiere das Deck (noch nicht funktionsfähig) 
+    for (let i: number = 0; i < 30; i++) {
+        createDeckCards("#ff0000", 4);
+        console.log(nmbOfCards);
+    }
 
     //Gib so viele Karten aus wie der Nutzer wünscht
     for (let i: number = 0; i < parseInt(nmbOfCards); i++) {
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
         div.classList.add("placeholder");
         div.innerHTML += "UNO";
     }
-    function createDeckCards(_color: string, _content: number, _width: number, _height: number): void {
+    function createDeckCards(_color: string, _content: number): void {
         let div: HTMLDivElement = document.createElement("div");
         document.getElementById("deck").appendChild(div);
         div.classList.add("deckStyle");
@@ -94,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
 
 
 
-    //    console.log(randomColour);
+        //    console.log(randomColour);
     }
 
 
