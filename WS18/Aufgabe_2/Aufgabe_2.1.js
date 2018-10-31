@@ -14,7 +14,7 @@ var A2;
         let colors = ["red", "yellow", "green", "blue"];
         let values = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "<=>", "x"];
         let numCards;
-        numCards = prompt("Mit wie vielen Karten willst Du spielen?");
+        console.log(deck);
         createPlaceholder();
         /*  Begrenzung, falls mehrere Spieler implementiert werden
                 
@@ -33,7 +33,12 @@ var A2;
                 }
             }
         }
-        console.log(deck);
+        //Unkonventionelle Art, die �berfl�ssigen 0er zu entfernen
+        deck.splice(0, 1);
+        deck.splice(25, 1);
+        deck.splice(50, 1);
+        deck.splice(75, 1);
+        numCards = prompt("Mit wie vielen Karten willst Du spielen?");
         //Push so viele Karten in den HandArray, wie der Nutzer w�nscht und l�sche diese aus dem Deck
         for (let i = 0; i < parseInt(numCards); i++) {
             let randomNum = Math.floor(Math.random() * deck.length);
@@ -43,13 +48,6 @@ var A2;
         }
         console.log(handCards);
         console.log(deck);
-        //Nachziehstapel
-        function createPlaceholder() {
-            let div = document.createElement("div");
-            document.getElementById("deck").appendChild(div);
-            div.classList.add("placeholder");
-            div.innerHTML += "UNO";
-        }
         //Stelle die erzeugten Karten in der HTML dar
         for (let i = 0; i < handCards.length; i++) {
             let div = document.createElement("div");
@@ -59,5 +57,12 @@ var A2;
             div.style.backgroundColor = handCards[i].color;
         }
     });
+    //Nachziehstapel
+    function createPlaceholder() {
+        let div = document.createElement("div");
+        document.getElementById("deck").appendChild(div);
+        div.classList.add("placeholder");
+        div.innerHTML += "UNO";
+    }
 })(A2 || (A2 = {}));
 //# sourceMappingURL=Aufgabe_2.1.js.map

@@ -6,6 +6,7 @@ Datum: 25.10.18
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
+
 namespace A2 {
     document.addEventListener("DOMContentLoaded", function(): void {
 
@@ -21,7 +22,10 @@ namespace A2 {
         let values: string[] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "<=>", "x"];
 
         let numCards: string;
-        numCards = prompt("Mit wie vielen Karten willst Du spielen?");
+
+        console.log(deck);
+
+
 
         createPlaceholder();
 
@@ -42,11 +46,16 @@ namespace A2 {
                 }
             }
         }
-        console.log(deck);
+        //Unkonventionelle Art, die überflüssigen 0er zu entfernen
+        deck.splice(0, 1);
+        deck.splice(25, 1);
+        deck.splice(50, 1);
+        deck.splice(75, 1);
 
+        numCards = prompt("Mit wie vielen Karten willst Du spielen?");
+        
         //Push so viele Karten in den HandArray, wie der Nutzer wünscht und lösche diese aus dem Deck
         for (let i: number = 0; i < parseInt(numCards); i++) {
-
             let randomNum: number = Math.floor(Math.random() * deck.length);
             // handCards = deck.splice(deck[randomNum, 1]).concat(handCards);
             handCards.push(deck[randomNum]);
@@ -56,13 +65,7 @@ namespace A2 {
         console.log(handCards);
         console.log(deck);
 
-        //Nachziehstapel
-        function createPlaceholder(): void {
-            let div: HTMLDivElement = document.createElement("div");
-            document.getElementById("deck").appendChild(div);
-            div.classList.add("placeholder");
-            div.innerHTML += "UNO";
-        }
+
         //Stelle die erzeugten Karten in der HTML dar
         for (let i: number = 0; i < handCards.length; i++) {
 
@@ -75,4 +78,11 @@ namespace A2 {
 
     });
 
+    //Nachziehstapel
+    function createPlaceholder(): void {
+        let div: HTMLDivElement = document.createElement("div");
+        document.getElementById("deck").appendChild(div);
+        div.classList.add("placeholder");
+        div.innerHTML += "UNO";
+    }
 }
