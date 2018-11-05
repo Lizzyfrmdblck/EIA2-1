@@ -33,11 +33,12 @@ var A2;
                 }
             }
         }
-        //Unkonventionelle Art, die �berfl�ssigen 0er zu entfernen
+        //�berfl�ssige 0er entfernen und schwarze Karten hinzuf�gen
         deck.splice(0, 1);
         deck.splice(25, 1);
         deck.splice(50, 1);
         deck.splice(75, 1);
+        deck.push({ color: "black", value: "+4 & color choice" }, { color: "black", value: "+4 & color choice" }, { color: "black", value: "+4 & color choice" }, { color: "black", value: "+4 & color choice" }, { color: "black", value: "color choice" }, { color: "black", value: "color choice" }, { color: "black", value: "color choice" });
         numCards = prompt("Mit wie vielen Karten willst Du spielen?");
         //Push so viele Karten in den HandArray, wie der Nutzer w�nscht und l�sche diese aus dem Deck
         for (let i = 0; i < parseInt(numCards); i++) {
@@ -53,6 +54,12 @@ var A2;
             let div = document.createElement("div");
             document.getElementById("handCards").appendChild(div);
             div.classList.add("handCardStyle");
+            /*let card: Card = { color: colors[i], value: values[i] };
+              if (card.color = "black") {
+              //    div.classList.remove("handCardStyle");
+              //  div.classList.add("blackCards");
+              div.style.color = "white";
+              }*/
             div.innerHTML = handCards[i].value;
             div.style.backgroundColor = handCards[i].color;
         }

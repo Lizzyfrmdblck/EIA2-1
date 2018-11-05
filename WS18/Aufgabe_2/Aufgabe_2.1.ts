@@ -46,14 +46,15 @@ namespace A2 {
                 }
             }
         }
-        //Unkonventionelle Art, die überflüssigen 0er zu entfernen
+        //Überflüssige 0er entfernen und schwarze Karten hinzufügen
         deck.splice(0, 1);
         deck.splice(25, 1);
         deck.splice(50, 1);
         deck.splice(75, 1);
+        deck.push({ color: "black", value: "+4 & color choice" }, { color: "black", value: "+4 & color choice" }, { color: "black", value: "+4 & color choice" }, { color: "black", value: "+4 & color choice" }, { color: "black", value: "color choice" }, { color: "black", value: "color choice" }, { color: "black", value: "color choice" });
 
         numCards = prompt("Mit wie vielen Karten willst Du spielen?");
-        
+
         //Push so viele Karten in den HandArray, wie der Nutzer wünscht und lösche diese aus dem Deck
         for (let i: number = 0; i < parseInt(numCards); i++) {
             let randomNum: number = Math.floor(Math.random() * deck.length);
@@ -72,6 +73,14 @@ namespace A2 {
             let div: HTMLDivElement = document.createElement("div");
             document.getElementById("handCards").appendChild(div);
             div.classList.add("handCardStyle");
+           
+          /*let card: Card = { color: colors[i], value: values[i] };
+            if (card.color = "black") {
+            //    div.classList.remove("handCardStyle");
+            //  div.classList.add("blackCards");
+            div.style.color = "white";        
+            }*/
+            
             div.innerHTML = handCards[i].value;
             div.style.backgroundColor = handCards[i].color;
         }
