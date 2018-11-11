@@ -1,9 +1,11 @@
 /*
-Aufgabe: Aufgabe 2 - UNO
+Aufgabe: Aufgabe 3 - UNO
 Name: Yannic Hermann
 Matrikel: 255279
-Datum: 25.10.18
+Datum: 11.11.18
     
+>>Abgabe noch nicht funktionsf�hig. Bin in Zeile 139 stehen geblieben.
+
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 var A2;
@@ -101,22 +103,20 @@ var A2;
         }
     }
     function displayCard() {
-        for (let i = 0; i < handCards.length; i++) {
-            let div = document.createElement("div");
-            document.getElementById("handCards").appendChild(div);
-            div.classList.add("handCardStyle");
-            let id = div.id = String(i);
-            div.addEventListener("click", dropCard);
-            console.log(div);
-            /*let card: Card = { color: colors[i], value: values[i] };
-              if (card.color = "black") {
-              //    div.classList.remove("handCardStyle");
-              //  div.classList.add("blackCards");
-              div.style.color = "white";
-            */
-            div.innerHTML = handCards[i].value;
-            div.style.backgroundColor = handCards[i].color;
-        }
+        //   let lastIndex: number = handCards[handCards.lastIndexOf];
+        let div = document.createElement("div");
+        document.getElementById("handCards").appendChild(div);
+        div.classList.add("handCardStyle");
+        //let id: string = div.id = String(i);
+        console.log(div);
+        /*let card: Card = { color: colors[i], value: values[i] };
+          if (card.color = "black") {
+          //    div.classList.remove("handCardStyle");
+          //  div.classList.add("blackCards");
+          div.style.color = "white";
+      */
+        // div.innerHTML = handCards[lastIndex].value;
+        //div.style.backgroundColor = handCards[lastIndex].color;
     }
 })(A2 || (A2 = {}));
 //# sourceMappingURL=Aufgabe_2.1.js.map

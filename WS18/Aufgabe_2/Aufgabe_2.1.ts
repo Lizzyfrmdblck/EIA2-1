@@ -150,9 +150,9 @@ namespace A2 {
           //    div.classList.remove("handCardStyle");
           //  div.classList.add("blackCards");
           div.style.color = "white";        
-        */
-        div.innerHTML = handCards[lastIndex].value;
-        div.style.backgroundColor = handCards[lastIndex].color;
+      */
+       // div.innerHTML = handCards[lastIndex].value;
+        //div.style.backgroundColor = handCards[lastIndex].color;
 
     }
 }
