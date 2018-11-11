@@ -8,12 +8,13 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var A2;
 (function (A2) {
+    let handCards = [];
+    let deck = [];
+    let colors = ["red", "yellow", "green", "blue"];
+    let values = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "<=>", "x"];
+    let numCards;
     document.addEventListener("DOMContentLoaded", function () {
-        let deck = [];
-        let handCards = [];
-        let colors = ["red", "yellow", "green", "blue"];
-        let values = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "<=>", "x"];
-        let numCards;
+        document.addEventListener("keydown", pullCardKey);
         console.log(deck);
         createPlaceholder();
         /*  Begrenzung, falls mehrere Spieler implementiert werden
@@ -54,22 +55,68 @@ var A2;
             let div = document.createElement("div");
             document.getElementById("handCards").appendChild(div);
             div.classList.add("handCardStyle");
+            let id = div.id = String(i);
+            div.addEventListener("click", dropCard);
+            console.log(div);
             /*let card: Card = { color: colors[i], value: values[i] };
               if (card.color = "black") {
               //    div.classList.remove("handCardStyle");
               //  div.classList.add("blackCards");
               div.style.color = "white";
-              }*/
+            */
             div.innerHTML = handCards[i].value;
             div.style.backgroundColor = handCards[i].color;
         }
+        // let  : HTMLDivElement = document.getElementsByTagName("")[0];
+        // deck.addEventListener("click", pullCard);
     });
+    function dropCard(_event) {
+        console.log(_event.target);
+        let domCard = _event.target;
+    }
     //Nachziehstapel
     function createPlaceholder() {
         let div = document.createElement("div");
         document.getElementById("deck").appendChild(div);
         div.classList.add("placeholder");
         div.innerHTML += "UNO";
+        div.addEventListener("click", pullCardClick);
+    }
+    function pullCardClick(_event) {
+        console.log("works" + _event.target);
+    }
+    function pullCardKey(_event) {
+        console.log(_event.target);
+        console.log(_event);
+        console.log("keyCode = " + _event.keyCode);
+        //console.log(_event.keyCode);
+        if (_event.keyCode == 32) {
+            console.log("works");
+            let randomNum = Math.floor(Math.random() * deck.length);
+            handCards.push(deck[randomNum]);
+            deck.splice(randomNum, 1);
+            console.log(deck);
+            console.log(handCards);
+            displayCard();
+        }
+    }
+    function displayCard() {
+        for (let i = 0; i < handCards.length; i++) {
+            let div = document.createElement("div");
+            document.getElementById("handCards").appendChild(div);
+            div.classList.add("handCardStyle");
+            let id = div.id = String(i);
+            div.addEventListener("click", dropCard);
+            console.log(div);
+            /*let card: Card = { color: colors[i], value: values[i] };
+              if (card.color = "black") {
+              //    div.classList.remove("handCardStyle");
+              //  div.classList.add("blackCards");
+              div.style.color = "white";
+            */
+            div.innerHTML = handCards[i].value;
+            div.style.backgroundColor = handCards[i].color;
+        }
     }
 })(A2 || (A2 = {}));
 //# sourceMappingURL=Aufgabe_2.1.js.map
