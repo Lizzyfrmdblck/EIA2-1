@@ -103,20 +103,20 @@ var A2;
         }
     }
     function displayCard() {
-        //   let lastIndex: number = handCards[handCards.lastIndexOf];
-        let div = document.createElement("div");
-        document.getElementById("handCards").appendChild(div);
-        div.classList.add("handCardStyle");
-        //let id: string = div.id = String(i);
-        console.log(div);
-        /*let card: Card = { color: colors[i], value: values[i] };
-          if (card.color = "black") {
-          //    div.classList.remove("handCardStyle");
-          //  div.classList.add("blackCards");
-          div.style.color = "white";
-      */
-        // div.innerHTML = handCards[lastIndex].value;
-        //div.style.backgroundColor = handCards[lastIndex].color;
+        let lastIndex = handCards.length - 1;
+        if (lastIndex >= 108) {
+            alert("Keine Karten mehr auf dem Stapel");
+        }
+        else {
+            console.log("lastIndex " + lastIndex);
+            let div = document.createElement("div");
+            document.getElementById("handCards").appendChild(div);
+            div.classList.add("handCardStyle");
+            //let id: string = div.id = String(i);
+            console.log(div);
+            div.innerHTML = handCards[lastIndex].value;
+            div.style.backgroundColor = handCards[lastIndex].color;
+        }
     }
 })(A2 || (A2 = {}));
 //# sourceMappingURL=Aufgabe_2.1.js.map

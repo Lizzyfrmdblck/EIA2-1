@@ -131,28 +131,27 @@ namespace A2 {
             console.log(deck);
             console.log(handCards);
             displayCard();
-
         }
     }
+
     function displayCard(): void {
-        
-     //   let lastIndex: number = handCards[handCards.lastIndexOf];
 
-        let div: HTMLDivElement = document.createElement("div");
-        document.getElementById("handCards").appendChild(div);
-        div.classList.add("handCardStyle");
-        //let id: string = div.id = String(i);
+        let lastIndex: number = handCards.length - 1;
 
-        console.log(div);
+        if (lastIndex >= 108) {
+            alert("Keine Karten mehr auf dem Stapel");
+        }
+        else {
+            console.log("lastIndex " + lastIndex);
+            let div: HTMLDivElement = document.createElement("div");
+            document.getElementById("handCards").appendChild(div);
+            div.classList.add("handCardStyle");
+            //let id: string = div.id = String(i);
 
-        /*let card: Card = { color: colors[i], value: values[i] };
-          if (card.color = "black") {
-          //    div.classList.remove("handCardStyle");
-          //  div.classList.add("blackCards");
-          div.style.color = "white";        
-      */
-       // div.innerHTML = handCards[lastIndex].value;
-        //div.style.backgroundColor = handCards[lastIndex].color;
+            console.log(div);
 
+            div.innerHTML = handCards[lastIndex].value;
+            div.style.backgroundColor = handCards[lastIndex].color;
+        }
     }
 }
