@@ -63,7 +63,6 @@ namespace A2 {
         //Push so viele Karten in den HandArray, wie der Nutzer wünscht und lösche diese aus dem Deck
         for (let i: number = 0; i < parseInt(numCards); i++) {
             let randomNum: number = Math.floor(Math.random() * deck.length);
-            // handCards = deck.splice(deck[randomNum, 1]).concat(handCards);
             handCards.push(deck[randomNum]);
             deck.splice(randomNum, 1);
         }
@@ -83,19 +82,9 @@ namespace A2 {
             div.addEventListener("click", dropCard);
             console.log(div);
 
-            /*let card: Card = { color: colors[i], value: values[i] };
-              if (card.color = "black") {
-              //    div.classList.remove("handCardStyle");
-              //  div.classList.add("blackCards");
-              div.style.color = "white";        
-            */
             div.innerHTML = handCards[i].value;
             div.style.backgroundColor = handCards[i].color;
         }
-
-        // let  : HTMLDivElement = document.getElementsByTagName("")[0];
-        // deck.addEventListener("click", pullCard);
-
     });
 
     function dropCard(_event: Event): void {
@@ -114,6 +103,12 @@ namespace A2 {
 
     function pullCardClick(_event: Event): void {
         console.log("works" + _event.target);
+
+        let randomNum: number = Math.floor(Math.random() * deck.length);
+        handCards.push(deck[randomNum]);
+        deck.splice(randomNum, 1);
+        displayCard();
+
     }
 
     function pullCardKey(_event: KeyboardEvent): void {
@@ -121,37 +116,28 @@ namespace A2 {
         console.log(_event);
         console.log("keyCode = " + _event.keyCode);
 
-        //console.log(_event.keyCode);
-
         if (_event.keyCode == 32) {
-            console.log("works");
             let randomNum: number = Math.floor(Math.random() * deck.length);
             handCards.push(deck[randomNum]);
             deck.splice(randomNum, 1);
-            console.log(deck);
-            console.log(handCards);
             displayCard();
         }
     }
 
     function displayCard(): void {
 
-        let lastIndex: number = handCards.length - 1;
+        let lastIndexHandCards: number = handCards.length - 1;
 
-        if (lastIndex >= 108) {
-            alert("Keine Karten mehr auf dem Stapel");
+        if (lastIndexHandCards >= 108) {
+            alert("Keine Karten mehr auf dem Stapel.");
         }
         else {
-            console.log("lastIndex " + lastIndex);
+            console.log("lastIndex " + lastIndexHandCards);
             let div: HTMLDivElement = document.createElement("div");
             document.getElementById("handCards").appendChild(div);
             div.classList.add("handCardStyle");
-            //let id: string = div.id = String(i);
-
-            console.log(div);
-
-            div.innerHTML = handCards[lastIndex].value;
-            div.style.backgroundColor = handCards[lastIndex].color;
+            div.innerHTML = handCards[lastIndexHandCards].value;
+            div.style.backgroundColor = handCards[lastIndexHandCards].color;
         }
     }
 }
