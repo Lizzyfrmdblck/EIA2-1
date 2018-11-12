@@ -4,13 +4,19 @@ body {
 	background-color: lightgray;
 }
 
+fieldset {
+	height: 150px;
+	width: screen;
+	overflow: auto;
+}
+
 .placeholder {
 	position: relative;
 	background-color: black;
 	width: 80px;
 	height: 120px;
+	margin-top: 15px;
 	float: left;
-	margin: 1em;
 	border: black solid 1px;
 	color: #ffffff;
 	text-align: center;
@@ -22,24 +28,13 @@ body {
 	width: 80px;
 	height: 120px;
 	float: left;
-	margin: 1em;
+	margin-right: 1em;
+	margin-top: 15px;
 	border: black solid 1px;
 	text-align: center;
 	line-height: 30px;
 	font-size: 2em;
 	color: grey;
-}
-
-.blackCards {
-	width: 80px;
-	height: 120px;
-	float: left;
-	margin: 1em;
-	border: black solid 1px;
-	text-align: center;
-	line-height: 30px;
-	font-size: 2em;
-	color: white;
 }
 
 .hidden {

@@ -12,6 +12,7 @@ var A2;
 (function (A2) {
     let handCards = [];
     let deck = [];
+    let discard = [];
     let colors = ["red", "yellow", "green", "blue"];
     let values = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "<=>", "x"];
     let numCards;
@@ -66,6 +67,16 @@ var A2;
     function dropCard(_event) {
         console.log(_event.target);
         let domCard = _event.target;
+        let div = document.createElement("div");
+        discard.splice(0, 1);
+        if (discard.length > 0) {
+            document.getElementById("discard").removeChild(div);
+        }
+        discard.push({ color: div.style.backgroundColor = domCard.style.backgroundColor, value: div.innerHTML = domCard.innerHTML });
+        domCard.remove();
+        document.getElementById("discard").appendChild(div);
+        div.classList.add("handCardStyle");
+        console.log(discard);
     }
     //Nachziehstapel
     function createPlaceholder() {
@@ -105,6 +116,8 @@ var A2;
             div.classList.add("handCardStyle");
             div.innerHTML = handCards[lastIndexHandCards].value;
             div.style.backgroundColor = handCards[lastIndexHandCards].color;
+            div.addEventListener("click", dropCard);
+            let id = div.id = String(lastIndexHandCards);
         }
     }
 })(A2 || (A2 = {}));
