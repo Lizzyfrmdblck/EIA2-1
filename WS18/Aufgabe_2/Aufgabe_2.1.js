@@ -1,6 +1,6 @@
 /*
 Aufgabe: Aufgabe 3 - UNO
-Name: Yannic Hermann
+Card: Yannic Hermann
 Matrikel: 255279
 Datum: 11.11.18
     
@@ -18,6 +18,8 @@ var A2;
     let numCards;
     document.addEventListener("DOMContentLoaded", function () {
         document.addEventListener("keydown", pullCardKey);
+        let sortButton = document.getElementById("sort");
+        sortButton.addEventListener("click", sortCards);
         console.log(deck);
         createPlaceholder();
         /*  Begrenzung, falls mehrere Spieler implementiert werden
@@ -52,7 +54,10 @@ var A2;
         }
         console.log(handCards);
         console.log(deck);
+        displayCards();
         //Stelle die erzeugten Karten in der HTML dar
+    });
+    function displayCards() {
         for (let i = 0; i < handCards.length; i++) {
             let div = document.createElement("div");
             document.getElementById("handCards").appendChild(div);
@@ -63,20 +68,44 @@ var A2;
             div.innerHTML = handCards[i].value;
             div.style.backgroundColor = handCards[i].color;
         }
-    });
+    }
+    function sortCards(_event) {
+        console.log(handCards);
+        handCards.sort(compareCards);
+        deleteCards();
+        displayCards();
+        console.log(handCards);
+    }
+    function deleteCards() {
+        document.getElementById("discard").getElementsByTagName("div");
+        //mit Schleife
+    }
+    function compareCards(_a, _b) {
+        let cardA = _a.color.toUpperCase(); // ignore upper and lowercase
+        let cardB = _b.color.toUpperCase(); // ignore upper and lowercase
+        if (cardA < cardB) {
+            return -1;
+        }
+        if (cardA > cardB) {
+            return 1;
+        }
+        // Cards m�ssen gleich sein
+        return 0;
+    }
+    console.log("bevor click " + discard.length);
     function dropCard(_event) {
         console.log(_event.target);
         let domCard = _event.target;
         let div = document.createElement("div");
+        console.log("nach click " + discard.length);
+        console.log(discard);
         discard.splice(0, 1);
-        if (discard.length > 0) {
-            document.getElementById("discard").removeChild(div);
-        }
+        console.log(discard);
         discard.push({ color: div.style.backgroundColor = domCard.style.backgroundColor, value: div.innerHTML = domCard.innerHTML });
         domCard.remove();
+        document.getElementById("discard").getElementsByTagName("div")[0].remove();
         document.getElementById("discard").appendChild(div);
         div.classList.add("handCardStyle");
-        console.log(discard);
     }
     //Nachziehstapel
     function createPlaceholder() {
