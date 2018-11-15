@@ -64,7 +64,7 @@ var A2;
             div.classList.add("handCardStyle");
             let id = div.id = String(i);
             div.addEventListener("click", dropCard);
-            console.log(div);
+            //console.log(div);
             div.innerHTML = handCards[i].value;
             div.style.backgroundColor = handCards[i].color;
         }
@@ -77,8 +77,18 @@ var A2;
         console.log(handCards);
     }
     function deleteCards() {
-        document.getElementById("discard").getElementsByTagName("div");
-        //mit Schleife
+        /*for (let i: number = 0; i < handCards.length; i++) {
+            let div: HTMLDivElement = document.getElementsByTagName("div")[i];
+            let divContainer: HTMLElement = document.getElementById("container");
+
+            let parent: HTMLFieldSetElement = document.getElementsByTagName("fieldset")[2];
+            console.log(parent);
+            parent.removeChild(div);
+            }//mit Schleife*/
+        let myNode = document.getElementById("handCards");
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+        }
     }
     function compareCards(_a, _b) {
         let cardA = _a.color.toUpperCase(); // ignore upper and lowercase
@@ -99,8 +109,11 @@ var A2;
         let div = document.createElement("div");
         console.log("nach click " + discard.length);
         console.log(discard);
-        discard.splice(0, 1);
-        console.log(discard);
+        console.log(domCard.id);
+        //wie komme ich an den index vom geklickten div im array, um es dann rauszusplicen??? 
+        for (let i = 0; i < handCards.length; i++) {
+        }
+        console.log(handCards);
         discard.push({ color: div.style.backgroundColor = domCard.style.backgroundColor, value: div.innerHTML = domCard.innerHTML });
         domCard.remove();
         document.getElementById("discard").getElementsByTagName("div")[0].remove();

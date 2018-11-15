@@ -94,7 +94,7 @@ namespace A2 {
             let id: string = div.id = String(i);
 
             div.addEventListener("click", dropCard);
-            console.log(div);
+            //console.log(div);
 
             div.innerHTML = handCards[i].value;
             div.style.backgroundColor = handCards[i].color;
@@ -115,8 +115,19 @@ namespace A2 {
     }
 
     function deleteCards(): void {
-        document.getElementById("discard").getElementsByTagName("div");
-        //mit Schleife
+        /*for (let i: number = 0; i < handCards.length; i++) {
+            let div: HTMLDivElement = document.getElementsByTagName("div")[i];
+            let divContainer: HTMLElement = document.getElementById("container");
+
+            let parent: HTMLFieldSetElement = document.getElementsByTagName("fieldset")[2];
+            console.log(parent);
+            parent.removeChild(div);
+            }//mit Schleife*/
+        let myNode: HTMLElement = document.getElementById("handCards");
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+
+        }
 
     }
 
@@ -133,9 +144,6 @@ namespace A2 {
         // Cards müssen gleich sein
 
         return 0;
-
-
-
     }
 
     console.log("bevor click " + discard.length);
@@ -146,13 +154,19 @@ namespace A2 {
         let domCard: HTMLElement = <HTMLElement>_event.target;
         let div: HTMLDivElement = document.createElement("div");
 
-
-
         console.log("nach click " + discard.length);
 
         console.log(discard);
-        discard.splice(0, 1);
-        console.log(discard);
+        console.log(domCard.id);
+        
+        //wie komme ich an den index vom geklickten div im array, um es dann rauszusplicen??? 
+        for (let i: number = 0; i < handCards.length; i++) {
+            //let indexOfCard: number = handCards[i];
+         //   if (handCards.length[i] == domCard.id) {
+            //}
+        }
+
+        console.log(handCards);
         discard.push({ color: div.style.backgroundColor = domCard.style.backgroundColor, value: div.innerHTML = domCard.innerHTML });
 
         domCard.remove();
