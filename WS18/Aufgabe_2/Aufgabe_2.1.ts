@@ -159,15 +159,12 @@ namespace A2 {
         console.log(discard);
         console.log(domCard.id);
         
-        //wie komme ich an den index vom geklickten div im array, um es dann rauszusplicen??? 
-        for (let i: number = 0; i < handCards.length; i++) {
-            //let indexOfCard: number = handCards[i];
-         //   if (handCards.length[i] == domCard.id) {
-            //}
-        }
+        let id: number = parseInt(domCard.id);
 
-        console.log(handCards);
+        console.log(id);
         discard.push({ color: div.style.backgroundColor = domCard.style.backgroundColor, value: div.innerHTML = domCard.innerHTML });
+        //discard.push(handCards[id]);
+        handCards.splice(id, 1);
 
         domCard.remove();
         document.getElementById("discard").getElementsByTagName("div")[0].remove();

@@ -110,11 +110,11 @@ var A2;
         console.log("nach click " + discard.length);
         console.log(discard);
         console.log(domCard.id);
-        //wie komme ich an den index vom geklickten div im array, um es dann rauszusplicen??? 
-        for (let i = 0; i < handCards.length; i++) {
-        }
-        console.log(handCards);
+        let id = parseInt(domCard.id);
+        console.log(id);
         discard.push({ color: div.style.backgroundColor = domCard.style.backgroundColor, value: div.innerHTML = domCard.innerHTML });
+        //discard.push(handCards[id]);
+        handCards.splice(id, 1);
         domCard.remove();
         document.getElementById("discard").getElementsByTagName("div")[0].remove();
         document.getElementById("discard").appendChild(div);
