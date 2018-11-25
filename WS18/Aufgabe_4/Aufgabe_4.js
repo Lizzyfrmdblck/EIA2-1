@@ -16,7 +16,8 @@ var WBK;
     }
     function handleChange(_event) {
         cartArray.length = 0;
-        let cart = document.getElementById("cart");
+        let htmlCart = document.getElementById("cart");
+        let treeFieldSet = document.getElementById("trees");
         console.log(_event);
         //*/
         let target = _event.target;
@@ -25,15 +26,19 @@ var WBK;
         //    let B: Product = { name: target.id, price: parseInt(balls[target.price) };
         //*/
         //*/ note: this == _event.currentTarget in an event-handler
+        if (target.name == "trees") {
+        }
         if (inputs[3].checked == true) {
             console.log("Changed " + target.name + " to " + target.checked);
             cartArray.push({ name: target.id, price: parseInt(target.value) });
             let A = { name: inputs[3].id, price: parseInt(inputs[3].value) };
             cartArray.push(A);
-            if (inputs[0].checked == true) {
-                console.log("Changed " + target.name + " to " + target.checked);
-                cartArray.push({ name: inputs[0].id, price: parseInt(inputs[0].value) });
-            }
+        }
+        if (inputs[0].checked == true) {
+            console.log("Changed " + target.name + " to " + target.checked);
+            cartArray.push({ name: inputs[0].id, price: parseInt(inputs[0].value) });
+            let A = { name: inputs[3].id, price: parseInt(inputs[3].value) };
+            cartArray.push(A);
         }
         //*/
         //*/
@@ -48,7 +53,7 @@ var WBK;
             console.log(WBK.balls[parseInt(target.value)].price);
             console.log(target.value + "hi");
         }
-        cartArray.push(radioObject);
+        // cartArray.push(radioObject);
         console.log(cartArray);
     }
     function generateTrees() {

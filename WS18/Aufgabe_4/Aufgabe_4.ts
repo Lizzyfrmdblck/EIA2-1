@@ -12,8 +12,6 @@ namespace WBK {
 
     function init(): void {
 
-
-
         let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
 
         for (let i: number = 0; i < fieldsets.length; i++) {
@@ -26,34 +24,47 @@ namespace WBK {
         generateLametta();
         generateShippingOptions();
 
-
-
     }
 
     function handleChange(_event: Event): void {
 
         cartArray.length = 0;
 
-        let cart: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("cart");
+        let htmlCart: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("cart");
+
+        let treeFieldSet: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("trees");
+
 
         console.log(_event);
         //*/
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         console.log("Changed " + target.name + " to " + target.value);
+
         let radioObject: Product = { name: target.id, price: parseInt(target.value) };
+
         //    let B: Product = { name: target.id, price: parseInt(balls[target.price) };
         //*/
         //*/ note: this == _event.currentTarget in an event-handler
+
+        if (target.name == "trees") {
+           // let treesFieldset: HTMLFieldSetElement = document.getElementById("trees");
+        }
+        
         if (inputs[3].checked == true) {
             console.log("Changed " + target.name + " to " + target.checked);
             cartArray.push({ name: target.id, price: parseInt(target.value) });
             let A: Product = { name: inputs[3].id, price: parseInt(inputs[3].value) };
             cartArray.push(A);
-            if (inputs[0].checked == true) {
-                console.log("Changed " + target.name + " to " + target.checked);
-                cartArray.push({ name: inputs[0].id, price: parseInt(inputs[0].value) });
-            }
         }
+        if (inputs[0].checked == true) {
+            console.log("Changed " + target.name + " to " + target.checked);
+            cartArray.push({ name: inputs[0].id, price: parseInt(inputs[0].value) });
+            let A: Product = { name: inputs[3].id, price: parseInt(inputs[3].value) };
+
+            cartArray.push(A);
+
+        }
+
         //*/
         //*/
         if (target.name == "Slider") {
@@ -67,7 +78,7 @@ namespace WBK {
             console.log(balls[parseInt(target.value)].price);
             console.log(target.value + "hi");
         }
-        cartArray.push(radioObject);
+        // cartArray.push(radioObject);
         console.log(cartArray);
 
     }
