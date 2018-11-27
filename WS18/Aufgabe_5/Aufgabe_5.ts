@@ -52,7 +52,9 @@ namespace WBK_2 {
                 input.setAttribute("name", "stepper");
                 input.setAttribute("value", "");
                 input.setAttribute("id", value[i].name);
-                // Muss in handleChange
+                input.setAttribute("min", "0");
+                input.setAttribute("max", "10");
+                                
                 input.setAttribute("price", String(value[i].price));
                 console.groupEnd();
                 //console.log(input.getAttribute("value"));
@@ -78,12 +80,12 @@ namespace WBK_2 {
 
         let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         let cart: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("cart");
+        let cartElement: HTMLParagraphElement = document.createElement("p");
 
         cart.innerHTML = "";
 
         for (let i: number = 0; i < inputs.length; i++) {
 
-            let priceField: HTMLParagraphElement = document.createElement("p");
             let price: string = inputs[i].getAttribute("price");
             let name: string = inputs[i].getAttribute("name");
             let id: string = inputs[i].getAttribute("id");
@@ -94,11 +96,12 @@ namespace WBK_2 {
                     break;
                 }
 
-                cart.appendChild(priceField);
-                priceField.innerHTML = id + " " + price + "€";
+                cart.appendChild(cartElement);
+                cartElement.innerHTML = id + " " + price + "€";
                 // cart.innerText = String(price)[i];
                 console.log(price);
-            }
+            }   
         }
     }
+    
 }

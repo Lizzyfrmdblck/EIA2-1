@@ -40,7 +40,8 @@ var WBK_2;
                 input.setAttribute("name", "stepper");
                 input.setAttribute("value", "");
                 input.setAttribute("id", value[i].name);
-                // Muss in handleChange
+                input.setAttribute("min", "0");
+                input.setAttribute("max", "10");
                 input.setAttribute("price", String(value[i].price));
                 console.groupEnd();
                 //console.log(input.getAttribute("value"));
@@ -62,9 +63,9 @@ var WBK_2;
     function handleCart(_event) {
         let inputs = document.getElementsByTagName("input");
         let cart = document.getElementById("cart");
+        let cartElement = document.createElement("p");
         cart.innerHTML = "";
         for (let i = 0; i < inputs.length; i++) {
-            let priceField = document.createElement("p");
             let price = inputs[i].getAttribute("price");
             let name = inputs[i].getAttribute("name");
             let id = inputs[i].getAttribute("id");
@@ -73,8 +74,8 @@ var WBK_2;
                 if (id == null || inputs[i].getAttribute("type") == "text") {
                     break;
                 }
-                cart.appendChild(priceField);
-                priceField.innerHTML = id + " " + price + "€";
+                cart.appendChild(cartElement);
+                cartElement.innerHTML = id + " " + price + "€";
                 // cart.innerText = String(price)[i];
                 console.log(price);
             }
