@@ -7,9 +7,7 @@ namespace WBK_2 {
     function init(): void {
 
         displayProducts(products);
-        //generateBalls();
-        //generateLametta();
-        //generateShippingOptions();
+
 
         let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
 
@@ -20,9 +18,7 @@ namespace WBK_2 {
     }
 
     function displayProducts(_products: ProductKey): void {
-        // mit diesem Schleifenkonstrukt wird Ã¼ber alle SchlÃ¼ssel iteriert (Typannotation ist hier nicht erlaubt)
         for (let key in _products) {
-            // zwischenspeichern des Werts, der mit SchlÃ¼ssel assoziiert ist
             let fieldsetId: HTMLFieldSetElement = document.createElement("fieldset");
             fieldsetId.setAttribute("id", key);
             document.getElementById("allProducts").appendChild(fieldsetId);
@@ -32,14 +28,9 @@ namespace WBK_2 {
 
             let value: Product[] = _products[key];
 
-            // hÃ¼bsche Sachen, die man mit der Konsole noch machen kann
             //  console.group(key);
             console.log(value);
             //console.groupEnd();
-            // der Wert ist ein Array, also wird noch darÃ¼ber iteriert
-            //for (let i: number = 0; i < value.length; i++)
-            // und die einzelnen DatensÃ¤tze darin ausgegeben
-            //displayHeteroPredef(value[i]);
 
             //wenn Key=trees create radio
 
@@ -54,7 +45,8 @@ namespace WBK_2 {
                 input.setAttribute("id", value[i].name);
                 input.setAttribute("min", "0");
                 input.setAttribute("max", "10");
-                                
+                
+                // Muss in handleChange
                 input.setAttribute("price", String(value[i].price));
                 console.groupEnd();
                 //console.log(input.getAttribute("value"));
@@ -80,12 +72,12 @@ namespace WBK_2 {
 
         let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         let cart: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("cart");
-        let cartElement: HTMLParagraphElement = document.createElement("p");
 
         cart.innerHTML = "";
 
         for (let i: number = 0; i < inputs.length; i++) {
 
+            let cartElement: HTMLParagraphElement = document.createElement("p");
             let price: string = inputs[i].getAttribute("price");
             let name: string = inputs[i].getAttribute("name");
             let id: string = inputs[i].getAttribute("id");
@@ -103,5 +95,5 @@ namespace WBK_2 {
             }   
         }
     }
-    
+
 }

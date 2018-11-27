@@ -4,9 +4,6 @@ var WBK_2;
     let cartArray = [];
     function init() {
         displayProducts(WBK_2.products);
-        //generateBalls();
-        //generateLametta();
-        //generateShippingOptions();
         let fieldsets = document.getElementsByTagName("fieldset");
         for (let i = 0; i < fieldsets.length; i++) {
             let fieldset = fieldsets[i];
@@ -14,9 +11,7 @@ var WBK_2;
         }
     }
     function displayProducts(_products) {
-        // mit diesem Schleifenkonstrukt wird Ã¼ber alle SchlÃ¼ssel iteriert (Typannotation ist hier nicht erlaubt)
         for (let key in _products) {
-            // zwischenspeichern des Werts, der mit SchlÃ¼ssel assoziiert ist
             let fieldsetId = document.createElement("fieldset");
             fieldsetId.setAttribute("id", key);
             document.getElementById("allProducts").appendChild(fieldsetId);
@@ -24,14 +19,9 @@ var WBK_2;
             fieldsetId.appendChild(legend);
             legend.innerText = key;
             let value = _products[key];
-            // hÃ¼bsche Sachen, die man mit der Konsole noch machen kann
             //  console.group(key);
             console.log(value);
             //console.groupEnd();
-            // der Wert ist ein Array, also wird noch darÃ¼ber iteriert
-            //for (let i: number = 0; i < value.length; i++)
-            // und die einzelnen DatensÃ¤tze darin ausgegeben
-            //displayHeteroPredef(value[i]);
             //wenn Key=trees create radio
             for (let i = 0; i < value.length; i++) {
                 let input = document.createElement("input");
@@ -42,6 +32,7 @@ var WBK_2;
                 input.setAttribute("id", value[i].name);
                 input.setAttribute("min", "0");
                 input.setAttribute("max", "10");
+                // Muss in handleChange
                 input.setAttribute("price", String(value[i].price));
                 console.groupEnd();
                 //console.log(input.getAttribute("value"));
@@ -63,9 +54,9 @@ var WBK_2;
     function handleCart(_event) {
         let inputs = document.getElementsByTagName("input");
         let cart = document.getElementById("cart");
-        let cartElement = document.createElement("p");
         cart.innerHTML = "";
         for (let i = 0; i < inputs.length; i++) {
+            let cartElement = document.createElement("p");
             let price = inputs[i].getAttribute("price");
             let name = inputs[i].getAttribute("name");
             let id = inputs[i].getAttribute("id");
