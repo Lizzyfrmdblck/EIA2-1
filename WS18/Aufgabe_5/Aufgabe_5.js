@@ -70,10 +70,11 @@ var WBK_2;
                 console.log("Anzahl " + inputs[i].value);
                 console.log("PpS " + price);
                 console.log("Preis " + finalPrice);
+                if (inputs[i].type == "radio") {
+                    finalPrice = Number(price);
+                }
                 cart.appendChild(cartElement);
                 cartElement.innerHTML = id + " " + finalPrice + "€";
-                let endPrice = finalPrice;
-                calcPrice();
             }
         }
         let toPay = document.createElement("div");
@@ -81,8 +82,6 @@ var WBK_2;
         cart.appendChild(toPay);
         let endPrice = 0;
         toPay.innerHTML = String(endPrice);
-    }
-    function calcPrice() {
     }
 })(WBK_2 || (WBK_2 = {}));
 //# sourceMappingURL=Aufgabe_5.js.map

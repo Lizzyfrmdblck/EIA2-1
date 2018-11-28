@@ -54,6 +54,8 @@ namespace WBK_2 {
                 if (key == "Bäume" || key == "Versand") {
                     input.setAttribute("type", "radio");
                     input.setAttribute("name", key);
+
+
                 }
 
                 if (fieldsetId.id == key) {
@@ -96,14 +98,13 @@ namespace WBK_2 {
                 console.log("PpS " + price);
                 console.log("Preis " + finalPrice);
 
+                if (inputs[i].type == "radio") {
+                    finalPrice = Number(price);
+                }
+
                 cart.appendChild(cartElement);
                 cartElement.innerHTML = id + " " + finalPrice + "€";
 
-
-
-                let endPrice: number = finalPrice;
-
-                calcPrice();
             }
         }
 
@@ -114,8 +115,6 @@ namespace WBK_2 {
         let endPrice: number = 0;
         toPay.innerHTML = String(endPrice);
     }
-    function calcPrice(): void {
 
-    }
 
 }
