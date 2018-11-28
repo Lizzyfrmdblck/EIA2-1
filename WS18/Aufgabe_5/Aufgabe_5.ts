@@ -2,7 +2,7 @@ namespace WBK_2 {
     window.addEventListener("load", init);
 
 
-    let cartArray: Product[] = [];
+    //let cartArray: Product[] = [];
 
     function init(): void {
 
@@ -78,8 +78,9 @@ namespace WBK_2 {
 
         cart.innerHTML = "";
 
-        for (let i: number = 0; i < inputs.length; i++) {
+        let cartArray: number[] = [];
 
+        for (let i: number = 0; i < inputs.length; i++) {
 
             let cartElement: HTMLParagraphElement = document.createElement("p");
             let price: string = inputs[i].getAttribute("price");
@@ -105,16 +106,23 @@ namespace WBK_2 {
                 cart.appendChild(cartElement);
                 cartElement.innerHTML = id + " " + finalPrice + "€";
 
-            }
-        }
+                cartArray.push(finalPrice);
 
+
+            }
+
+        }
         let toPay: HTMLDivElement = document.createElement("div");
         cart.appendChild(document.createElement("hr"));
         cart.appendChild(toPay);
-
         let endPrice: number = 0;
-        toPay.innerHTML = String(endPrice);
-    }
+        
+        for (let i: number = 0; i < cartArray.length; i++) {
 
+            endPrice += cartArray[i];
+
+        }
+        toPay.innerHTML = "Gesamtpreis: " + String(endPrice) + "€";
+    }
 
 }
