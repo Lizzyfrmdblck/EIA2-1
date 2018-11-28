@@ -28,7 +28,7 @@ var WBK_2;
                 let label = document.createElement("label");
                 input.setAttribute("type", "number");
                 input.setAttribute("name", "stepper");
-                input.setAttribute("value", "");
+                input.setAttribute("value", "0");
                 input.setAttribute("id", value[i].name);
                 input.setAttribute("min", "0");
                 input.setAttribute("max", "10");
@@ -61,10 +61,11 @@ var WBK_2;
             let name = inputs[i].getAttribute("name");
             let id = inputs[i].getAttribute("id");
             let value = inputs[i].getAttribute("value");
-            if (inputs[i].checked || value != "") {
+            if (inputs[i].checked || value != "0") {
                 if (id == null || inputs[i].getAttribute("type") == "text") {
                     break;
                 }
+                console.log(inputs[i].value);
                 cart.appendChild(cartElement);
                 cartElement.innerHTML = id + " " + price + "€";
                 // cart.innerText = String(price)[i];

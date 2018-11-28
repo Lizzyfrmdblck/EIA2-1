@@ -41,10 +41,11 @@ namespace WBK_2 {
 
                 input.setAttribute("type", "number");
                 input.setAttribute("name", "stepper");
-                input.setAttribute("value", "");
+                input.setAttribute("value", "0");
                 input.setAttribute("id", value[i].name);
                 input.setAttribute("min", "0");
                 input.setAttribute("max", "10");
+                
                 
                 // Muss in handleChange
                 input.setAttribute("price", String(value[i].price));
@@ -83,10 +84,12 @@ namespace WBK_2 {
             let id: string = inputs[i].getAttribute("id");
             let value: string = inputs[i].getAttribute("value");
 
-            if (inputs[i].checked || value != "") {
+            if (inputs[i].checked || value != "0") {
                 if (id == null || inputs[i].getAttribute("type") == "text") {
                     break;
                 }
+                
+                console.log(inputs[i].value);
 
                 cart.appendChild(cartElement);
                 cartElement.innerHTML = id + " " + price + "€";
