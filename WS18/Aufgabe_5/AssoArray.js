@@ -12,13 +12,13 @@ var WBK_2;
             { name: "Goldene Kugeln", price: 10 }
         ],
         "Lametta": [
-            { name: "Lametta rot", price: 5 },
-            { name: "Lametta silber", price: 7 },
-            { name: "Lametta gold", price: 10 }
+            { name: "Lametta rot", price: 4 },
+            { name: "Lametta silber", price: 6 },
+            { name: "Lametta gold", price: 8 }
         ],
         "Kerzen": [
-            { name: "Wachs", price: 5 },
-            { name: "Plastik", price: 7 }
+            { name: "Wachskerzen", price: 5 },
+            { name: "Plastikkerzen", price: 7 }
         ],
         "Versand": [
             { name: "Hermes", price: 3 },

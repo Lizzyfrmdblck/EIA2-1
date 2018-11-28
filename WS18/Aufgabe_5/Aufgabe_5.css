@@ -13,4 +13,9 @@ input[type=number] {
 	padding: 5px;
 	margin: 5px;
 }
+#cart {
+	position: fixed; 
+	left: 600px;
+	top: 50px;
+}
 	

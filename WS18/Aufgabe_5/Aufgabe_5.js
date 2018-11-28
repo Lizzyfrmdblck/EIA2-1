@@ -18,22 +18,22 @@ var WBK_2;
             let legend = document.createElement("legend");
             fieldsetId.appendChild(legend);
             legend.innerText = key;
-            let value = _products[key];
+            let productKey = _products[key];
             //  console.group(key);
-            console.log(value);
+            console.log(productKey);
             //console.groupEnd();
             //wenn Key=trees create radio
-            for (let i = 0; i < value.length; i++) {
+            for (let i = 0; i < productKey.length; i++) {
                 let input = document.createElement("input");
                 let label = document.createElement("label");
                 input.setAttribute("type", "number");
                 input.setAttribute("name", "stepper");
-                input.setAttribute("value", "0");
-                input.setAttribute("id", value[i].name);
+                input.setAttribute("value", input.value);
+                input.setAttribute("id", productKey[i].name);
                 input.setAttribute("min", "0");
                 input.setAttribute("max", "10");
                 // Muss in handleChange
-                input.setAttribute("price", String(value[i].price));
+                input.setAttribute("price", String(productKey[i].price));
                 console.groupEnd();
                 //console.log(input.getAttribute("value"));
                 if (key == "Bäume" || key == "Versand") {
@@ -42,9 +42,9 @@ var WBK_2;
                 }
                 if (fieldsetId.id == key) {
                     fieldsetId.appendChild(input);
-                    label.innerText = value[i].name + " " + value[i].price + "€";
+                    label.innerText = productKey[i].name + " " + productKey[i].price + "€";
                     fieldsetId.appendChild(label);
-                    label.setAttribute("for", value[i].name);
+                    label.setAttribute("for", productKey[i].name);
                     // console.log(label);
                     label.appendChild(document.createElement("br"));
                 }
@@ -61,17 +61,28 @@ var WBK_2;
             let name = inputs[i].getAttribute("name");
             let id = inputs[i].getAttribute("id");
             let value = inputs[i].getAttribute("value");
-            if (inputs[i].checked || value != "0") {
+            let amount = Number(inputs[i].value);
+            let finalPrice = Number(price) * amount;
+            if (inputs[i].checked || finalPrice != 0) {
                 if (id == null || inputs[i].getAttribute("type") == "text") {
                     break;
                 }
-                console.log(inputs[i].value);
+                console.log("Anzahl " + inputs[i].value);
+                console.log("PpS " + price);
+                console.log("Preis " + finalPrice);
                 cart.appendChild(cartElement);
-                cartElement.innerHTML = id + " " + price + "€";
-                // cart.innerText = String(price)[i];
-                console.log(price);
+                cartElement.innerHTML = id + " " + finalPrice + "€";
+                let endPrice = finalPrice;
+                calcPrice();
             }
         }
+        let toPay = document.createElement("div");
+        cart.appendChild(document.createElement("hr"));
+        cart.appendChild(toPay);
+        let endPrice = 0;
+        toPay.innerHTML = String(endPrice);
+    }
+    function calcPrice() {
     }
 })(WBK_2 || (WBK_2 = {}));
 //# sourceMappingURL=Aufgabe_5.js.map

@@ -26,29 +26,29 @@ namespace WBK_2 {
             fieldsetId.appendChild(legend);
             legend.innerText = key;
 
-            let value: Product[] = _products[key];
+            let productKey: Product[] = _products[key];
 
             //  console.group(key);
-            console.log(value);
+            console.log(productKey);
             //console.groupEnd();
 
             //wenn Key=trees create radio
 
-            for (let i: number = 0; i < value.length; i++) {
+            for (let i: number = 0; i < productKey.length; i++) {
 
                 let input: HTMLInputElement = document.createElement("input");
                 let label: HTMLLabelElement = document.createElement("label");
 
                 input.setAttribute("type", "number");
                 input.setAttribute("name", "stepper");
-                input.setAttribute("value", "0");
-                input.setAttribute("id", value[i].name);
+                input.setAttribute("value", input.value);
+                input.setAttribute("id", productKey[i].name);
                 input.setAttribute("min", "0");
                 input.setAttribute("max", "10");
-                
-                
+
+
                 // Muss in handleChange
-                input.setAttribute("price", String(value[i].price));
+                input.setAttribute("price", String(productKey[i].price));
                 console.groupEnd();
                 //console.log(input.getAttribute("value"));
                 if (key == "Bäume" || key == "Versand") {
@@ -58,9 +58,9 @@ namespace WBK_2 {
 
                 if (fieldsetId.id == key) {
                     fieldsetId.appendChild(input);
-                    label.innerText = value[i].name + " " + value[i].price + "€";
+                    label.innerText = productKey[i].name + " " + productKey[i].price + "€";
                     fieldsetId.appendChild(label);
-                    label.setAttribute("for", value[i].name);
+                    label.setAttribute("for", productKey[i].name);
                     // console.log(label);
                     label.appendChild(document.createElement("br"));
                 }
@@ -78,25 +78,44 @@ namespace WBK_2 {
 
         for (let i: number = 0; i < inputs.length; i++) {
 
+
             let cartElement: HTMLParagraphElement = document.createElement("p");
             let price: string = inputs[i].getAttribute("price");
             let name: string = inputs[i].getAttribute("name");
             let id: string = inputs[i].getAttribute("id");
             let value: string = inputs[i].getAttribute("value");
+            let amount: number = Number(inputs[i].value);
+            let finalPrice: number = Number(price) * amount;
 
-            if (inputs[i].checked || value != "0") {
+            if (inputs[i].checked || finalPrice != 0) {
                 if (id == null || inputs[i].getAttribute("type") == "text") {
                     break;
                 }
-                
-                console.log(inputs[i].value);
+
+                console.log("Anzahl " + inputs[i].value);
+                console.log("PpS " + price);
+                console.log("Preis " + finalPrice);
 
                 cart.appendChild(cartElement);
-                cartElement.innerHTML = id + " " + price + "€";
-                // cart.innerText = String(price)[i];
-                console.log(price);
-            }   
+                cartElement.innerHTML = id + " " + finalPrice + "€";
+
+
+
+                let endPrice: number = finalPrice;
+
+                calcPrice();
+            }
         }
+
+        let toPay: HTMLDivElement = document.createElement("div");
+        cart.appendChild(document.createElement("hr"));
+        cart.appendChild(toPay);
+
+        let endPrice: number = 0;
+        toPay.innerHTML = String(endPrice);
+    }
+    function calcPrice(): void {
+
     }
 
 }
