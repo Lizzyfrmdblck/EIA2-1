@@ -1,15 +1,16 @@
 namespace WBK_2 {
     window.addEventListener("load", init);
 
-
-    //let cartArray: Product[] = [];
+    let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
 
     function init(): void {
 
         displayProducts(products);
 
-
+        let proofButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("proof");
         let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
+
+        proofButton.addEventListener("click", proofInput);
 
         for (let i: number = 0; i < fieldsets.length; i++) {
             let fieldset: HTMLFieldSetElement = fieldsets[i];
@@ -73,7 +74,6 @@ namespace WBK_2 {
 
     function handleCart(_event: Event): void {
 
-        let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         let cart: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("cart");
 
         cart.innerHTML = "";
@@ -116,13 +116,21 @@ namespace WBK_2 {
         cart.appendChild(document.createElement("hr"));
         cart.appendChild(toPay);
         let endPrice: number = 0;
-        
+
         for (let i: number = 0; i < cartArray.length; i++) {
 
             endPrice += cartArray[i];
 
         }
         toPay.innerHTML = "Gesamtpreis: " + String(endPrice) + "€";
+    }
+
+    function proofInput(): void {
+        for (let i: number = 0; i < inputs.length; i++) {
+            if (inputs[i].value == "" || inputs[i].type == "text") {
+                alert("Du musst deine Angaben vervollständigen");    
+            }
+        }
     }
 
 }

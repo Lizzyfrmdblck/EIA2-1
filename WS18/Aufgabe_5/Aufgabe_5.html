@@ -29,8 +29,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		<div class="control-group">
 			<label class="control-label">Vorname</label>
 			<div>
-				<input id="first-name" name="first-name" type="text"
-					placeholder="Dein Vorname">
+				<input class = "adress" id="first-name" name="first-name" type="text"
+					placeholder="Dein Vorname" required/>
 				<p class="help-block"></p>
 
 			</div>
@@ -38,8 +38,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		<div class="control-group">
 			<label class="control-label">Nachname</label>
 			<div>
-				<input id="last-name" name="last-name" type="text"
-					placeholder="Dein Nachname">
+				<input class = "adress" id="last-name" name="last-name" type="text"
+					placeholder="Dein Nachname" required/>
 				<p class="help-block"></p>
 			</div>
 		</div>
@@ -47,8 +47,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		<div class="control-group">
 			<label class="control-label">Straße</label>
 			<div class="controls">
-				<input id="city" name="city" type="text" placeholder="Deine Straße"
-					class="input-xlarge">
+				<input class = "adress" id="city" name="city" type="text" placeholder="Deine Straße"
+					class="input-xlarge" required/>
 				<p class="help-block"></p>
 			</div>
 		</div>
@@ -57,8 +57,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		<div class="control-group">
 			<label class="control-label">Wohnort</label>
 			<div class="controls">
-				<input id="city" name="city" type="text" placeholder="Dein Wohnort"
-					class="input-xlarge">
+				<input class = "adress" id="city" name="city" type="text" placeholder="Dein Wohnort"
+					class="input-xlarge" required/>
 				<p class="help-block"></p>
 			</div>
 		</div>
@@ -67,8 +67,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		<div class="control-group">
 			<label class="control-label">Postleitzahl</label>
 			<div class="controls">
-				<input id="postal-code" name="postal-code" type="text"
-					placeholder="Postleitzahl" class="input-xlarge">
+				<input class = "adress" id="postal-code" name="postal-code" type="text"
+					placeholder="Postleitzahl" class="input-xlarge" required/>
 				<p class="help-block"></p>
 			</div>
 		</div>
@@ -76,7 +76,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		<div class="control-group">
 			<label class="control-label">Land</label>
 			<div class="controls">
-				<select id="country" name="country" class="input-xlarge">
+				<select class = "adress" id="country" name="country">
 					<option value="" selected="selected"></option>
 					<option value="AF">Afghanistan</option>
 					<option value="AL">Albania</option>
@@ -323,7 +323,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 			</div>
 		</div>
 	</fieldset>
-	<button>Überprüfen</button>
+	<button id="proof">Überprüfen</button>
 	<fieldset id="cart">
 		<legend>Warenkorb</legend>
 	</fieldset>

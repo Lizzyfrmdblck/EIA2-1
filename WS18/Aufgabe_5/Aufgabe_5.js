@@ -1,10 +1,12 @@
 var WBK_2;
 (function (WBK_2) {
     window.addEventListener("load", init);
-    //let cartArray: Product[] = [];
+    let inputs = document.getElementsByTagName("input");
     function init() {
         displayProducts(WBK_2.products);
+        let proofButton = document.getElementById("proof");
         let fieldsets = document.getElementsByTagName("fieldset");
+        proofButton.addEventListener("click", proofInput);
         for (let i = 0; i < fieldsets.length; i++) {
             let fieldset = fieldsets[i];
             fieldset.addEventListener("change", handleCart);
@@ -52,7 +54,6 @@ var WBK_2;
         }
     }
     function handleCart(_event) {
-        let inputs = document.getElementsByTagName("input");
         let cart = document.getElementById("cart");
         cart.innerHTML = "";
         let cartArray = [];
@@ -87,6 +88,13 @@ var WBK_2;
             endPrice += cartArray[i];
         }
         toPay.innerHTML = "Gesamtpreis: " + String(endPrice) + "€";
+    }
+    function proofInput() {
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value == "" || inputs[i].type == "text") {
+                alert("Du musst deine Angaben vervollständigen");
+            }
+        }
     }
 })(WBK_2 || (WBK_2 = {}));
 //# sourceMappingURL=Aufgabe_5.js.map
