@@ -26,12 +26,13 @@ namespace L06_SendData {
     //Definition der Fkt. handleRequest mit zwei Übergabeparametern
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
         //Konsolenausgabe
-        console.log("I hear voices!");
+        console.log("I hear voices now!");
         // Im Header werden Informationen, wie content-type etc. eingetragen
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         // Die Url der Anfrage wird notiert
         _response.write(_request.url);
+        console.log(_request.url);
         // Konversation wird beendet
         _response.end();
     }
