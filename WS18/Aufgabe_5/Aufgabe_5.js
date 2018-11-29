@@ -91,8 +91,9 @@ var WBK_2;
     }
     function proofInput() {
         for (let i = 0; i < inputs.length; i++) {
-            if (inputs[i].value == "" || inputs[i].type == "text") {
+            if (inputs[i].value == "" && inputs[i].type == "text") {
                 alert("Du musst deine Angaben vervollständigen");
+                break;
             }
         }
     }

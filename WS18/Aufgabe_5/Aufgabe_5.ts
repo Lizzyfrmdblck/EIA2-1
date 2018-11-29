@@ -127,8 +127,9 @@ namespace WBK_2 {
 
     function proofInput(): void {
         for (let i: number = 0; i < inputs.length; i++) {
-            if (inputs[i].value == "" || inputs[i].type == "text") {
-                alert("Du musst deine Angaben vervollständigen");    
+            if (inputs[i].value == "" && inputs[i].type == "text") {
+                alert("Du musst deine Angaben vervollständigen");
+                break;    
             }
         }
     }
