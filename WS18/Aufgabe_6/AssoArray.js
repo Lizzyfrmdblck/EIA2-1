@@ -1,6 +1,6 @@
-var WBK_Heroku;
-(function (WBK_Heroku) {
-    WBK_Heroku.products = {
+var WBK_3;
+(function (WBK_3) {
+    WBK_3.products = {
         "Bäume": [
             { name: "Tanne", price: 20 },
             { name: "Nordmanntanne", price: 25 },
@@ -26,5 +26,5 @@ var WBK_Heroku;
             { name: "UPS", price: 7 }
         ]
     };
-})(WBK_Heroku || (WBK_Heroku = {}));
+})(WBK_3 || (WBK_3 = {}));
 //# sourceMappingURL=AssoArray.js.map

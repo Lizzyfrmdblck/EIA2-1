@@ -1,4 +1,4 @@
-namespace WBK_Heroku {
+namespace WBK_3 {
     window.addEventListener("load", init);
 
     let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
@@ -41,7 +41,7 @@ namespace WBK_Heroku {
                 let label: HTMLLabelElement = document.createElement("label");
 
                 input.setAttribute("type", "number");
-                input.setAttribute("name", "stepper");
+                input.setAttribute("name", productKey[i].name);
                 input.setAttribute("value", input.value);
                 input.setAttribute("id", productKey[i].name);
                 input.setAttribute("min", "0");

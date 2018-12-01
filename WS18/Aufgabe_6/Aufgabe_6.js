@@ -1,9 +1,9 @@
-var WBK_Heroku;
-(function (WBK_Heroku) {
+var WBK_3;
+(function (WBK_3) {
     window.addEventListener("load", init);
     let inputs = document.getElementsByTagName("input");
     function init() {
-        displayProducts(WBK_Heroku.products);
+        displayProducts(WBK_3.products);
         let proofButton = document.getElementById("proof");
         let fieldsets = document.getElementsByTagName("fieldset");
         proofButton.addEventListener("click", proofInput);
@@ -29,7 +29,7 @@ var WBK_Heroku;
                 let input = document.createElement("input");
                 let label = document.createElement("label");
                 input.setAttribute("type", "number");
-                input.setAttribute("name", "stepper");
+                input.setAttribute("name", productKey[i].name);
                 input.setAttribute("value", input.value);
                 input.setAttribute("id", productKey[i].name);
                 input.setAttribute("min", "0");
@@ -97,5 +97,5 @@ var WBK_Heroku;
             }
         }
     }
-})(WBK_Heroku || (WBK_Heroku = {}));
-//# sourceMappingURL=Aufgabe_5.js.map
+})(WBK_3 || (WBK_3 = {}));
+//# sourceMappingURL=Aufgabe_6.js.map

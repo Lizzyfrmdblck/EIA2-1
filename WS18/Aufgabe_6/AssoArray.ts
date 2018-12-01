@@ -1,4 +1,4 @@
-namespace WBK_Heroku {
+namespace WBK_3 {
 
     export interface Product {
         name: string;

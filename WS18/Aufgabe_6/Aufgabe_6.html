@@ -1,8 +1,8 @@
 <!--  
-Aufgabe: Aufgabe 5 - Weihnachtsbaumkonfigurator
+Aufgabe: Aufgabe 6 - Heroku
 Name: Yannic Hermann
 Matrikel: 255279
-Datum: 22.11.18
+Datum: 02.12.18
 	
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
@@ -13,16 +13,21 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 <head>
 <meta charset="utf-8" />
 <title>WKB</title>
-<script src="Aufgabe_5.js"></script>
+<script src="Aufgabe_6.js"></script>
 <script src="AssoArray.js"></script>
-<link rel="stylesheet" href="Aufgabe_5.css" type="text/css" />
+<link rel="stylesheet" href="Aufgabe_6.css" type="text/css" />
 
 
 </head>
 
 <body>
-  <form action="https://eia-2-18-19.herokuapp.com/" method="get"> 
-<!-- <form action="Aufgabe_5.html" method="get">   -->
+	<!--  - ->
+	<form action="https://eia-2-18-19.herokuapp.com/" method="get">
+	<!--  -->
+	<form action="http://localhost:8200" method="get">
+	<!--  
+	<form action="Aufgabe_5.html" method="get">
+	<!--  -->
 
 	<div id="allProducts"></div>
 	<fieldset id="adress">
@@ -49,7 +54,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		<div class="control-group">
 			<label class="control-label">Straße</label>
 			<div class="controls">
-				<input class = "adress" id="city" name="city" type="text" placeholder="Deine Straße"
+				<input class = "adress" id="city" name="street" type="text" placeholder="Deine Straße"
 					class="input-xlarge" required/>
 				<p class="help-block"></p>
 			</div>
@@ -59,7 +64,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		<div class="control-group">
 			<label class="control-label">Wohnort</label>
 			<div class="controls">
-				<input class = "adress" id="city" name="city" type="text" placeholder="Dein Wohnort"
+				<input class = "adress" id="city" name="town" type="text" placeholder="Dein Wohnort"
 					class="input-xlarge" required/>
 				<p class="help-block"></p>
 			</div>
