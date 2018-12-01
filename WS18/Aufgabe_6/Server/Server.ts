@@ -1,7 +1,7 @@
 // * wird als Http von einem http importiert
 import * as Http from "http";
 // der namespace wird defniniert
-namespace L06_SendData {
+namespace WBK_Heroku {
     //Konsolenausgabe: Starting server
     console.log("Starting server");
     //Variable port wird deklariert. 
@@ -9,7 +9,7 @@ namespace L06_SendData {
     //Bedingung: Falls port nicht definiert ist, soll port 8100 angesteuert werden 
     if (port == undefined)
         port = 8100;
-// Variable server wird deklariert. Sie kreiert einen Http-Server
+    // Variable server wird deklariert. Sie kreiert einen Http-Server
     let server: Http.Server = Http.createServer();
     //Server bekommt zwei Listener (request & listening) und soll bei Eintreffen des Events 
     // die Funktionen handleRequest & handleListen aufrufen
@@ -17,7 +17,7 @@ namespace L06_SendData {
     server.addListener("listening", handleListen);
     //server soll auf den Port (8100) hören
     server.listen(port);
-    
+
     //Definition der Fkt. handleListen
     function handleListen(): void {
         //bei Aufrauf Konsolenausgabe: Listening

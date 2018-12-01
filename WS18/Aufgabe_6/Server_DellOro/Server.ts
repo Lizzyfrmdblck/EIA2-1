@@ -1,31 +1,30 @@
-"use strict";
 // * wird als Http von einem http importiert
-const Http = require("http");
+import * as Http from "http";
 // der namespace wird defniniert
-var WBK_Heroku;
-(function (WBK_Heroku) {
+namespace L06_SendData {
     //Konsolenausgabe: Starting server
     console.log("Starting server");
     //Variable port wird deklariert. 
-    let port = process.env.PORT;
+    let port: number = process.env.PORT;
     //Bedingung: Falls port nicht definiert ist, soll port 8100 angesteuert werden 
     if (port == undefined)
         port = 8100;
-    // Variable server wird deklariert. Sie kreiert einen Http-Server
-    let server = Http.createServer();
+// Variable server wird deklariert. Sie kreiert einen Http-Server
+    let server: Http.Server = Http.createServer();
     //Server bekommt zwei Listener (request & listening) und soll bei Eintreffen des Events 
     // die Funktionen handleRequest & handleListen aufrufen
     server.addListener("request", handleRequest);
     server.addListener("listening", handleListen);
     //server soll auf den Port (8100) hören
     server.listen(port);
+    
     //Definition der Fkt. handleListen
-    function handleListen() {
+    function handleListen(): void {
         //bei Aufrauf Konsolenausgabe: Listening
         console.log("Listening");
     }
     //Definition der Fkt. handleRequest mit zwei Übergabeparametern
-    function handleRequest(_request, _response) {
+    function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
         //Konsolenausgabe
         console.log("I hear voices now!");
         // Im Header werden Informationen, wie content-type etc. eingetragen
@@ -37,5 +36,4 @@ var WBK_Heroku;
         // Konversation wird beendet
         _response.end();
     }
-})(WBK_Heroku || (WBK_Heroku = {}));
-//# sourceMappingURL=Server.js.map
+}

@@ -2,8 +2,8 @@
 // * wird als Http von einem http importiert
 const Http = require("http");
 // der namespace wird defniniert
-var WBK_Heroku;
-(function (WBK_Heroku) {
+var L06_SendData;
+(function (L06_SendData) {
     //Konsolenausgabe: Starting server
     console.log("Starting server");
     //Variable port wird deklariert. 
@@ -37,5 +37,5 @@ var WBK_Heroku;
         // Konversation wird beendet
         _response.end();
     }
-})(WBK_Heroku || (WBK_Heroku = {}));
+})(L06_SendData || (L06_SendData = {}));
 //# sourceMappingURL=Server.js.map
