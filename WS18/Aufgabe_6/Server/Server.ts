@@ -8,7 +8,7 @@ namespace WBK_Heroku {
     let port: number = process.env.PORT;
     //Bedingung: Falls port nicht definiert ist, soll port 8100 angesteuert werden 
     if (port == undefined)
-        port = 8100;
+        port = 8200;
     // Variable server wird deklariert. Sie kreiert einen Http-Server
     let server: Http.Server = Http.createServer();
     //Server bekommt zwei Listener (request & listening) und soll bei Eintreffen des Events 
