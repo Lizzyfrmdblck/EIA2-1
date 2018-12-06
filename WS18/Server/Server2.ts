@@ -1,7 +1,7 @@
 // * wird als Http von einem http importiert
 import * as Http from "http";
 // der namespace wird defniniert
-namespace WBK_Heroku {
+namespace A7 {
     //Konsolenausgabe: Starting server
     console.log("Starting server");
     //Variable port wird deklariert. 
