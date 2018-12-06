@@ -3,7 +3,7 @@
 	"version" : "1.0.0",
 	"description" : "Minimal server just bouncing the URL",
 	"author" : "Yannic",
-	"main" : "Server.js",
+	"main" : "Server2.js",
 	"scripts" : {
 		"start" : "node WS18/Aufgabe_7/Server/Server2.js"
 	},
