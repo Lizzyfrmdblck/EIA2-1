@@ -1,7 +1,8 @@
 "use strict";
 const Http = require("http");
-var A7;
-(function (A7) {
+const Url = require("url");
+var WKB_Heroku;
+(function (WKB_Heroku) {
     console.log("Starting server");
     let port = process.env.PORT;
     if (port == undefined)
@@ -18,10 +19,11 @@ var A7;
         console.log("I hear voices now!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        _response.write(_request.url);
         console.log(_request.url);
-        _response.write(order + "<br>");
+        let url = Url.parse(_request.url, true);
+        for (let key in url.query)
+            _response.write(key + ":" + url.query[key] + "<br/>");
         _response.end();
     }
-})(A7 || (A7 = {}));
-//# sourceMappingURL=Server2.js.map
+})(WKB_Heroku || (WKB_Heroku = {}));
+//# sourceMappingURL=Server.js.map
