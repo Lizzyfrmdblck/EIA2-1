@@ -30,7 +30,7 @@ namespace A7 {
         _response.setHeader("Access-Control-Allow-Origin", "*");
 
         console.log(_request.url);
-
+        
         let url: Url.Url = Url.parse(_request.url, true);
         for (let key in url.query)
             _response.write(key + ":" + url.query[key] + "<br/>");

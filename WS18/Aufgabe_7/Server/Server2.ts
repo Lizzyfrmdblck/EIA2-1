@@ -25,7 +25,8 @@ namespace A7 {
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
 
         console.log("I hear voices!");
-        let url_object = Url.parse(_request.url, true);
+        _response.write(_request.url);
+        /*let url_object = Url.parse(_request.url, true);
         let query = url_object.query;
         if (url_object.pathname != "/favicon.ico") {
             console.log(query);
@@ -38,9 +39,8 @@ namespace A7 {
 
         for (let i in order) {
             _response.write(i + ": " + order[i] + "<br>");
-
-            _response.end();
-        }
-
+*/
+        _response.end();
     }
+
 }
