@@ -5,7 +5,7 @@
 	"author" : "Yannic",
 	"main" : "Server.js",
 	"scripts" : {
-		"start" : "node Aufgabe_7/Server/Server.js"
+		"start" : "node WS18/Aufgabe_7/Server/Server2.js"
 	},
 	"engines" : {
 		"node" : "4.6.1"
