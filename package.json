@@ -3,12 +3,12 @@
 	"version" : "1.0.0",
 	"description" : "Minimal server just bouncing the URL",
 	"author" : "Yannic",
-	"main" : "Server2.js",
+	"main" : "Server.js",
 	"scripts" : {
 		"start" : "node WS18/Aufgabe_7/Server/Server.js"
 	},
 	"engines" : {
-		"node" : "4.6.1"
+		"node" : "10.14.1"
 	},
 	"dependencies" : {
 	}
