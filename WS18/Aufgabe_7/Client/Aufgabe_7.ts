@@ -2,6 +2,8 @@ namespace A7 {
     window.addEventListener("load", init);
 
     let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+    
+    let address: string = "https://heroku-a7.herokuapp.com";
 
     function init(): void {
 
@@ -133,6 +135,21 @@ namespace A7 {
             }
         }
 
+    }
+
+    function sendRequestWithCustomData(_color: string): void {
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+        xhr.open("GET", address + "?color=" + _color, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+
+    function handleStateChange(_event: ProgressEvent): void {
+        var xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
+        }
     }
 
 }

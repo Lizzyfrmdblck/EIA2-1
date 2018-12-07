@@ -2,6 +2,7 @@ var A7;
 (function (A7) {
     window.addEventListener("load", init);
     let inputs = document.getElementsByTagName("input");
+    let address = "https://heroku-a7.herokuapp.com";
     function init() {
         displayProducts(A7.products);
         let proofButton = document.getElementById("proof");
@@ -92,6 +93,19 @@ var A7;
                 alert("Du musst deine Angaben vervollständigen");
                 break;
             }
+        }
+    }
+    function sendRequestWithCustomData(_color) {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", address + "?color=" + _color, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+    function handleStateChange(_event) {
+        var xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
         }
     }
 })(A7 || (A7 = {}));
