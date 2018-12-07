@@ -24,7 +24,6 @@ var A7;
             //  console.group(key);
             console.log(productKey);
             //console.groupEnd();
-            //wenn Key=trees create radio
             for (let i = 0; i < productKey.length; i++) {
                 let input = document.createElement("input");
                 let label = document.createElement("label");
@@ -34,10 +33,8 @@ var A7;
                 input.setAttribute("id", productKey[i].name);
                 input.setAttribute("min", "0");
                 input.setAttribute("max", "10");
-                // Muss in handleChange
                 input.setAttribute("price", String(productKey[i].price));
                 console.groupEnd();
-                //console.log(input.getAttribute("value"));
                 if (key == "Bäume" || key == "Versand") {
                     input.setAttribute("type", "radio");
                     input.setAttribute("name", key);

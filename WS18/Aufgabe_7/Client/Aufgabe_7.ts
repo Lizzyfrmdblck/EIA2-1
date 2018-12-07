@@ -33,8 +33,6 @@ namespace A7 {
             console.log(productKey);
             //console.groupEnd();
 
-            //wenn Key=trees create radio
-
             for (let i: number = 0; i < productKey.length; i++) {
 
                 let input: HTMLInputElement = document.createElement("input");
@@ -48,10 +46,9 @@ namespace A7 {
                 input.setAttribute("max", "10");
 
 
-                // Muss in handleChange
                 input.setAttribute("price", String(productKey[i].price));
                 console.groupEnd();
-                //console.log(input.getAttribute("value"));
+
                 if (key == "Bäume" || key == "Versand") {
                     input.setAttribute("type", "radio");
                     input.setAttribute("name", key);
@@ -66,6 +63,7 @@ namespace A7 {
                     label.setAttribute("for", productKey[i].name);
                     // console.log(label);
                     label.appendChild(document.createElement("br"));
+
                 }
             }
 
@@ -101,6 +99,8 @@ namespace A7 {
 
                 if (inputs[i].type == "radio") {
                     finalPrice = Number(price);
+                    //zerstört Funktionsweise der Radios
+                    //inputs[i].name = inputs[i].id;
                 }
 
                 cart.appendChild(cartElement);
@@ -129,7 +129,7 @@ namespace A7 {
         for (let i: number = 0; i < inputs.length; i++) {
             if (inputs[i].value == "" && inputs[i].type == "text") {
                 alert("Du musst deine Angaben vervollständigen");
-                break;    
+                break;
             }
         }
 
