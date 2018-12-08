@@ -12,6 +12,15 @@ var A7_2;
             let fieldset = fieldsets[i];
             fieldset.addEventListener("change", handleCart);
         }
+        setupAsyncForm();
+    }
+    function setupAsyncForm() {
+        let button = document.getElementById("asyncButton");
+        button.addEventListener("click", handleClickOnAsync);
+    }
+    function handleClickOnAsync(_event) {
+        let color = document.querySelector(":checked").value;
+        sendRequestWithCustomData(color);
     }
     function displayProducts(_products) {
         for (let key in _products) {
@@ -109,4 +118,4 @@ var A7_2;
         }
     }
 })(A7_2 || (A7_2 = {}));
-//# sourceMappingURL=Aufgabe_7.js.map
+//# sourceMappingURL=Aufgabe_7.2.js.map
