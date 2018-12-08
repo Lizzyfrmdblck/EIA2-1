@@ -1,0 +1,21 @@
+fieldset {
+	width: 500px;
+	border-radius: 5px;
+}
+
+input[type=text] {
+	border-radius: 5px;
+	padding: 5px;
+}
+
+input[type=number] {
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+}
+#cart {
+	position: fixed; 
+	left: 600px;
+	top: 50px;
+}
+	
