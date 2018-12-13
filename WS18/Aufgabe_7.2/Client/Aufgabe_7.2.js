@@ -2,7 +2,7 @@ var A7_2;
 (function (A7_2) {
     window.addEventListener("load", init);
     let inputs = document.getElementsByTagName("input");
-    let address = "https://heroku-a7.herokuapp.com";
+    let newUrl = "";
     function init() {
         displayProducts(A7_2.products);
         let proofButton = document.getElementById("proof");
@@ -16,11 +16,25 @@ var A7_2;
     }
     function setupAsyncForm() {
         let button = document.getElementById("asyncButton");
-        button.addEventListener("click", handleClickOnAsync);
+        button.addEventListener("click", sendRequestWithCustomData);
     }
-    function handleClickOnAsync(_event) {
-        let color = document.querySelector(":checked").value;
-        sendRequestWithCustomData(color);
+    /* function handleClickOnAsync(_event: Event): void {
+         let color: string = (<HTMLInputElement>document.querySelector(":checked")).value;
+         sendRequestWithCustomData(color);
+     }*/
+    function sendRequestWithCustomData(_event) {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://heroku-a7.herokuapp.com/" + "/?" + newUrl, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+    function handleStateChange(_event) {
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
+            alert("server response: " + xhr.response);
+        }
     }
     function displayProducts(_products) {
         for (let key in _products) {
@@ -83,7 +97,9 @@ var A7_2;
                     finalPrice = Number(price);
                 }
                 cart.appendChild(cartElement);
-                cartElement.innerHTML = id + " " + finalPrice + "€";
+                cartElement.innerHTML = id + "" + finalPrice + "€";
+                newUrl += id + "=" + finalPrice + "€" + "?";
+                console.log(newUrl);
                 cartArray.push(finalPrice);
             }
         }
@@ -102,19 +118,6 @@ var A7_2;
                 alert("Du musst deine Angaben vervollständigen");
                 break;
             }
-        }
-    }
-    function sendRequestWithCustomData(_color) {
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "?color=" + _color, true);
-        xhr.addEventListener("readystatechange", handleStateChange);
-        xhr.send();
-    }
-    function handleStateChange(_event) {
-        var xhr = _event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
-            console.log("response: " + xhr.response);
         }
     }
 })(A7_2 || (A7_2 = {}));

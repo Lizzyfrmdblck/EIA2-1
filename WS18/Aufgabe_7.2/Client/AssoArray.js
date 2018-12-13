@@ -7,7 +7,7 @@ var A7_2;
             { name: "Fichte", price: 15 }
         ],
         "Kugeln": [
-            { name: "Rote Kugeln", price: 5 },
+            { name: "RoteKugeln", price: 5 },
             { name: "Silberne Kugeln", price: 7 },
             { name: "Goldene Kugeln", price: 10 }
         ],
