@@ -29,7 +29,7 @@ import * as Mongo from "mongodb";
         else {
             console.log("Connected to database!");
             db = _db.db(databaseName);
-            students = db.collection("students");
+            students = db.collection("test");
         }
     }
 

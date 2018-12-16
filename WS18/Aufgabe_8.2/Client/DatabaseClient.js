@@ -22,7 +22,7 @@ var DatabaseClient;
         sendRequest(query, handleInsertResponse);
     }
     function refresh(_event) {
-        let query = "";
+        let query = "command=insert";
         sendRequest(query, handleFindResponse);
         console.log("Query: " + query);
     }
@@ -44,7 +44,7 @@ var DatabaseClient;
             let output = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
             console.log("jmd da?");
-            let responseAsJson = JSON.parse(xhr.response);
+            let responseAsJson = JSON.parse(output.value);
             console.log(responseAsJson);
         }
     }

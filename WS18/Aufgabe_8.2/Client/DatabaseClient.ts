@@ -28,7 +28,7 @@ namespace DatabaseClient {
     }
 
     function refresh(_event: Event): void {
-        let query: string = "";
+        let query: string = "command=insert";
         sendRequest(query, handleFindResponse);
         console.log("Query: " + query);
     }
@@ -53,7 +53,7 @@ namespace DatabaseClient {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
             console.log("jmd da?");
-            let responseAsJson: JSON = JSON.parse(xhr.response);
+            let responseAsJson: JSON = JSON.parse(output.value);
             console.log(responseAsJson);
         }
     }
