@@ -1,7 +1,10 @@
+import * as Mongo from "mongodb";
+
 namespace DatabaseClient {
+
     window.addEventListener("load", init);
-    let serverAddress: string = "http://localhost:8100";
-    //let serverAddress: string = "https://<your>.herokuapp.com/";    
+    //let serverAddress: string = "http://localhost:8100";
+    let serverAddress: string = "https://heroku-a7.herokuapp.com/";
 
     function init(_event: Event): void {
         console.log("Init");
@@ -9,7 +12,11 @@ namespace DatabaseClient {
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        document.getElementById("inputMatrikelSearch").addEventListener("input", handleChange);
+        document.getElementById("findButton").addEventListener("click", findStudent);
     }
+
+
 
     function insert(_event: Event): void {
         let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
@@ -17,13 +24,13 @@ namespace DatabaseClient {
         query += "&name=" + inputs[0].value;
         query += "&firstname=" + inputs[1].value;
         query += "&matrikel=" + inputs[2].value;
-        console.log(query);
         sendRequest(query, handleInsertResponse);
     }
 
     function refresh(_event: Event): void {
-        let query: string = "command=refresh";
+        let query: string = "";
         sendRequest(query, handleFindResponse);
+        console.log("Query: " + query);
     }
 
     function sendRequest(_query: string, _callback: EventListener): void {
@@ -45,8 +52,20 @@ namespace DatabaseClient {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
+            console.log("jmd da?");
             let responseAsJson: JSON = JSON.parse(xhr.response);
             console.log(responseAsJson);
         }
+    }
+    
+    
+    function handleChange(_event: Event): void {
+        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+        target.setAttribute("value", target.value);
+        console.log(target.value);
+    }
+
+    function findStudent(_event: Event): void {
+        console.log("test");
     }
 }

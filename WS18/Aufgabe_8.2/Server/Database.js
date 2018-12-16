@@ -12,7 +12,7 @@ let students;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     //    databaseURL = "mongodb://username:password@hostname:port/database";
-    databaseURL = "mongodb://testuser:testpassword@ds129532.mlab.com:29532/eia2";
+    databaseURL = "mongodb://yannic_:eia2WS1819@ds121309.mlab.com:21309/eia2";
     databaseName = "eia2";
 }
 // try to connect to database, then activate callback "handleConnect" 
@@ -45,6 +45,7 @@ function findAll(_callback) {
     // toArray-handler receives two standard parameters, an error object and the array
     // implemented as inner function, so _callback is in scope
     function prepareAnswer(_e, studentArray) {
+        console.log(studentArray);
         if (_e)
             _callback("Error" + _e);
         else
@@ -53,4 +54,20 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
+function findStudent(_callback, _matrikel) {
+    let cursor = students.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e, studentArray) {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            for (let i = 0; i < studentArray.length; i++) {
+                if (studentArray[i].matrikel == parseInt(_matrikel)) {
+                    // stringify creates a json-string, passed it back to _callback            
+                    _callback(JSON.stringify(studentArray[i]));
+                }
+            }
+    }
+}
+exports.findStudent = findStudent;
 //# sourceMappingURL=Database.js.map

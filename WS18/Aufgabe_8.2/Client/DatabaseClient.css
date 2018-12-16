@@ -10,3 +10,6 @@ head {
 fieldset {
 	width: 300px;
 }
+#textarea {
+	height:150px;
+}

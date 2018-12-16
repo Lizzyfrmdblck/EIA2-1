@@ -1,7 +1,16 @@
+<!--  
+Aufgabe: Aufgabe 8.2 - MongoDB/Mlab
+Name: Yannic Hermann
+Matrikel: 255279
+Datum: 16.12.18
+	
+Hiermit versichere ich, dass dieser Code teilweise von Jirka Dell'Oro kopiert wurde.
+
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>DatabaseClient</title>
+<title>Aufgabe 8.2</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="DatabaseClient.css" type="text/css" media="screen"/>
 <script src="DatabaseClient.js" type="text/javascript" charset="utf-8"></script>
@@ -18,7 +27,12 @@
 	<fieldset id="output">
 		<legend> All student data </legend>
 		<button type="button" id="refresh">Refresh</button>
-		<textarea rows="20" cols="90"> </textarea>
+		<textarea rows="20" cols="90" id="textarea"> </textarea>
+	</fieldset>
+	<fieldset>
+	<legend> Looking for a special student? </legend>
+			<input type="text" name="matrikel" placeholder="matrikel" id="inputMatrikelSearch" />
+			<button id="findButton"> Find student</button>
 	</fieldset>
 </body>
 </html>
