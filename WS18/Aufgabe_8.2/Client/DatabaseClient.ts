@@ -43,7 +43,7 @@ namespace DatabaseClient {
     function handleInsertResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            alert(xhr.response);
+            alert("Bitte warten");
         }
     }
 
