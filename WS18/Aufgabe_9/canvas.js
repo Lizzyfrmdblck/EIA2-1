@@ -21,13 +21,13 @@ var A9;
             let y = Math.random() * canvas.height;
             drawCloud(x, y, 2, "", "#ffffff");
         }
-        //MOUNTAIN
-        drawMountain(0, 300, "#000000", "#ffffff");
+        //HILL
+        drawHill(0, 300, "#000000", "#ffffff");
         //TREE
         for (let i = 0; i < 50; i++) {
             //RND   NUMS TREE POS
-            let randX = (Math.random() * (400 - 15) + 0);
-            let randY = (Math.random() * (500 - 200) + 400);
+            let randX = (Math.random() * (400) + 0);
+            let randY = (Math.random() * (300) + 450);
             drawTree(randX, randY, 10, 20, "#663300", "");
         }
         //ClOUD1
@@ -42,20 +42,56 @@ var A9;
         drawCloud(475, 25, 20, "", "#ffffff");
         drawCloud(485, 35, 25, "", "#ffffff");
         drawCloud(455, 30, 20, "", "#ffffff");
-        //SLEDGE
-        drawSledge(150);
+        //SLEDGEDRIVER       
+        drawSledgeDriver(150, 285, "#ffff00", "#DEB887", 15);
+        drawSledgeDriver(475, 287, "#ffff00", "#DEB887", 0);
+        drawSledgeDriver(675, 290, "#ffff00", "#DEB887", 0);
+        drawSledgeDriver(875, 292, "#ffff00", "#DEB887", 0);
+        //WALKER
+        drawWalker(660, 400);
+        drawWalker(700, 400);
+        drawWalker(740, 400);
+        drawWalker(780, 400);
+        drawWalker(820, 400);
     }
-    //SLEDGE
-    function drawSledge(_x) {
-        crc2.rotate(_x / 10 * Math.PI / 180);
+    //WALKER
+    function drawWalker(_x, _y) {
+        //SLEDGE
         crc2.beginPath();
-        crc2.rect(_x, 285, 20, 7);
+        crc2.rect(_x, _y, 10, 20);
         crc2.closePath();
-        crc2.fillStyle = "#663300";
+        crc2.fillStyle = "#ff2200";
         crc2.fill();
         crc2.lineWidth = 1;
         crc2.strokeStyle = "black";
         crc2.stroke();
+        //DUDE
+        crc2.beginPath();
+        crc2.fillStyle = "#DEB887";
+        crc2.arc(_x + 5, _y - 2.5, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.stroke();
+        crc2.fill();
+    }
+    //SLEDGEDRIVER
+    function drawSledgeDriver(_x, _y, _strokeColor, _fillColor, _rotation) {
+        //SLEDGE
+        crc2.beginPath();
+        crc2.rotate(_rotation * Math.PI / 180);
+        crc2.rect(_x, _y, 20, 7);
+        crc2.closePath();
+        crc2.fillStyle = "#ff2200";
+        crc2.fill();
+        crc2.lineWidth = 1;
+        crc2.strokeStyle = "black";
+        crc2.stroke();
+        //HEAD
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.arc(_x + 5, _y - 2.5, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.stroke();
+        crc2.fill();
     }
     //SUN
     function drawSun(_x, _y, _strokeColor, _fillColor) {
@@ -66,8 +102,8 @@ var A9;
         crc2.stroke();
         crc2.fill();
     }
-    //MOUNTAIN
-    function drawMountain(_x, _y, _strokeColor, _fillColor) {
+    //HILL
+    function drawHill(_x, _y, _strokeColor, _fillColor) {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -102,10 +138,6 @@ var A9;
         crc2.closePath();
         //crc2.stroke();
         crc2.fill();
-    }
-    //SNOWFLAKE
-    function drawFlake(_x, _y, size) {
-        crc2.beginPath();
     }
 })(A9 || (A9 = {}));
 //# sourceMappingURL=canvas.js.map
