@@ -118,7 +118,7 @@ var L4_Canvas;
     //ANIMATE
     function animate() {
         //       crc2.fillStyle = imgData;
-        //       crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        //       crc2.fillRect(0, 0, crc2.canvas.width, crc2.cight);
         crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < n; i++) {
             x[i] += (Math.random() * 6 - 3) - 1;

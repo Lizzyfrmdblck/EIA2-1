@@ -2,12 +2,12 @@
 namespace L4_Canvas {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
-    
-    let x: number [] = []; // Array, weil hier immer der neu generierte x-Wert abgespeichert wird
-    let y: number [] = []; // Array, weil hier immer der neu generierte y-Wert abgespeichert wird
+
+    let x: number[] = []; // Array, weil hier immer der neu generierte x-Wert abgespeichert wird
+    let y: number[] = []; // Array, weil hier immer der neu generierte y-Wert abgespeichert wird
     let n: number = 10; // Anzahl der Bienen
     let imgData: any = ImageData;
-// canvasInitialize_
+    // canvasInitialize_
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
@@ -48,19 +48,19 @@ namespace L4_Canvas {
         drawStripes(300, 210, 3, 200, "#ffffff", "#ffffff");
         drawStripes(300, 190, 2, 180, "#ffffff", "#ffffff");
         //CLOUD3
-        drawCloud(180, 75, 10, "#000000", "#ffffff");    
+        drawCloud(180, 75, 10, "#000000", "#ffffff");
         drawCloud(170, 70, 10, "#000000", "#ffffff");
         drawCloud(175, 60, 10, "#000000", "#ffffff");
         drawCloud(185, 60, 10, "#000000", "#ffffff");
         drawCloud(190, 68, 10, "#000000", "#ffffff");
         //CLOUD2
-        drawCloud(420, 52, 10, "#000000", "#ffffff");    
+        drawCloud(420, 52, 10, "#000000", "#ffffff");
         drawCloud(410, 48, 9, "#000000", "#ffffff");
         drawCloud(415, 39, 8, "#000000", "#ffffff");
         drawCloud(425, 42, 8, "#000000", "#ffffff");
         drawCloud(430, 48, 10, "#000000", "#ffffff");
         //ClOUD1
-        drawCloud(270, 32, 10, "#000000", "#ffffff");    
+        drawCloud(270, 32, 10, "#000000", "#ffffff");
         drawCloud(260, 28, 9, "#000000", "#ffffff");
         drawCloud(265, 19, 8, "#000000", "#ffffff");
         drawCloud(276, 22, 8, "#000000", "#ffffff");
@@ -68,111 +68,111 @@ namespace L4_Canvas {
         //BIRDS
         drawBird(320, 50, 338, 58, "#000000");
         drawBird(305, 65, 323, 73, "#000000");
-        
+
         //RANDOMFLOWERS LEFT
         let colorBucket: string[] = ["#F7FE2E", "#2E2EFE", "#FE9A2E", "#FA58F4", "#81DAF5"];
         let colorBucket1: string[] = ["#81BEF7", "#F781BE", "#DF0101", "#81F7D8", "#F5DA81"];
         let centerColors: string[] = ["#b879fc", "#30e3f4", "#f4f130"];
-        
+
         for (let i: number = 0; i < 35; i++) {
-            let randomX: number = (Math.random() * (215 - 15) + 15);    
+            let randomX: number = (Math.random() * (215 - 15) + 15);
             let randomY: number = (Math.random() * (375 - 200) + 200);
-            let randomCenterSize: number = (Math.random() * (7.5 - 4) + 4);            
+            let randomCenterSize: number = (Math.random() * (7.5 - 4) + 4);
             let randomLeaveSize: number = (Math.random() * (8 - 4) + 4);
             let randomColor: string = colorBucket[Math.floor(Math.random() * colorBucket.length)];
             let randomColor1: string = colorBucket1[Math.floor(Math.random() * colorBucket1.length)];
             let randomCenterColor: string = centerColors[Math.floor(Math.random() * centerColors.length)];
             let randomFlower: number = Math.floor((Math.random() * 2)) + 1;
-            
-            if ( randomFlower == 1) {
+
+            if (randomFlower == 1) {
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor);
-                }
+            }
             else {
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
             }
-        } 
+        }
 
         //RANDOMFLOWERS RIGHT
         for (let i: number = 0; i < 35; i++) {
-            let randomX: number = (Math.random() * (565 - 385) + 385);    
+            let randomX: number = (Math.random() * (565 - 385) + 385);
             let randomY: number = (Math.random() * (375 - 200) + 200);
-            let randomCenterSize: number = (Math.random() * (7.5 - 4) + 4);            
+            let randomCenterSize: number = (Math.random() * (7.5 - 4) + 4);
             let randomLeaveSize: number = (Math.random() * (8 - 4) + 4);
             let randomColor: string = colorBucket[Math.floor(Math.random() * colorBucket.length)];
             let randomColor1: string = colorBucket1[Math.floor(Math.random() * colorBucket1.length)];
             let randomCenterColor: string = centerColors[Math.floor(Math.random() * centerColors.length)];
             let randomFlower: number = Math.floor((Math.random() * 2)) + 1;
-            
-            if ( randomFlower == 1) {
+
+            if (randomFlower == 1) {
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor);
-                }
+            }
             else {
                 drawFlower0(randomX, randomY, randomCenterSize, randomLeaveSize, randomCenterColor, randomColor1);
             }
         }
         //getImgData erst, wenn alles gezeichnet ist        
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        
-        // Startpunkt für Bienen
+
+        // Startpunkt fï¿½r Bienen
         for (let i: number = 0; i < n; i++) {
-            x[i] = 240; 
-            y[i] = 200; 
-        }      
-        
+            x[i] = 240;
+            y[i] = 200;
+        }
+
         window.setTimeout(animate, 20);
-       
+
         //addBeeOnClick
         canvas.addEventListener("click", addBeeOnClick);
-        
+
         console.log("IMGDATA?");
     }
-    
+
     //ANIMATE
-    function animate (): void {
-            
-        
-//       crc2.fillStyle = imgData;
-//       crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+    function animate(): void {
+
+
+        //       crc2.fillStyle = imgData;
+        //       crc2.fillRect(0, 0, crc2.canvas.width, crc2.cight);
         
         crc2.putImageData(imgData, 0, 0);
-        
+
         for (let i: number = 0; i < n; i++) {
             x[i] += (Math.random() * 6 - 3) - 1;
             y[i] += Math.random() * 6 - 3;
-            
+
             if (x[i] < 0) {
-                x[i] = 600;    
+                x[i] = 600;
             }
-            
+
             if (x[i] > 600) {
-                x[i] = 0;    
+                x[i] = 0;
             }
-            
+
             if (y[i] < 0) {
-                y[i] = 400;    
+                y[i] = 400;
             }
-            
+
             if (y[i] > 400) {
-                y[i] = 0;    
+                y[i] = 0;
             }
             drawBee(x[i], y[i]);
-        }   
-         
-            window.setTimeout(animate, 20);
-     
-        console.log("Hallo, ist da jemand?");    
+        }
+
+        window.setTimeout(animate, 20);
+
+        console.log("Hallo, ist da jemand?");
     }
-    
-    function addBeeOnClick (): void {
+
+    function addBeeOnClick(): void {
         if (n < 99) {
             n++;
             x.push(240);
             y.push(200);
         }
-        
-        else { 
+
+        else {
             n -= 10;
-        }              
+        }
         console.log(n);
     }
 
@@ -183,7 +183,7 @@ namespace L4_Canvas {
         crc2.arc(_x, _y, 5, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
-        //Optik der Bienen wird bei Gelegenheit noch überarbeitet..
+        //Optik der Bienen wird bei Gelegenheit noch ï¿½berarbeitet..
     }
     //MOUNTAIN
     function drawMountain(_x: number, _y: number, _z: number, _strokeColor: string, _fillColor: string): void {
@@ -198,50 +198,50 @@ namespace L4_Canvas {
         crc2.stroke();
     }
     //SUN
-    function drawSun(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {        
+    function drawSun(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.arc(300, 175, 80, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.stroke();
-        crc2.fill();          
-    }   
+        crc2.fill();
+    }
     //STREET
     function drawStreet(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
-        crc2.fillStyle = _fillColor; 
+        crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         crc2.moveTo(_x, _y);
         crc2.lineTo(295, 176);
         crc2.lineTo(305, 176);
         crc2.lineTo(375, 400);
-        crc2.closePath();        
+        crc2.closePath();
         crc2.fill();
-        crc2.stroke();     
+        crc2.stroke();
     }
     //STRIPES
     function drawStripes(_x: number, _y: number, _width: number, _length: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
-        crc2.fillStyle = _fillColor; 
+        crc2.fillStyle = _fillColor;
         crc2.lineWidth = _width;
         crc2.strokeStyle = _strokeColor;
         crc2.moveTo(_x, _y);
         crc2.lineTo(300, _length);
-        crc2.closePath();        
+        crc2.closePath();
         crc2.fill();
-        crc2.stroke();             
+        crc2.stroke();
     }
     //CLOUD
-    function drawCloud(_x: number, _y: number, _size: number,  _strokeColor: string, _fillColor: string): void {        
+    function drawCloud(_x: number, _y: number, _size: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.arc(_x, _y, _size, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.stroke();
-        crc2.fill();       
+        crc2.fill();
     }
     //BIRD
-    function drawBird(_x1: number, _y1: number, _x2: number, _y2: number, _strokeColor: string): void { 
+    function drawBird(_x1: number, _y1: number, _x2: number, _y2: number, _strokeColor: string): void {
         crc2.beginPath();
         crc2.arc(_x1, _y1, 10, 4, 0 * Math.PI, false);
         crc2.strokeStyle = _strokeColor;
@@ -249,12 +249,12 @@ namespace L4_Canvas {
         crc2.scale(1, 1);
         crc2.stroke();
         crc2.closePath();
-    } 
+    }
     //FLOWER0
     function drawFlower0(_x: number, _y: number, _centerSize: number, _leaveSize: number, _centerColor: string, _leaveColor: string): void {
         //LEAVES
         crc2.fillStyle = _leaveColor;
-        crc2.beginPath();   
+        crc2.beginPath();
         crc2.arc(_x, _y - 5, 7, 0, 2 * Math.PI);
         crc2.fill();
 
