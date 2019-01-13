@@ -65,10 +65,17 @@ var A10;
         moveDown() {
             this.x += this.dx;
             this.y += this.dy;
+            this.drawDown();
+            if (this.y > 725) {
+                this.moveUp();
+            }
         }
         moveUp() {
-            this.x -= this.dx;
-            this.y -= this.dy;
+            if (this.y > 200) {
+                this.drawUp();
+                this.x -= this.dx;
+                this.y -= this.dy;
+            }
         }
     }
     A10.Kid = Kid;

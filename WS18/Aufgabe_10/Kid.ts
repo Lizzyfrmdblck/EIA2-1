@@ -32,30 +32,30 @@ namespace A10 {
 
         drawUp(): void {
 
-//            crc2.beginPath();
-//            crc2.moveTo(this.x + 400, this.y + 100);
-//            crc2.lineTo(this.x - 5 + 400, this.y + 5 + 100);
-//            crc2.lineTo(this.x + 20 + 400, this.y + 15 + 100);
-//            crc2.lineTo(this.x + 17 + 400, this.y + 7 + 100);
-//            // crc2.lineTo(this.x - 2.5, this.y - 10);
-//            crc2.fillStyle = "#ff2200";
-//
-//            crc2.closePath();
-//            crc2.stroke();
-//            crc2.fill();
-//
-//            crc2.beginPath();
-//            crc2.fillStyle = this.fill;
-//            crc2.arc(this.x + 5 + 400, this.y - 2.5 + 100, 5, 0, 2 * Math.PI);
-//            crc2.closePath();
-//            crc2.stroke();
-//            crc2.fill();
+            //            crc2.beginPath();
+            //            crc2.moveTo(this.x + 400, this.y + 100);
+            //            crc2.lineTo(this.x - 5 + 400, this.y + 5 + 100);
+            //            crc2.lineTo(this.x + 20 + 400, this.y + 15 + 100);
+            //            crc2.lineTo(this.x + 17 + 400, this.y + 7 + 100);
+            //            // crc2.lineTo(this.x - 2.5, this.y - 10);
+            //            crc2.fillStyle = "#ff2200";
+            //
+            //            crc2.closePath();
+            //            crc2.stroke();
+            //            crc2.fill();
+            //
+            //            crc2.beginPath();
+            //            crc2.fillStyle = this.fill;
+            //            crc2.arc(this.x + 5 + 400, this.y - 2.5 + 100, 5, 0, 2 * Math.PI);
+            //            crc2.closePath();
+            //            crc2.stroke();
+            //            crc2.fill();
 
 
 
 
 
-//            SLEDGE
+            //            SLEDGE
             crc2.beginPath();
             crc2.moveTo(this.x, this.y);
             crc2.rect(this.x + 400, this.y + 100, 10, 20);
@@ -80,12 +80,25 @@ namespace A10 {
         moveDown(): void {
             this.x += this.dx;
             this.y += this.dy;
+            
+            this.drawDown();
+            
+            if (this.y > 725) {
+
+                this.moveUp();
+
+
+            }
         }
 
 
         moveUp(): void {
-            this.x -= this.dx;
-            this.y -= this.dy;
+            if (this.y > 200) {
+                
+                this.drawUp();
+                this.x -= this.dx;
+                this.y -= this.dy;
+            }
         }
     }
 }

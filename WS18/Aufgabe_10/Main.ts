@@ -115,19 +115,26 @@ namespace A10 {
         for (let i: number = 0; i < 10; i++) {
             let kid: Kid = kids[i];
 
-            //while (this.x > 500) {
-                kid.moveDown();
-                kid.drawDown();
-                
-//                if (this.x < 200) {
-//                    kid.moveUp();
-//                    kid.drawUp();
-//                    continue;
-//                }
-//            }
+            kid.moveDown();
+             
+            if (kid.y > 725) {
+
+              //  this.x = 220;
+               // this.y = Math.random() * 250 + 400;
+
+                //                if (kid.x > 400) {
+                //                    continue;
+                //                }
+
+            }
+            //kid.moveUp();
+            //kid.drawUp();
+
             //      console.log("Update");
         }
-        console.log(kids[0].y);
+        
+       
+        //   console.log(kids[0].y);
         console.log(kids[0].x);
 
     }

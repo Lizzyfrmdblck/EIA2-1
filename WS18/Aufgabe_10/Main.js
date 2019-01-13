@@ -75,11 +75,11 @@ var A10;
         }
         for (let i = 0; i < 10; i++) {
             let kid = kids[i];
-            //while (this.x > 500) {
             kid.moveDown();
-            kid.drawDown();
+            if (kid.y > 725) {
+            }
         }
-        console.log(kids[0].y);
+        //   console.log(kids[0].y);
         console.log(kids[0].x);
     }
     //WALKER
