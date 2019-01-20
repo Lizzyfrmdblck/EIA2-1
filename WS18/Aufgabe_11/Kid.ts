@@ -1,15 +1,25 @@
-namespace A10 {
+namespace A11 {
 
-    export class Kid {
-        x: number = 220;
-        y: number = Math.random() * 250 + 400;
-        dx: number = Math.random() * 3 + 2;
-        dy: number = 1;
-        rotation: number;
-        fill: string;
-        stroke: string;
+
+    export class Kid extends Object {
+
+        constructor() {
+            super(); 
+            this.x = 220;
+            this.y = Math.random() * 250 + 400;
+            this.dx = Math.random() * 3 + 2;
+            this.dy = 1;
+            
+
+        }
 
         drawDown(): void {
+
+            this.x = 220;
+            this.y = Math.random() * 250 + 400;
+            this.dx = Math.random() * 3 + 2;
+            this.dy = 1;
+
             crc2.beginPath();
             crc2.moveTo(this.x, this.y);
             crc2.lineTo(this.x - 5, this.y + 5);
@@ -57,9 +67,9 @@ namespace A10 {
         moveDown(): void {
             this.x += this.dx;
             this.y += this.dy;
-            
+
             this.drawDown();
-            
+
             if (this.y > 725) {
 
                 this.moveUp();
@@ -71,7 +81,7 @@ namespace A10 {
 
         moveUp(): void {
             if (this.y > 200) {
-                
+
                 this.drawUp();
                 this.x -= this.dx;
                 this.y -= this.dy;

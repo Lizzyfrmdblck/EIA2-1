@@ -1,4 +1,5 @@
-namespace A10 {
+namespace A11 {
+    
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
 
@@ -6,10 +7,7 @@ namespace A10 {
     let kids: Kid[] = [];
     let yValues: number[] = [];
 
-
-
     let imgData: ImageData;
-
 
     function init(_event: Event): void {
         console.log("Canvas started");
@@ -18,8 +16,6 @@ namespace A10 {
         crc2 = canvas.getContext("2d");
 
         console.log(crc2);
-
-
 
         //SKY     
         let colorGradient: any = crc2.createLinearGradient(50, 140, 50, 10);
@@ -33,7 +29,6 @@ namespace A10 {
 
 
         //SNOW     
-
         for (let i: number = 0; i < 400; i++) {
             let snowflake: Snow = new Snow();
             snowflake.x = Math.random() * canvas.width;
@@ -43,7 +38,6 @@ namespace A10 {
             snowflake.fill = "#ffffff";
 
             snowflakes.push(snowflake);
-
         }
 
         console.log(snowflakes);
@@ -89,8 +83,6 @@ namespace A10 {
 
         }
         console.log(kids);
-
-
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
