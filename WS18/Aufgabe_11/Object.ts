@@ -13,10 +13,19 @@ namespace A11 {
 
         }
         
-//        draw(): void {
-//            }
-//        moveDown(): void {
-//        }
+        draw(): void {
+            
+        }
         
+        move(): void {
+            
+        }
+        
+        drawDown(): void {
+
+        }
+        moveDown(): void {
+
+        }
     }
 }

@@ -1,9 +1,10 @@
 var A11;
 (function (A11) {
     window.addEventListener("load", init);
-    let snowflakes = [];
-    let kids = [];
-    let yValues = [];
+    let objects = [];
+    //      let snowflakes: Snow[] = [];
+    //      let kids: Kid[] = [];
+    //    let yValues: number[] = [];
     let imgData;
     function init(_event) {
         console.log("Canvas started");
@@ -26,9 +27,9 @@ var A11;
             //snowflake.dx = Math.random() * 4 - 2;
             //snowflake.dy = Math.random() * 4 - 2;
             snowflake.fill = "#ffffff";
-            snowflakes.push(snowflake);
+            //snowflakes.push(snowflake);
+            objects.push(snowflake);
         }
-        console.log(snowflakes);
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
         //HILL
@@ -54,12 +55,13 @@ var A11;
         //SLEDGEDRIVER       
         for (let i = 0; i < 10; i++) {
             let kid = new A11.Kid();
-            kid.stroke = "#ffff00";
-            kid.fill = "#DEB887";
+            //  kid.stroke = "#ffff00";
+            //  kid.fill = "#DEB887";
             // kid.rotation = 15;
-            kids.push(kid);
+            //kids.push(kid);
+            objects.push(kid);
         }
-        console.log(kids);
+        console.log(objects);
         imgData = A11.crc2.getImageData(0, 0, canvas.width, canvas.height);
         update();
     }
@@ -68,40 +70,23 @@ var A11;
         window.setTimeout(update, 40);
         A11.crc2.clearRect(0, 0, A11.crc2.canvas.width, A11.crc2.canvas.height);
         A11.crc2.putImageData(imgData, 0, 0);
-        for (let i = 0; i < 400; i++) {
-            let snowflake = snowflakes[i];
-            snowflake.move();
-            snowflake.draw(); // keine Parameter erforderlich, denn der Stern weiÃŸ Ã¼ber sich Bescheid
+        for (let i = 0; i < objects.length; i++) {
+            let object = objects[i];
+            objects[i].draw(); //Children
+            objects[i].move(); //Snow
         }
-        for (let i = 0; i < 10; i++) {
-            // let kid: Kid = kids[i];
-            kids[i].moveDown();
-            if (kids[i].y > 725) {
-            }
-        }
-        //   console.log(kids[0].y);
-        console.log(kids[0].x);
-    }
-    //WALKER
-    function drawWalker(_x, _y) {
-        //SLEDGE
-        A11.crc2.beginPath();
-        A11.crc2.rotate(15 * Math.PI / 180);
-        A11.crc2.rect(_x, _y, 10, 20);
-        A11.crc2.closePath();
-        A11.crc2.fillStyle = "#ff2200";
-        A11.crc2.fill();
-        A11.crc2.lineWidth = 1;
-        A11.crc2.strokeStyle = "black";
-        A11.crc2.stroke();
-        //DUDE
-        A11.crc2.beginPath();
-        A11.crc2.fillStyle = "#DEB887";
-        A11.crc2.arc(_x + 5, _y - 2.5, 5, 0, 2 * Math.PI);
-        A11.crc2.closePath();
-        A11.crc2.stroke();
-        A11.crc2.fill();
-        A11.crc2.rotate(15 * Math.PI / -180);
+        //        for (let i: number = 0; i < 400; i++) {
+        //            let snowflake: Snow = snowflakes[i];
+        //            snowflake.move();
+        //            snowflake.draw(); // keine Parameter erforderlich, denn der Stern weiÃŸ Ã¼ber sich Bescheid
+        //        }
+        //
+        //        for (let i: number = 0; i < 10; i++) {
+        //            kids[i].moveDown();
+        //            kids[i].drawDown();
+        //            console.log(kids[0].x);
+        //
+        //        }
     }
 })(A11 || (A11 = {}));
 //# sourceMappingURL=Main.js.map

@@ -3,22 +3,59 @@ namespace A11 {
 
     export class Kid extends Object {
 
+        state: boolean = true;
+
         constructor() {
-            super(); 
+            super();
             this.x = 220;
             this.y = Math.random() * 250 + 400;
             this.dx = Math.random() * 3 + 2;
             this.dy = 1;
-            
+            this.fill = "#DEB887";
 
+
+        }
+
+        draw(): void {
+            if (this.state == true) {
+                this.drawDown();
+                console.log();
+            }
+
+            else {
+
+                this.drawUp();
+                console.log("hier auch?");
+            }
+        }
+
+        moveDown(): void {
+            this.x += this.dx;
+            this.y += this.dy;
+
+            if (this.y > 720 || this.x > 1080) {
+                this.state = false;
+
+                console.log("Down: " + this.state, "x" + this.x, "y" + this.y);
+
+            }
+        }
+
+        moveUp(): void {
+            if (this.x > 220) {
+                this.x -= this.dx;
+                this.y -= this.dy;
+                //     this.state = false;
+                console.log("UP: " + this.state, "x" + this.x, "y" + this.y);
+            }
+            else {
+                this.state = true;
+            }
         }
 
         drawDown(): void {
 
-            this.x = 220;
-            this.y = Math.random() * 250 + 400;
-            this.dx = Math.random() * 3 + 2;
-            this.dy = 1;
+            this.moveDown();
 
             crc2.beginPath();
             crc2.moveTo(this.x, this.y);
@@ -42,10 +79,12 @@ namespace A11 {
 
         drawUp(): void {
 
+            this.moveUp();
+
             //            SLEDGE
             crc2.beginPath();
             crc2.moveTo(this.x, this.y);
-            crc2.rect(this.x + 400, this.y + 100, 10, 20);
+            crc2.rect(this.x, this.y, 10, 20);
             crc2.closePath();
             crc2.fillStyle = "#ff2200";
             crc2.fill();
@@ -56,36 +95,10 @@ namespace A11 {
             //DUDE
             crc2.beginPath();
             crc2.fillStyle = "#DEB887";
-            crc2.arc(this.x + 5 + 400, this.y - 2.5 + 100, 5, 0, 2 * Math.PI);
+            crc2.arc(this.x + 5, this.y - 2.5, 5, 0, 2 * Math.PI);
             crc2.closePath();
             crc2.stroke();
             crc2.fill();
-
-
-        }
-
-        moveDown(): void {
-            this.x += this.dx;
-            this.y += this.dy;
-
-            this.drawDown();
-
-            if (this.y > 725) {
-
-                this.moveUp();
-
-
-            }
-        }
-
-
-        moveUp(): void {
-            if (this.y > 200) {
-
-                this.drawUp();
-                this.x -= this.dx;
-                this.y -= this.dy;
-            }
         }
     }
 }
