@@ -1,0 +1,64 @@
+canvas {
+	position: relative;
+	width: 95%;
+}
+
+#title {
+	font-size: 2em;
+}
+
+br {
+	margin: 10px;
+}
+
+fieldset {
+	background-color: rgba(255, 255, 255, .5);
+}
+
+#timer {
+	font-size: 2em;
+	position: absolute;
+	top: -70px;
+	left: 550px;
+}
+
+#canvas-wrap {
+	position: relative
+}
+
+#overlay {
+	position: absolute;
+	top: 20%;
+	left: 300px;
+}
+
+button {
+	background-color: #00844d;
+	padding: 10px 24px;
+	border-radius: 5%;
+}
+
+.hidden {
+	opacity: 0.0;
+}
+
+@media screen and (min-width:570px) {
+	canvas {
+		position: relative;
+		width: 85%;
+	}
+}
+
+@media screen and (min-width:768px) {
+	canvas {
+		position: relative;
+		width: 75%;
+	}
+}
+
+@media screen and (min-width:1024px) {
+	canvas {
+		position: relative;
+		width: 65%;
+	}
+}

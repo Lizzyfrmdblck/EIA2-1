@@ -1,0 +1,43 @@
+<!--  
+Aufgabe: Aufgabe 11 - Inheritance
+Name: Yannic Hermann
+Matrikel: 255279
+Datum: 19.01.19
+	
+Hiermit versichere ich, dass dieser Code nicht kopiert oder diktiert wurde.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Canvas</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="canvas.css">
+<script src="Object.js" type="text/javascript" charset="utf-8"></script>
+<script src="landscape.js" type="text/javascript" charset="utf-8"></script>
+<script src="Kid.js" type="text/javascript" charset="utf-8"></script>
+<script src="Snow.js" type="text/javascript" charset="utf-8"></script>
+<script src="Main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div id="canvas-wrap">
+		<canvas width=1080 height=720></canvas>
+		<div id="overlay">
+			<form id="input">
+			<p id="title">Rodelhang ExmatrIkulAtor 2</p>
+			<fieldset>
+				<input id="name" name="name" type="text" pattern="[a-zA-Z]{1,30}"
+					placeholder="Dein Name" required /> <br />
+				<!--  -->
+				<input id="matrikel" name="matrikel" type="text" pattern="[0-9]{6}"
+					placeholder="Deine Matrikelnummer" required /> <br />
+				<button type="submit" id="start">Start</button>
+			</fieldset>
+			</form>
+			<span id="timer"></span>
+		</div>
+
+	</div>
+
+</body>
+</html>
